@@ -6,7 +6,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $password = $_POST['password'] ?? '';
     
     if (empty($username) || empty($password)) {
-        header('Location: /ensol-group/admin/login.php?error=1');
+        header('Location: login.php?error=1');
         exit;
     }
     
@@ -23,18 +23,18 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             $updateStmt = $pdo->prepare("UPDATE admin_users SET last_login = NOW() WHERE id = ?");
             $updateStmt->execute([$user['id']]);
             
-            header('Location: /ensol-group/admin/dashboard.php');
+            header('Location: dashboard.php');
             exit;
         } else {
-            header('Location: /ensol-group/admin/login.php?error=1');
+            header('Location: login.php?error=1');
             exit;
         }
     } catch (PDOException $e) {
-        header('Location: /ensol-group/admin/login.php?error=1');
+        header('Location: login.php?error=1');
         exit;
     }
 } else {
-    header('Location: /ensol-group/admin/login.php');
+    header('Location: login.php');
     exit;
 }
 ?>

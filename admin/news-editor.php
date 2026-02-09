@@ -22,7 +22,7 @@ if (isset($_GET['id'])) {
     <link rel="icon" type="image/png" href="../assets/favicon.png">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-    <link rel="stylesheet" href="/ensol-group/admin/styles.css">
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
     <div class="admin-layout">
@@ -34,15 +34,15 @@ if (isset($_GET['id'])) {
             </div>
             
             <nav class="admin-nav">
-                <a href="/ensol-group/admin/dashboard.php" class="admin-nav-item">
+                <a href="dashboard.php" class="admin-nav-item">
                     <i class="fas fa-tachometer-alt"></i>
                     <span>Dashboard</span>
                 </a>
-                <a href="/ensol-group/admin/news-list.php" class="admin-nav-item">
+                <a href="news-list.php" class="admin-nav-item">
                     <i class="fas fa-newspaper"></i>
                     <span>All Articles</span>
                 </a>
-                <a href="/ensol-group/admin/news-editor.php" class="admin-nav-item active">
+                <a href="news-editor.php" class="admin-nav-item active">
                     <i class="fas fa-plus-circle"></i>
                     <span>New Article</span>
                 </a>
@@ -57,7 +57,7 @@ if (isset($_GET['id'])) {
                     <i class="fas fa-user-circle"></i>
                     <span><?php echo htmlspecialchars($_SESSION['admin_username']); ?></span>
                 </div>
-                <a href="/ensol-group/admin/logout.php" class="admin-logout-btn">
+                <a href="logout.php" class="admin-logout-btn">
                     <i class="fas fa-sign-out-alt"></i>
                     Logout
                 </a>
@@ -135,7 +135,7 @@ if (isset($_GET['id'])) {
                     </div>
                     
                     <div class="form-actions">
-                        <a href="/ensol-group/admin/dashboard.php" class="btn btn-secondary">
+                        <a href="dashboard.php" class="btn btn-secondary">
                             <i class="fas fa-times"></i> Cancel
                         </a>
                         <button type="submit" class="btn btn-primary" id="submit-btn">
@@ -159,7 +159,7 @@ if (isset($_GET['id'])) {
             submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Saving...';
             
             try {
-                const response = await fetch('/ensol-group/admin/news-save.php', {
+                const response = await fetch('news-save.php', {
                     method: 'POST',
                     body: formData
                 });
@@ -173,7 +173,7 @@ if (isset($_GET['id'])) {
                     messageBox.innerHTML = '<i class="fas fa-check-circle"></i> ' + data.message;
                     
                     setTimeout(() => {
-                        window.location.href = '/ensol-group/admin/dashboard.php';
+                        window.location.href = 'dashboard.php';
                     }, 1500);
                 } else {
                     messageBox.style.display = 'block';

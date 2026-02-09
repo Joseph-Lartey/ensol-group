@@ -92,7 +92,7 @@ function isLoggedIn() {
  */
 function requireLogin() {
     if (!isLoggedIn()) {
-        header('Location: /ensol-group/admin/login.php');
+        header('Location: login.php');
         exit;
     }
 }

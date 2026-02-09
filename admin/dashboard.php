@@ -29,7 +29,7 @@ $recentArticles = $pdo->query("
     <link rel="icon" type="image/png" href="../assets/favicon.png">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-    <link rel="stylesheet" href="/ensol-group/admin/styles.css">
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
     <div class="admin-layout">
@@ -41,15 +41,15 @@ $recentArticles = $pdo->query("
             </div>
             
             <nav class="admin-nav">
-                <a href="/ensol-group/admin/dashboard.php" class="admin-nav-item active">
+                <a href="dashboard.php" class="admin-nav-item active">
                     <i class="fas fa-tachometer-alt"></i>
                     <span>Dashboard</span>
                 </a>
-                <a href="/ensol-group/admin/news-list.php" class="admin-nav-item">
+                <a href="news-list.php" class="admin-nav-item">
                     <i class="fas fa-newspaper"></i>
                     <span>All Articles</span>
                 </a>
-                <a href="/ensol-group/admin/news-editor.php" class="admin-nav-item">
+                <a href="news-editor.php" class="admin-nav-item">
                     <i class="fas fa-plus-circle"></i>
                     <span>New Article</span>
                 </a>
@@ -64,7 +64,7 @@ $recentArticles = $pdo->query("
                     <i class="fas fa-user-circle"></i>
                     <span><?php echo htmlspecialchars($_SESSION['admin_username']); ?></span>
                 </div>
-                <a href="/ensol-group/admin/logout.php" class="admin-logout-btn">
+                <a href="logout.php" class="admin-logout-btn">
                     <i class="fas fa-sign-out-alt"></i>
                     Logout
                 </a>
@@ -125,7 +125,7 @@ $recentArticles = $pdo->query("
             <div class="admin-content-box">
                 <div class="content-box-header">
                     <h2>Recent Articles</h2>
-                    <a href="/ensol-group/admin/news-editor.php" class="btn btn-primary">
+                    <a href="news-editor.php" class="btn btn-primary">
                         <i class="fas fa-plus"></i> New Article
                     </a>
                 </div>
@@ -157,10 +157,10 @@ $recentArticles = $pdo->query("
                                 <td><?php echo number_format($article['views']); ?></td>
                                 <td><?php echo date('M d, Y', strtotime($article['created_at'])); ?></td>
                                 <td class="table-actions">
-                                    <a href="/ensol-group/admin/news-editor.php?id=<?php echo $article['id']; ?>" class="btn-action btn-edit">
+                                    <a href="news-editor.php?id=<?php echo $article['id']; ?>" class="btn-action btn-edit">
                                         <i class="fas fa-edit"></i>
                                     </a>
-                                    <a href="/ensol-group/admin/news-delete.php?id=<?php echo $article['id']; ?>" class="btn-action btn-delete" onclick="return confirm('Are you sure?')">
+                                    <a href="news-delete.php?id=<?php echo $article['id']; ?>" class="btn-action btn-delete" onclick="return confirm('Are you sure?')">
                                         <i class="fas fa-trash"></i>
                                     </a>
                                 </td>
@@ -169,7 +169,7 @@ $recentArticles = $pdo->query("
                             
                             <?php if (empty($recentArticles)): ?>
                             <tr>
-                                <td colspan="6" class="text-center">No articles yet. <a href="/ensol-group/admin/news-editor.php">Create your first article</a></td>
+                                <td colspan="6" class="text-center">No articles yet. <a href="news-editor.php">Create your first article</a></td>
                             </tr>
                             <?php endif; ?>
                         </tbody>

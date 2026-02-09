@@ -1,7 +1,7 @@
 -- News Management Database Schema
 -- Create database
-CREATE DATABASE IF NOT EXISTS ensol_news;
-USE ensol_news;
+-- CREATE DATABASE IF NOT EXISTS ensol_news;
+-- USE ensol_news;
 
 -- Admin users table
 CREATE TABLE IF NOT EXISTS admin_users (
@@ -52,7 +52,7 @@ CREATE TABLE IF NOT EXISTS news_reactions (
 
 -- Insert default admin user (password: admin123 - CHANGE THIS!)
 INSERT INTO admin_users (username, email, password_hash) VALUES 
-('admin', 'admin@ensolgroup.com.gh', '$2y$10$YourHashedPasswordHere');
+('admin', 'admin@ensolgroup.com.gh', '$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi');
 
 -- Note: Run this SQL script in your MySQL database
 -- Update the password hash using PHP: password_hash('admin123', PASSWORD_DEFAULT)

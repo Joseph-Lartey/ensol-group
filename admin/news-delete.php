@@ -22,11 +22,11 @@ if (isset($_GET['id'])) {
             }
         }
         
-        header('Location: /ensol-group/admin/dashboard.php?deleted=1');
+        header('Location: dashboard.php?deleted=1');
     } catch (PDOException $e) {
-        header('Location: /ensol-group/admin/dashboard.php?error=1');
+        header('Location: dashboard.php?error=1');
     }
 } else {
-    header('Location: /ensol-group/admin/dashboard.php');
+    header('Location: dashboard.php');
 }
 ?>

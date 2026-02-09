@@ -30,7 +30,7 @@ $articles = $stmt->fetchAll();
     <link rel="icon" type="image/png" href="../assets/favicon.png">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-    <link rel="stylesheet" href="/ensol-group/admin/styles.css">
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
     <div class="admin-layout">
@@ -42,15 +42,15 @@ $articles = $stmt->fetchAll();
             </div>
             
             <nav class="admin-nav">
-                <a href="/ensol-group/admin/dashboard.php" class="admin-nav-item">
+                <a href="dashboard.php" class="admin-nav-item">
                     <i class="fas fa-tachometer-alt"></i>
                     <span>Dashboard</span>
                 </a>
-                <a href="/ensol-group/admin/news-list.php" class="admin-nav-item active">
+                <a href="news-list.php" class="admin-nav-item active">
                     <i class="fas fa-newspaper"></i>
                     <span>All Articles</span>
                 </a>
-                <a href="/ensol-group/admin/news-editor.php" class="admin-nav-item">
+                <a href="news-editor.php" class="admin-nav-item">
                     <i class="fas fa-plus-circle"></i>
                     <span>New Article</span>
                 </a>
@@ -65,7 +65,7 @@ $articles = $stmt->fetchAll();
                     <i class="fas fa-user-circle"></i>
                     <span><?php echo htmlspecialchars($_SESSION['admin_username']); ?></span>
                 </div>
-                <a href="/ensol-group/admin/logout.php" class="admin-logout-btn">
+                <a href="logout.php" class="admin-logout-btn">
                     <i class="fas fa-sign-out-alt"></i>
                     Logout
                 </a>
@@ -83,7 +83,7 @@ $articles = $stmt->fetchAll();
             <div class="admin-content-box">
                 <div class="content-box-header">
                     <h2>Articles (<?php echo $totalCount; ?>)</h2>
-                    <a href="/ensol-group/admin/news-editor.php" class="btn btn-primary">
+                    <a href="news-editor.php" class="btn btn-primary">
                         <i class="fas fa-plus"></i> New Article
                     </a>
                 </div>
@@ -126,10 +126,10 @@ $articles = $stmt->fetchAll();
                                             <i class="fas fa-eye-slash"></i>
                                         </button>
                                     <?php endif; ?>
-                                    <a href="/ensol-group/admin/news-editor.php?id=<?php echo $article['id']; ?>" class="btn-action btn-edit" title="Edit">
+                                    <a href="news-editor.php?id=<?php echo $article['id']; ?>" class="btn-action btn-edit" title="Edit">
                                         <i class="fas fa-edit"></i>
                                     </a>
-                                    <a href="/ensol-group/admin/news-delete.php?id=<?php echo $article['id']; ?>" class="btn-action btn-delete" onclick="return confirm('Are you sure you want to delete this article?')" title="Delete">
+                                    <a href="news-delete.php?id=<?php echo $article['id']; ?>" class="btn-action btn-delete" onclick="return confirm('Are you sure you want to delete this article?')" title="Delete">
                                         <i class="fas fa-trash"></i>
                                     </a>
                                 </td>
@@ -139,7 +139,7 @@ $articles = $stmt->fetchAll();
                             <?php if (empty($articles)): ?>
                             <tr>
                                 <td colspan="7" class="text-center" style="padding: 40px;">
-                                    No articles yet. <a href="/ensol-group/admin/news-editor.php">Create your first article</a>
+                                    No articles yet. <a href="news-editor.php">Create your first article</a>
                                 </td>
                             </tr>
                             <?php endif; ?>
@@ -172,7 +172,7 @@ $articles = $stmt->fetchAll();
             button.innerHTML = '<i class="fas fa-spinner fa-spin"></i>';
             
             try {
-                const response = await fetch('/ensol-group/admin/news-toggle-publish.php?id=' + articleId);
+                const response = await fetch('news-toggle-publish.php?id=' + articleId);
                 const data = await response.json();
                 
                 if (data.success) {

@@ -9,7 +9,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Merriweather:ital,wght@0,300;0,400;0,700;0,900;1,300;1,400;1,700;1,900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-    <link rel="stylesheet" href="/ensol-group/admin/styles.css">
+    <link rel="stylesheet" href="styles.css">
     <style>
         .admin-login-container {
             min-height: 100vh;
@@ -140,7 +140,7 @@
             
             <div class="admin-error" id="error-message"></div>
             
-            <form id="login-form" method="POST" action="/ensol-group/admin/auth.php">
+            <form id="login-form" method="POST" action="auth.php">
                 <div class="admin-form-group">
                     <label for="username">Username</label>
                     <div class="admin-input-wrapper">
