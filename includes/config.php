@@ -36,20 +36,36 @@ function loadEnv($path) {
     }
 }
 
+// Enable support for mac/legacy line endings
+ini_set('auto_detect_line_endings', true);
+
 // Load .env file
 loadEnv(__DIR__ . '/../.env');
 
 // Helper function to get env variable with default
 function env($key, $default = null) {
+    if (!isset($_ENV[$key]) && !getenv($key)) {
+        return $default;
+    }
     $value = $_ENV[$key] ?? getenv($key);
     return $value !== false ? $value : $default;
 }
 
 // Database configuration - read from .env
-define('DB_HOST', env('DB_HOST'));
+// Default to 127.0.0.1 to avoid socket errors on cPanel
+define('DB_HOST', env('DB_HOST', '127.0.0.1'));
 define('DB_NAME', env('DB_NAME'));
 define('DB_USER', env('DB_USER'));
 define('DB_PASS', env('DB_PASS'));
+
+// Verify critical configuration
+if (!DB_NAME || !DB_USER) {
+    // Check if we are in a debug script context to avoid double output
+    if (basename($_SERVER['SCRIPT_NAME']) !== 'db-debug.php') {
+        die("Configuration Error: DB_NAME or DB_USER is missing. Please check your .env file.");
+    }
+}
+
 define('DB_CHARSET', 'utf8mb4');
 
 // Email configuration
