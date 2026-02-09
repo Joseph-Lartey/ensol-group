@@ -1,20 +1,26 @@
 <?php
 /**
- * Load environment variables from .env file
+ * Ensol Group Configuration
+ * Robsust version: Reads .env directly, bypasses getenv() issues, forces 127.0.0.1
  */
-function loadEnv($path) {
-    if (!file_exists($path)) {
-        die('.env file not found. Please copy .env.example to .env and configure it.');
-    }
-    
-    $lines = file($path, FILE_IGNORE_NEW_LINES | FILE_SKIP_EMPTY_LINES);
+
+// Enable error reporting for debugging (disable in production)
+// error_reporting(E_ALL);
+// ini_set('display_errors', 1);
+
+// Handle line endings for cross-OS compatibility
+ini_set('auto_detect_line_endings', true);
+
+// 1. Manually parse .env into a local array
+$envFilePath = __DIR__ . '/../.env';
+$envConfig = [];
+
+if (file_exists($envFilePath)) {
+    $lines = file($envFilePath, FILE_IGNORE_NEW_LINES | FILE_SKIP_EMPTY_LINES);
     foreach ($lines as $line) {
-        // Skip comments
-        if (strpos(trim($line), '#') === 0) {
-            continue;
-        }
+        $line = trim($line);
+        if (strpos($line, '#') === 0) continue; // Skip comments
         
-        // Parse KEY=VALUE
         if (strpos($line, '=') !== false) {
             list($key, $value) = explode('=', $line, 2);
             $key = trim($key);
@@ -25,67 +31,50 @@ function loadEnv($path) {
                 $value = $matches[2];
             }
             
-            // Set in both $_ENV and putenv for compatibility
-            if (!isset($_ENV[$key])) {
-                $_ENV[$key] = $value;
-            }
-            if (!getenv($key)) {
-                putenv("$key=$value");
-            }
+            $envConfig[$key] = $value;
         }
     }
+} else {
+    // If .env is missing, we can't proceed
+    die("Configuration Error: .env file not found at $envFilePath");
 }
 
-// Enable support for mac/legacy line endings
-ini_set('auto_detect_line_endings', true);
-
-// Load .env file
-loadEnv(__DIR__ . '/../.env');
-
-// Helper function to get env variable with default
-function env($key, $default = null) {
-    if (!isset($_ENV[$key]) && !getenv($key)) {
-        return $default;
-    }
-    $value = $_ENV[$key] ?? getenv($key);
-    return $value !== false ? $value : $default;
+// 2. Define Helper to get values from our local array
+function getEnvVal($key, $default = null) {
+    global $envConfig;
+    return isset($envConfig[$key]) && $envConfig[$key] !== '' ? $envConfig[$key] : $default;
 }
 
-// Database configuration - read from .env
-// Force TCP if localhost is provided to avoid socket errors on cPanel
-$dbHost = env('DB_HOST', '127.0.0.1');
-if ($dbHost === 'localhost') {
-    $dbHost = '127.0.0.1';
-}
+// 3. Database Configuration
+// FORCE 127.0.0.1 to fix "No such file or directory" socket error
+$dbHost = getEnvVal('DB_HOST', '127.0.0.1');
+if ($dbHost === 'localhost') $dbHost = '127.0.0.1';
+
 define('DB_HOST', $dbHost);
-define('DB_NAME', env('DB_NAME'));
-define('DB_USER', env('DB_USER'));
-define('DB_PASS', env('DB_PASS'));
-
-// Verify critical configuration
-if (!DB_NAME || !DB_USER) {
-    // Check if we are in a debug script context to avoid double output
-    if (basename($_SERVER['SCRIPT_NAME']) !== 'db-debug.php') {
-        die("Configuration Error: DB_NAME or DB_USER is missing. Please check your .env file.");
-    }
-}
-
+define('DB_NAME', getEnvVal('DB_NAME'));
+define('DB_USER', getEnvVal('DB_USER'));
+define('DB_PASS', getEnvVal('DB_PASS'));
 define('DB_CHARSET', 'utf8mb4');
 
-// Email configuration
-define('MAIL_HOST', env('MAIL_HOST'));
-define('MAIL_PORT', env('MAIL_PORT'));
-define('MAIL_USERNAME', env('MAIL_USERNAME'));
-define('MAIL_PASSWORD', env('MAIL_PASSWORD'));
-define('MAIL_FROM_EMAIL', env('MAIL_FROM_EMAIL'));
-define('MAIL_FROM_NAME', env('MAIL_FROM_NAME'));
-define('MAIL_TO', env('MAIL_TO'));
+// 4. Verify Critical Config
+if (!defined('DB_NAME') || !DB_NAME || !defined('DB_USER') || !DB_USER) {
+    die("Database configuration missing. Please check your .env file. parsed_host=" . DB_HOST);
+}
 
-// Site configuration
-define('SITE_URL', env('SITE_URL'));
-define('SITE_NAME', env('SITE_NAME'));
+// 5. Email Configuration
+define('MAIL_HOST', getEnvVal('MAIL_HOST'));
+define('MAIL_PORT', getEnvVal('MAIL_PORT', 587));
+define('MAIL_USERNAME', getEnvVal('MAIL_USERNAME'));
+define('MAIL_PASSWORD', getEnvVal('MAIL_PASSWORD'));
+define('MAIL_FROM_EMAIL', getEnvVal('MAIL_FROM_EMAIL'));
+define('MAIL_FROM_NAME', getEnvVal('MAIL_FROM_NAME', 'Ensol Group'));
+define('MAIL_TO', getEnvVal('MAIL_TO'));
 
-// Database connection
+// 6. Site Configuration
+define('SITE_URL', getEnvVal('SITE_URL', 'https://ensolgroup.com.gh'));
+define('SITE_NAME', getEnvVal('SITE_NAME', 'Ensol Group'));
+
+// 7. Database Connection
 try {
     $dsn = "mysql:host=" . DB_HOST . ";dbname=" . DB_NAME . ";charset=" . DB_CHARSET;
     $pdo = new PDO($dsn, DB_USER, DB_PASS, [
@@ -97,19 +86,13 @@ try {
     die('Database connection failed: ' . $e->getMessage());
 }
 
-// Admin session management
+// 8. Session & Auth Helpers
 session_start();
 
-/**
- * Check if user is logged in as admin
- */
 function isLoggedIn() {
     return isset($_SESSION['admin_id']) && isset($_SESSION['admin_username']);
 }
 
-/**
- * Require admin login
- */
 function requireLogin() {
     if (!isLoggedIn()) {
         header('Location: login.php');
@@ -117,36 +100,22 @@ function requireLogin() {
     }
 }
 
-/**
- * Sanitize input
- */
 function sanitize($data) {
     return htmlspecialchars(strip_tags(trim($data)), ENT_QUOTES, 'UTF-8');
 }
 
-/**
- * Generate URL slug from title
- */
 function generateSlug($title) {
-    $slug = strtolower(trim(preg_replace('/[^A-Za-z0-9-]+/', '-', $title), '-'));
-    return $slug;
+    return strtolower(trim(preg_replace('/[^A-Za-z0-9-]+/', '-', $title), '-'));
 }
 
-/**
- * Calculate read time from content
- */
 function calculateReadTime($content) {
     $wordCount = str_word_count(strip_tags($content));
-    $minutes = ceil($wordCount / 200); // Average reading speed: 200 words per minute
+    $minutes = ceil($wordCount / 200);
     return max(1, $minutes);
 }
 
-/**
- * Upload image
- */
 function uploadImage($file, $uploadDir = 'uploads/news/') {
-    // Use absolute path from project root
-    $projectRoot = dirname(__DIR__) . '/';
+    $projectRoot = dirname(__DIR__) . '/'; // Goes up from includes/
     $absoluteUploadDir = $projectRoot . $uploadDir;
     
     if (!file_exists($absoluteUploadDir)) {
@@ -169,23 +138,15 @@ function uploadImage($file, $uploadDir = 'uploads/news/') {
     $absoluteFilepath = $absoluteUploadDir . $filename;
     
     if (!move_uploaded_file($file['tmp_name'], $absoluteFilepath)) {
-        throw new Exception('Failed to upload image.');
+        throw new Exception('Failed to upload image. Path: ' . $absoluteFilepath);
     }
     
-    // Return relative path for database storage
     return $uploadDir . $filename;
 }
 
-/**
- * Get client IP address
- */
 function getClientIP() {
-    if (!empty($_SERVER['HTTP_CLIENT_IP'])) {
-        return $_SERVER['HTTP_CLIENT_IP'];
-    } elseif (!empty($_SERVER['HTTP_X_FORWARDED_FOR'])) {
-        return $_SERVER['HTTP_X_FORWARDED_FOR'];
-    } else {
-        return $_SERVER['REMOTE_ADDR'];
-    }
+    if (!empty($_SERVER['HTTP_CLIENT_IP'])) return $_SERVER['HTTP_CLIENT_IP'];
+    if (!empty($_SERVER['HTTP_X_FORWARDED_FOR'])) return $_SERVER['HTTP_X_FORWARDED_FOR'];
+    return $_SERVER['REMOTE_ADDR'];
 }
 ?>
