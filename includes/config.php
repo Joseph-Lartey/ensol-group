@@ -12,9 +12,9 @@
 // DATABASE CREDENTIALS (UPDATE THESE!)
 // ============================================
 define('DB_HOST', '127.0.0.1');             // Keep as 127.0.0.1 for cPanel
-define('DB_NAME', 'ensolgroupe_ensol_news'); // UPDATE THIS with your cPanel DB name
-define('DB_USER', 'ensolgroupe_ensolgroupe'); // UPDATE THIS with your cPanel DB user
-define('DB_PASS', '!YJ96Vso)%Xyz');     // UPDATE THIS with your cPanel DB password
+define('DB_NAME', 'ensolgroupe_ensol_news'); // CONFIRMED
+define('DB_USER', 'ensolgroupe_ensol_admin'); // CONFIRMED
+define('DB_PASS', 'Freshboy8!');             // CONFIRMED
 define('DB_CHARSET', 'utf8mb4');
 
 // ============================================
