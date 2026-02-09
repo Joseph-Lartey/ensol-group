@@ -46,24 +46,24 @@ function env($key, $default = null) {
 }
 
 // Database configuration - read from .env
-define('DB_HOST', env('DB_HOST', 'localhost'));
-define('DB_NAME', env('DB_NAME', 'ensol_news'));
-define('DB_USER', env('DB_USER', 'root'));
-define('DB_PASS', env('DB_PASS', ''));
+define('DB_HOST', env('DB_HOST'));
+define('DB_NAME', env('DB_NAME'));
+define('DB_USER', env('DB_USER'));
+define('DB_PASS', env('DB_PASS'));
 define('DB_CHARSET', 'utf8mb4');
 
 // Email configuration
 define('MAIL_HOST', env('MAIL_HOST'));
-define('MAIL_PORT', env('MAIL_PORT', 587));
+define('MAIL_PORT', env('MAIL_PORT'));
 define('MAIL_USERNAME', env('MAIL_USERNAME'));
 define('MAIL_PASSWORD', env('MAIL_PASSWORD'));
 define('MAIL_FROM_EMAIL', env('MAIL_FROM_EMAIL'));
-define('MAIL_FROM_NAME', env('MAIL_FROM_NAME', 'Ensol Group'));
+define('MAIL_FROM_NAME', env('MAIL_FROM_NAME'));
 define('MAIL_TO', env('MAIL_TO'));
 
 // Site configuration
-define('SITE_URL', env('SITE_URL', 'http://localhost:8080/ensol-group'));
-define('SITE_NAME', env('SITE_NAME', 'Ensol Group'));
+define('SITE_URL', env('SITE_URL'));
+define('SITE_NAME', env('SITE_NAME'));
 
 // Database connection
 try {
