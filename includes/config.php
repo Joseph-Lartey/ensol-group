@@ -52,8 +52,12 @@ function env($key, $default = null) {
 }
 
 // Database configuration - read from .env
-// Default to 127.0.0.1 to avoid socket errors on cPanel
-define('DB_HOST', env('DB_HOST', '127.0.0.1'));
+// Force TCP if localhost is provided to avoid socket errors on cPanel
+$dbHost = env('DB_HOST', '127.0.0.1');
+if ($dbHost === 'localhost') {
+    $dbHost = '127.0.0.1';
+}
+define('DB_HOST', $dbHost);
 define('DB_NAME', env('DB_NAME'));
 define('DB_USER', env('DB_USER'));
 define('DB_PASS', env('DB_PASS'));
