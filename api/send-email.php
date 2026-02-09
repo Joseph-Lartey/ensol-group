@@ -50,21 +50,21 @@ $message_text = htmlspecialchars($message, ENT_QUOTES, 'UTF-8');
 try {
     $mail = new PHPMailer(true);
     
-    // Server settings - using environment variables
+    // Server settings - using constants from config.php
     $mail->isSMTP();
-    $mail->Host = env('MAIL_HOST', MAIL_HOST);
+    $mail->Host = MAIL_HOST;
     $mail->SMTPAuth = true;
-    $mail->Username = env('MAIL_USERNAME', MAIL_USERNAME);
-    $mail->Password = env('MAIL_PASSWORD', MAIL_PASSWORD);
+    $mail->Username = MAIL_USERNAME;
+    $mail->Password = MAIL_PASSWORD;
     $mail->SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS;
-    $mail->Port = env('MAIL_PORT', MAIL_PORT);
+    $mail->Port = MAIL_PORT;
     
     // Enable debug output for troubleshooting (disable in production)
     // $mail->SMTPDebug = 2;
     
     // Recipients
-    $mail->setFrom(env('MAIL_FROM_EMAIL', MAIL_FROM_EMAIL), env('MAIL_FROM_NAME', MAIL_FROM_NAME));
-    $mail->addAddress(env('MAIL_TO', MAIL_TO), 'Ensol Group HR');
+    $mail->setFrom(MAIL_FROM_EMAIL, MAIL_FROM_NAME);
+    $mail->addAddress(MAIL_TO, 'Ensol Group HR');
     $mail->addReplyTo($email, $name);
     
     // Content
