@@ -15,6 +15,17 @@ ini_set('auto_detect_line_endings', true);
 $envFilePath = __DIR__ . '/../.env';
 $envConfig = [];
 
+// -------------------------------------------------------------------------
+// EMERGENCY MANUAL CONFIGURATION
+// If the .env file is not working, please UPDATE THESE VALUES DIRECTLY:
+// -------------------------------------------------------------------------
+$manual_db_host = '127.0.0.1';       // Leave as 127.0.0.1
+$manual_db_name = 'ensolgroupe_ensol_news'; // UPDATE THIS
+$manual_db_user = 'ensolgroupe_ensol_admin'; // UPDATE THIS
+$manual_db_pass = 'ENTER_PASSWORD_HERE';    // UPDATE THIS
+$manual_site_url = 'https://ensolgroup.com.gh';
+// -------------------------------------------------------------------------
+
 if (file_exists($envFilePath)) {
     $lines = file($envFilePath, FILE_IGNORE_NEW_LINES | FILE_SKIP_EMPTY_LINES);
     foreach ($lines as $line) {
@@ -47,18 +58,18 @@ function getEnvVal($key, $default = null) {
 
 // 3. Database Configuration
 // FORCE 127.0.0.1 to fix "No such file or directory" socket error
-$dbHost = getEnvVal('DB_HOST', '127.0.0.1');
+$dbHost = getEnvVal('DB_HOST', $manual_db_host);
 if ($dbHost === 'localhost') $dbHost = '127.0.0.1';
 
 define('DB_HOST', $dbHost);
-define('DB_NAME', getEnvVal('DB_NAME'));
-define('DB_USER', getEnvVal('DB_USER'));
-define('DB_PASS', getEnvVal('DB_PASS'));
+define('DB_NAME', getEnvVal('DB_NAME', $manual_db_name));
+define('DB_USER', getEnvVal('DB_USER', $manual_db_user));
+define('DB_PASS', getEnvVal('DB_PASS', $manual_db_pass));
 define('DB_CHARSET', 'utf8mb4');
 
 // 4. Verify Critical Config
-if (!defined('DB_NAME') || !DB_NAME || !defined('DB_USER') || !DB_USER) {
-    die("Database configuration missing. Please check your .env file. parsed_host=" . DB_HOST);
+if ((!defined('DB_NAME') || !DB_NAME || !defined('DB_USER') || !DB_USER) && $manual_db_pass === 'ENTER_PASSWORD_HERE') {
+    die("Database configuration missing. Please edit includes/config.php and add your credentials directly.");
 }
 
 // 5. Email Configuration
@@ -71,7 +82,7 @@ define('MAIL_FROM_NAME', getEnvVal('MAIL_FROM_NAME', 'Ensol Group'));
 define('MAIL_TO', getEnvVal('MAIL_TO'));
 
 // 6. Site Configuration
-define('SITE_URL', getEnvVal('SITE_URL', 'https://ensolgroup.com.gh'));
+define('SITE_URL', getEnvVal('SITE_URL', $manual_site_url));
 define('SITE_NAME', getEnvVal('SITE_NAME', 'Ensol Group'));
 
 // 7. Database Connection
