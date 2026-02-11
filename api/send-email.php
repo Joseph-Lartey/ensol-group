@@ -43,7 +43,9 @@ if (!empty($errors)) {
 }
 
 // Sanitize inputs
-$name = htmlspecialchars($name, ENT_QUOTES, 'UTF-8');
+$name = htmlspecialchars($name, ENT_QUOTES, 'UTF-8'); // For HTML Body
+$name_clean = strip_tags($_POST['name']); // For Headers
+$name_clean = str_replace(array("\r", "\n"), '', $name_clean); // Prevent header injection
 $email = filter_var($email, FILTER_SANITIZE_EMAIL);
 $message_text = htmlspecialchars($message, ENT_QUOTES, 'UTF-8');
 
@@ -64,56 +66,27 @@ try {
     $mail->Port = MAIL_PORT;
     
     // Recipients
-    $mail->setFrom(MAIL_FROM_EMAIL, MAIL_FROM_NAME);
+    // USE NO NAME to bypass strict spam filters (detected by debug tests)
+    $mail->setFrom(MAIL_FROM_EMAIL); 
     $mail->addAddress(MAIL_TO);
-    $mail->addReplyTo($email, $name);
+    
+    // Temporarily disable Reply-To to rule out spoofing checks
+    // $mail->addReplyTo($email, $name_clean);
     
     // Content
     $mail->isHTML(true);
     $mail->CharSet = 'UTF-8';
-    $mail->Subject = '[Website Enquiry] New Message from ' . $name . ' - Action Required';
+    $mail->Subject = 'New Message: ' . $name_clean;
     
-    // Beautiful HTML email template
-    $mail->Body = '
-    <!DOCTYPE html>
-    <html>
-    <head>
-        <meta charset="UTF-8">
-        <style>
-            body { font-family: Arial, sans-serif; line-height: 1.6; color: #333; background-color: #f4f4f4; }
-            .container { max-width: 600px; margin: 20px auto; background: #fff; padding: 20px; border-radius: 8px; }
-            .header { background: #DC1609; color: white; padding: 10px 20px; text-align: center; }
-            .content { padding: 20px; }
-            .field { margin-bottom: 15px; border-bottom: 1px solid #eee; padding-bottom: 10px; }
-            .label { font-weight: bold; color: #DC1609; }
-            .footer { font-size: 12px; color: #666; text-align: center; margin-top: 20px; }
-        </style>
-    </head>
-    <body>
-        <div class="container">
-            <div class="header">
-                <h2>New Website Inquiry</h2>
-            </div>
-            <div class="content">
-                <div class="field">
-                    <div class="label">From Name:</div>
-                    <div>' . $name . '</div>
-                </div>
-                <div class="field">
-                    <div class="label">Email Address:</div>
-                    <div><a href="mailto:' . $email . '">' . $email . '</a></div>
-                </div>
-                <div class="field">
-                    <div class="label">Message:</div>
-                    <div>' . nl2br($message_text) . '</div>
-                </div>
-            </div>
-            <div class="footer">
-                <p>Sent from Ensol Group Website Contact Form</p>
-            </div>
-        </div>
-    </body>
-    </html>';
+    // Simplified HTML email template to avoid spam filters
+    $mail->Body = "
+    <h3>New Website Inquiry</h3>
+    <p><strong>Name:</strong> $name_clean</p>
+    <p><strong>Email:</strong> <a href='mailto:$email'>$email</a></p>
+    <p><strong>Message:</strong><br>" . nl2br($message_text) . "</p>
+    <hr>
+    <p><small>Sent from Ensol Group Website Contact Form</small></p>
+    ";
     
     $mail->AltBody = "New Inquiry\n\nFrom: $name\nEmail: $email\n\nMessage:\n$message_text";
     
@@ -125,7 +98,10 @@ try {
     ]);
     
 } catch (Exception $e) {
-    error_log('Email sending failed: ' . $mail->ErrorInfo);
+    // Log extended error details
+    $logMsg = date('[Y-m-d H:i:s] ') . "Error: " . $mail->ErrorInfo . "\n";
+    file_put_contents(__DIR__ . '/email_errors.log', $logMsg, FILE_APPEND);
+    
     http_response_code(500);
     echo json_encode([
         'success' => false,
