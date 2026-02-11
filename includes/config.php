@@ -27,11 +27,11 @@ if (file_exists(__DIR__ . '/../vendor/autoload.php')) {
 // ============================================
 // DATABASE CREDENTIALS
 // ============================================
-define('DB_HOST', $_ENV['DB_HOST']);
-define('DB_NAME', $_ENV['DB_NAME']);
-define('DB_USER', $_ENV['DB_USER']);
-define('DB_PASS', $_ENV['DB_PASS']);
-define('DB_CHARSET', $_ENV['DB_CHARSET']);
+define('DB_HOST', trim($_ENV['DB_HOST']));
+define('DB_NAME', trim($_ENV['DB_NAME']));
+define('DB_USER', trim($_ENV['DB_USER']));
+define('DB_PASS', trim($_ENV['DB_PASS']));
+define('DB_CHARSET', trim($_ENV['DB_CHARSET']));
 
 // ============================================
 // SITE CONFIGURATION
@@ -65,7 +65,7 @@ try {
         PDO::ATTR_EMULATE_PREPARES => false
     ]);
 } catch (PDOException $e) {
-    die('Database connection failed: ' . $e->getMessage());
+    die('Database connection failed: ' . $e->getMessage() . ' (Charset: "' . DB_CHARSET . '")');
 }
 
 // Session & Auth
