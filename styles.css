@@ -372,7 +372,7 @@ ul {
 }
 
 .logo img {
-    height: 85px;
+    height: 120px;
     width: auto;
     object-fit: contain;
 }
@@ -650,6 +650,8 @@ ul {
     transition: var(--transition-medium);
 }
 
+
+
 .image-container:hover::before {
     opacity: 1;
 }
@@ -659,10 +661,13 @@ ul {
     transition: var(--transition-slow);
     position: relative;
     z-index: 1;
+    /* Zoom in to crop out edges/watermarks */
+    transform: scale(1.15);
+    object-position: center;
 }
 
 .image-container:hover img {
-    transform: scale(1.02);
+    transform: scale(1.18);
 }
 
 .image-glow {
@@ -744,10 +749,11 @@ ul {
 
 .partners-grid {
     display: grid;
-    grid-template-columns: repeat(4, 1fr);
+    grid-template-columns: repeat(3, 1fr);
     gap: var(--spacing-lg);
     max-width: 1000px;
     margin: 0 auto;
+    justify-content: center;
 }
 
 .partner-card {
@@ -2727,6 +2733,7 @@ ul {
         height: 45px;
     }
 }
+
 /* ========================================
    PARTNERS SLIDER SECTION
    ======================================== */
@@ -2792,6 +2799,7 @@ ul {
     0% {
         transform: translateX(0);
     }
+
     100% {
         transform: translateX(-50%);
     }

@@ -23,7 +23,7 @@
                 <ul>
                     <li><a href="pages/about.php"><i class="fas fa-chevron-right"></i> About Us</a></li>
                     <li><a href="services.php"><i class="fas fa-chevron-right"></i> Services</a></li>
-                    <li><a href="partners.php"><i class="fas fa-chevron-right"></i> Partners</a></li>
+                    <li><a href="clients.php"><i class="fas fa-chevron-right"></i> Clients</a></li>
                     <li><a href="news.php"><i class="fas fa-chevron-right"></i> News</a></li>
                 </ul>
             </div>
@@ -31,9 +31,9 @@
             <div class="footer-section footer-contact animate-on-scroll delay-2">
                 <h3 class="footer-title">Contact us</h3>
                 <p>Ready to discuss your next project? Reach out to our team for expert solutions and reliable partnerships.</p>
-                <a href="tel:0312290798" class="contact-phone">
+                <a href="tel:0302290798" class="contact-phone">
                     <i class="fas fa-phone"></i>
-                    031 229 0798
+                    030 229 0798
                 </a>
             </div>
 

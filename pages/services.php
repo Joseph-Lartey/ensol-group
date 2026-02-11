@@ -36,7 +36,7 @@
                     <li><a href="../index.php" class="nav-link">Home</a></li>
                     <li><a href="about.php" class="nav-link">About us</a></li>
                     <li><a href="services.php" class="nav-link active">Services</a></li>
-                    <li><a href="partners.php" class="nav-link">Partners</a></li>
+                    <li><a href="clients.php" class="nav-link">Clients</a></li>
                     <li><a href="news.php" class="nav-link">News</a></li>
                     <li><a href="contact.php" class="nav-link btn-contact">Contact Us</a></li>
                 </ul>
@@ -244,7 +244,7 @@
                     <ul>
                         <li><a href="about.php"><i class="fas fa-chevron-right"></i> About Us</a></li>
                         <li><a href="services.php"><i class="fas fa-chevron-right"></i> Services</a></li>
-                        <li><a href="partners.php"><i class="fas fa-chevron-right"></i> Partners</a></li>
+                        <li><a href="clients.php"><i class="fas fa-chevron-right"></i> Clients</a></li>
                         <li><a href="news.php"><i class="fas fa-chevron-right"></i> News</a></li>
                     </ul>
                 </div>
@@ -253,9 +253,9 @@
                     <h3 class="footer-title">Contact us</h3>
                     <p>Ready to discuss your next project? Reach out to our team for expert solutions and reliable
                         partnerships.</p>
-                    <a href="tel:+923183561921" class="contact-phone">
+                    <a href="tel:0302290798" class="contact-phone">
                         <i class="fas fa-phone"></i>
-                        +923183561921
+                        030 229 0798
                     </a>
                 </div>
 
@@ -268,16 +268,7 @@
                         </iframe>
                     </div>
                     <div class="social-links">
-                        <a href="#" class="social-icon" aria-label="Facebook">
-                            <i class="fab fa-facebook-f"></i>
-                        </a>
-                        <a href="#" class="social-icon" aria-label="Instagram">
-                            <i class="fab fa-instagram"></i>
-                        </a>
-                        <a href="#" class="social-icon" aria-label="Twitter">
-                            <i class="fab fa-twitter"></i>
-                        </a>
-                        <a href="#" class="social-icon" aria-label="LinkedIn">
+                        <a href="https://www.linkedin.com/company/ensolgrouptd/" target="_blank" class="social-icon" aria-label="LinkedIn">
                             <i class="fab fa-linkedin-in"></i>
                         </a>
                     </div>

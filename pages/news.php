@@ -46,7 +46,7 @@ $articles = $stmt->fetchAll();
                     <li><a href="../index.php" class="nav-link">Home</a></li>
                     <li><a href="about.php" class="nav-link">About us</a></li>
                     <li><a href="services.php" class="nav-link">Services</a></li>
-                    <li><a href="partners.php" class="nav-link">Partners</a></li>
+                    <li><a href="clients.php" class="nav-link">Clients</a></li>
                     <li><a href="news.php" class="nav-link active">News</a></li>
                     <li><a href="contact.php" class="nav-link btn-contact">Contact Us</a></li>
                 </ul>

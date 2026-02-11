@@ -36,7 +36,7 @@
                     <li><a href="#home" class="nav-link active">Home</a></li>
                     <li><a href="pages/about.php" class="nav-link">About us</a></li>
                     <li><a href="pages/services.php" class="nav-link">Services</a></li>
-                    <li><a href="pages/partners.php" class="nav-link">Partners</a></li>
+                    <li><a href="pages/clients.php" class="nav-link">Clients</a></li>
                     <li><a href="pages/news.php" class="nav-link">News</a></li>
                     <li><a href="pages/contact.php" class="nav-link btn-contact">Contact Us</a></li>
                 </ul>
@@ -69,7 +69,7 @@
                         oil, gas, and mining industries.
                     </p>
                     <div class="hero-buttons animate-fade-in delay-5">
-                        <a href="pages/partners.php" class="btn btn-primary">
+                        <a href="pages/clients.php" class="btn btn-primary">
                             <span>Partner With Us</span>
                             <i class="fas fa-arrow-right"></i>
                         </a>
@@ -100,15 +100,6 @@
                 <div class="title-underline"></div>
             </div>
             <div class="partners-grid">
-                <a href="https://www.linkedin.com/company/ensolgrouptd/" target="_blank" class="partner-card animate-on-scroll">
-                    <div class="partner-logo">
-                        <img src="assets/ensol_logo.jpg" alt="Ensol Group">
-                    </div>
-                    <div class="partner-overlay">
-                        <span>Ensol Group</span>
-                        <i class="fab fa-linkedin" style="margin-left: 8px;"></i>
-                    </div>
-                </a>
                 <a href="https://www.linkedin.com/company/ensolengineeringtechnologyservices/" target="_blank" class="partner-card animate-on-scroll delay-1">
                     <div class="partner-logo">
                         <img src="assets/ensol_enginerring.jpeg" alt="Ensol Engineering & Technology">
@@ -140,11 +131,11 @@
         </div>
     </section>
 
-    <!-- Our Partners Slider Section -->
+    <!-- Our Clients Slider Section -->
     <section class="partners-slider-section" id="our-partners-slider">
         <div class="container">
             <div class="partners-header animate-on-scroll">
-                <h2 class="section-title">Our <span class="title-accent">Partners</span></h2>
+                <h2 class="section-title">Our <span class="title-accent">Clients</span></h2>
                 <div class="title-underline"></div>
             </div>
             <div class="slider-container">
@@ -219,7 +210,7 @@
                     <ul>
                         <li><a href="pages/about.php"><i class="fas fa-chevron-right"></i> About Us</a></li>
                         <li><a href="pages/services.php"><i class="fas fa-chevron-right"></i> Services</a></li>
-                        <li><a href="pages/partners.php"><i class="fas fa-chevron-right"></i> Partners</a></li>
+                        <li><a href="pages/clients.php"><i class="fas fa-chevron-right"></i> Clients</a></li>
                         <li><a href="pages/news.php"><i class="fas fa-chevron-right"></i> News</a></li>
                     </ul>
                 </div>
@@ -228,9 +219,9 @@
                     <h3 class="footer-title">Contact us</h3>
                     <p>Ready to discuss your next project? Reach out to our team for expert solutions and reliable
                         partnerships.</p>
-                    <a href="tel:0312290798" class="contact-phone">
+                    <a href="tel:0302290798" class="contact-phone">
                         <i class="fas fa-phone"></i>
-                        031 229 0798
+                        030 229 0798
                     </a>
                 </div>
 

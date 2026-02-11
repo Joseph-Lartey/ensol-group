@@ -1,7 +1,7 @@
 <?php
 /**
  * Ensol Group Configuration
- * HARDCODED VERSION - No .env file dependency
+ * FINAL WORKING VERSION - Localhost Email & 127.0.0.1 DB
  */
 
 // Enable error reporting for debugging (disable in production if needed)
@@ -9,34 +9,47 @@
 // ini_set('display_errors', 1);
 
 // ============================================
-// DATABASE CREDENTIALS (UPDATE THESE!)
+// DATABASE CREDENTIALS
 // ============================================
-define('DB_HOST', '127.0.0.1');             // Keep as 127.0.0.1 for cPanel
-define('DB_NAME', 'ensolgroupe_ensol_news'); // CONFIRMED
-define('DB_USER', 'ensolgroupe_ensol_admin'); // CONFIRMED
-define('DB_PASS', 'Freshboy8!');             // CONFIRMED
-define('DB_CHARSET', 'utf8mb4');
+// Check if vendor/autoload.php exists and load it (for Dotenv)
+if (file_exists(__DIR__ . '/../vendor/autoload.php')) {
+    require_once __DIR__ . '/../vendor/autoload.php';
+    
+    // Load .env file
+    $dotenv = Dotenv\Dotenv::createImmutable(__DIR__ . '/../');
+    $dotenv->safeLoad();
+}
+
+// ============================================
+// DATABASE CREDENTIALS
+// ============================================
+define('DB_HOST', $_ENV['DB_HOST'] ?? '127.0.0.1');
+define('DB_NAME', $_ENV['DB_NAME'] ?? 'ensolgroupe_ensol_news');
+define('DB_USER', $_ENV['DB_USER'] ?? 'ensolgroupe_ensol_admin');
+define('DB_PASS', $_ENV['DB_PASS'] ?? 'Freshboy8!');
+define('DB_CHARSET', $_ENV['DB_CHARSET'] ?? 'utf8mb4');
 
 // ============================================
 // SITE CONFIGURATION
 // ============================================
-define('SITE_URL', 'https://ensolgroup.com.gh');
-define('SITE_NAME', 'Ensol Group');
+define('SITE_URL', $_ENV['SITE_URL'] ?? 'https://ensolgroup.com.gh');
+define('SITE_NAME', $_ENV['SITE_NAME'] ?? 'Ensol Group');
 
 // ============================================
 // EMAIL CONFIGURATION
 // ============================================
-define('MAIL_HOST', 'smtp.gmail.com');
-define('MAIL_PORT', 587);
-define('MAIL_USERNAME', 'josephlartey414@gmail.com');
-define('MAIL_PASSWORD', 'ENTER_MAIL_PASSWORD_HERE'); // UPDATE THIS
-define('MAIL_FROM_EMAIL', 'josephlartey414@gmail.com');
-define('MAIL_FROM_NAME', 'Ensol Group');
-define('MAIL_TO', 'info@ensolgroup.com.gh');
+define('MAIL_HOST', $_ENV['MAIL_HOST'] ?? 'localhost');
+define('MAIL_PORT', $_ENV['MAIL_PORT'] ?? 25);
+define('MAIL_USERNAME', $_ENV['MAIL_USERNAME'] ?? 'noreply@ensolgroup.com.gh');
+define('MAIL_PASSWORD', $_ENV['MAIL_PASSWORD'] ?? 'Ensouth2025');
+
+define('MAIL_FROM_EMAIL', $_ENV['MAIL_FROM_EMAIL'] ?? 'noreply@ensolgroup.com.gh');
+define('MAIL_FROM_NAME', $_ENV['MAIL_FROM_NAME'] ?? 'Ensol Group Website');
+define('MAIL_TO', $_ENV['MAIL_TO'] ?? 'j.lartey@ensolenergygh.com');
 
 
 // ============================================
-// LOGIC (DO NOT EDIT BELOW)
+// LOGIC
 // ============================================
 
 // Database connection
@@ -52,7 +65,9 @@ try {
 }
 
 // Session & Auth
-session_start();
+if (session_status() === PHP_SESSION_NONE) {
+    session_start();
+}
 
 function isLoggedIn() {
     return isset($_SESSION['admin_id']) && isset($_SESSION['admin_username']);
