@@ -2,5 +2,4 @@
 deployment:
   tasks:
     - export DEPLOYPATH=/home/ensolgroupe/public_html/
-    - /usr/bin/php /usr/local/bin/composer install
     - /bin/cp -R * $DEPLOYPATH
