@@ -18,16 +18,20 @@ if (file_exists(__DIR__ . '/../vendor/autoload.php')) {
     // Load .env file
     $dotenv = Dotenv\Dotenv::createImmutable(__DIR__ . '/../');
     $dotenv->safeLoad();
+    
+    // Validate required variables
+    $dotenv->required(['DB_HOST', 'DB_NAME', 'DB_USER', 'DB_PASS', 'DB_CHARSET']);
+    $dotenv->required(['MAIL_HOST', 'MAIL_PORT', 'MAIL_USERNAME', 'MAIL_PASSWORD']);
 }
 
 // ============================================
 // DATABASE CREDENTIALS
 // ============================================
-define('DB_HOST', $_ENV['DB_HOST'] ?? '127.0.0.1');
-define('DB_NAME', $_ENV['DB_NAME'] ?? 'ensolgroupe_ensol_news');
-define('DB_USER', $_ENV['DB_USER'] ?? 'ensolgroupe_ensol_admin');
-define('DB_PASS', $_ENV['DB_PASS'] ?? 'Freshboy8!');
-define('DB_CHARSET', $_ENV['DB_CHARSET'] ?? 'utf8mb4');
+define('DB_HOST', $_ENV['DB_HOST']);
+define('DB_NAME', $_ENV['DB_NAME']);
+define('DB_USER', $_ENV['DB_USER']);
+define('DB_PASS', $_ENV['DB_PASS']);
+define('DB_CHARSET', $_ENV['DB_CHARSET']);
 
 // ============================================
 // SITE CONFIGURATION
@@ -38,10 +42,10 @@ define('SITE_NAME', $_ENV['SITE_NAME'] ?? 'Ensol Group');
 // ============================================
 // EMAIL CONFIGURATION
 // ============================================
-define('MAIL_HOST', $_ENV['MAIL_HOST'] ?? 'localhost');
-define('MAIL_PORT', $_ENV['MAIL_PORT'] ?? 25);
-define('MAIL_USERNAME', $_ENV['MAIL_USERNAME'] ?? 'noreply@ensolgroup.com.gh');
-define('MAIL_PASSWORD', $_ENV['MAIL_PASSWORD'] ?? 'Ensouth2025');
+define('MAIL_HOST', $_ENV['MAIL_HOST']);
+define('MAIL_PORT', $_ENV['MAIL_PORT']);
+define('MAIL_USERNAME', $_ENV['MAIL_USERNAME']);
+define('MAIL_PASSWORD', $_ENV['MAIL_PASSWORD']);
 
 define('MAIL_FROM_EMAIL', $_ENV['MAIL_FROM_EMAIL'] ?? 'noreply@ensolgroup.com.gh');
 define('MAIL_FROM_NAME', $_ENV['MAIL_FROM_NAME'] ?? 'Ensol Group Website');
