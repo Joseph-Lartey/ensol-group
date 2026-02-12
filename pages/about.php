@@ -148,7 +148,7 @@
         <div class="container">
             <h2 class="section-title animate-on-scroll">Subsidiaries</h2>
             <div class="subsidiaries-list">
-                <div class="subsidiary-item animate-on-scroll">
+                <a href="ensol-engineering.php" class="subsidiary-item animate-on-scroll">
                     <div class="subsidiary-logo">
                         <img src="../assets/ensol_enginerring.jpeg" alt="Ensol Engineering & Technology">
                     </div>
@@ -157,8 +157,8 @@
                         <li>Plant maintenance and repairs</li>
                         <li>Engineering project support</li>
                     </ul>
-                </div>
-                <div class="subsidiary-item animate-on-scroll delay-1">
+                </a>
+                <a href="ensol-energy.php" class="subsidiary-item animate-on-scroll delay-1">
                     <div class="subsidiary-logo">
                         <img src="../assets/ensol_energy.jpeg" alt="Ensol Energy">
                     </div>
@@ -167,8 +167,8 @@
                         <li>Renewable energy solutions</li>
                         <li>Energy efficiency services</li>
                     </ul>
-                </div>
-                <div class="subsidiary-item animate-on-scroll delay-2">
+                </a>
+                <a href="southey-contracting.php" class="subsidiary-item animate-on-scroll delay-2">
                     <div class="subsidiary-logo">
                         <img src="../assets/Southey_no_background.png" alt="Southey Contracting">
                     </div>
@@ -177,7 +177,7 @@
                         <li>Maintenance and shutdown services</li>
                         <li>Skilled manpower supply</li>
                     </ul>
-                </div>
+                </a>
             </div>
         </div>
     </section>
