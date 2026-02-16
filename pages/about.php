@@ -158,7 +158,7 @@
                         <li>Engineering project support</li>
                     </ul>
                 </a>
-                <a href="ensol-energy.php" class="subsidiary-item animate-on-scroll delay-1">
+                <a href="https://energy.ensolgroup.com.gh" class="subsidiary-item animate-on-scroll delay-1" target="_blank">
                     <div class="subsidiary-logo">
                         <img src="../assets/ensol_energy.jpeg" alt="Ensol Energy">
                     </div>

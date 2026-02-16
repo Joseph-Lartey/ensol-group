@@ -109,13 +109,13 @@
                         <i class="fab fa-linkedin" style="margin-left: 8px;"></i>
                     </div>
                 </a>
-                <a href="https://www.linkedin.com/company/ensolenergyghana/" target="_blank" class="partner-card animate-on-scroll delay-2">
+                <a href="https://energy.ensolgroup.com.gh" target="_blank" class="partner-card animate-on-scroll delay-2">
                     <div class="partner-logo">
                         <img src="assets/ensol_energy.jpeg" alt="Ensol Energy">
                     </div>
                     <div class="partner-overlay">
                         <span>Ensol Energy</span>
-                        <i class="fab fa-linkedin" style="margin-left: 8px;"></i>
+                        <i class="fas fa-external-link-alt" style="margin-left: 8px;"></i>
                     </div>
                 </a>
                 <a href="https://www.linkedin.com/company/southdeycontractingltd/" target="_blank" class="partner-card animate-on-scroll delay-3">

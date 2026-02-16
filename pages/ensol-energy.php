@@ -5,11 +5,11 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description"
-        content="Ensol Energy - Leading provider of renewable energy solutions, solar power systems, and energy efficiency services in Ghana.">
-    <title>Ensol Energy | Ensol Group</title>
+        content="Ensol Energy - Leading provider of integrated engineering, logistics, and supply chain solutions to the extractive and infrastructure sectors.">
+    <title>Ensol Energy - Integrated Solutions | Ensol Group</title>
     <link rel="icon" type="image/png" href="../assets/favicon.png">
 
-    <!-- Google Fonts - Merriweather -->
+    <!-- Google Fonts - Merriweather & Inter/Roboto -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link
@@ -22,7 +22,14 @@
     <!-- Custom Styles -->
     <link rel="stylesheet" href="../styles.css">
     <style>
-        /* Specific styles for subsidiary pages to reuse existing components */
+        /* Specific styles for subsidiary pages */
+        :root {
+            --ensol-primary: #e31e24; /* Verify brand color, assuming red from previous context/logo */
+            --ensol-dark: #1a1a1a;
+            --text-gray: #4a4a4a;
+            --light-bg: #f8f9fa;
+        }
+
         .subsidiary-hero {
             position: relative;
             height: 60vh;
@@ -59,7 +66,7 @@
         .subsidiary-hero-content {
             position: relative;
             z-index: 2;
-            max-width: 800px;
+            max-width: 900px;
             padding: 0 var(--spacing-md);
         }
 
@@ -70,8 +77,148 @@
             text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
         }
         
-         .service-card {
+        /* Section Styling */
+        .section-padding {
+            padding: var(--spacing-2xl) 0;
+        }
+
+        .bg-light {
+            background-color: var(--light-bg);
+        }
+
+        .text-center {
+            text-align: center;
+        }
+
+        .content-block {
+            margin-bottom: var(--spacing-lg);
+        }
+
+        .list-check ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .list-check ul li {
+            position: relative;
+            padding-left: 30px;
+            margin-bottom: 10px;
+        }
+
+        .list-check ul li::before {
+            content: '\f00c';
+            font-family: 'Font Awesome 6 Free';
+            font-weight: 900;
+            position: absolute;
+            left: 0;
+            color: var(--vivid-red);
+        }
+
+        /* Services Grid */
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: var(--spacing-lg);
+            margin-top: var(--spacing-lg);
+        }
+
+        .service-item {
+            background: var(--white);
+            padding: var(--spacing-lg);
+            border-radius: var(--radius-lg);
+            box-shadow: var(--shadow-sm);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
             height: 100%;
+        }
+
+        .service-item:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .service-icon-large {
+            font-size: 2.5rem;
+            color: var(--vivid-red);
+            margin-bottom: var(--spacing-md);
+        }
+
+        /* Gallery Slider */
+        .gallery-section {
+            position: relative;
+            overflow: hidden;
+            background: var(--dark-gray);
+        }
+
+        .gallery-container {
+            position: relative;
+            width: 100%;
+            height: 600px; /* Adjust height as needed */
+            overflow: hidden;
+        }
+
+        .gallery-slide {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            opacity: 0;
+            transition: opacity 1s ease-in-out;
+            background-size: cover;
+            background-position: center;
+        }
+
+        .gallery-slide.active {
+            opacity: 1;
+        }
+        
+        .gallery-content {
+            position: absolute;
+            bottom: 50px;
+            left: 50px;
+            z-index: 10;
+            color: white;
+            padding: 20px;
+            background: rgba(0,0,0,0.5);
+            border-left: 5px solid var(--vivid-red);
+            max-width: 600px;
+        }
+
+        /* Values Grid */
+        .values-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: var(--spacing-lg);
+        }
+
+        .value-card {
+            text-align: center;
+            padding: var(--spacing-lg);
+            background: var(--white);
+            border-radius: var(--radius-md);
+            box-shadow: var(--shadow-sm);
+            border-bottom: 4px solid transparent;
+            transition: border-color 0.3s;
+        }
+
+        .value-card:hover {
+            border-bottom-color: var(--vivid-red);
+        }
+
+        .value-icon {
+            font-size: 2rem;
+            color: var(--vivid-red);
+            margin-bottom: var(--spacing-md);
+        }
+
+        /* Responsive adjustments */
+        @media (max-width: 768px) {
+            .gallery-container {
+                height: 400px;
+            }
+            .subsidiary-hero-title {
+                font-size: 2.5rem;
+            }
         }
     </style>
 </head>
@@ -109,76 +256,216 @@
         <img src="../assets/ensol_energy.jpeg" alt="Ensol Energy" class="subsidiary-hero-img">
         <div class="subsidiary-hero-content animate-on-scroll">
             <h1 class="subsidiary-hero-title">Ensol Energy</h1>
-            <p class="hero-description" style="color: var(--white); font-size: 1.2rem;">Powering the future with sustainable renewable energy solutions.</p>
+            <p class="hero-description" style="color: var(--white); font-size: 1.2rem;">Integrated Engineering, Logistics & Supply Chain Solutions</p>
         </div>
     </section>
 
     <!-- About Section -->
-    <section class="about-group" style="padding: var(--spacing-2xl) 0;">
+    <section class="section-padding">
         <div class="container">
             <div class="about-group-content">
                 <div class="about-group-text animate-on-scroll">
                     <h2 class="section-title-left">About <span class="title-accent">Ensol Energy</span></h2>
-                    <p>Ensol Energy is at the forefront of the renewable energy revolution in West Africa. We design, install, and maintain solar power systems and energy efficiency solutions that help businesses and communities reduce their carbon footprint and energy costs.</p>
-                    <p>Our commitment to sustainability drives us to deliver innovative energy solutions that are both localized and world-class. Whether for industrial applications or commercial projects, Ensol Energy provides reliable, clean power you can trust.</p>
+                    <p>Ensol Energy is a 100% indigenous Ghanaian company delivering integrated engineering, logistics, and supply chain solutions to the extractive and infrastructure sectors. In partnership with major global OEMs, we provide specialized manpower and tailored distribution services across the Oil & Gas, Energy, and Mining industries. We prioritize precision and reliability, ensuring our clients get exactly what they need, when and where they need it.</p>
+                    
+                    <div class="content-block" style="margin-top: 20px;">
+                        <h3>Why Choose Us?</h3>
+                        <div class="list-check">
+                            <ul>
+                                <li>A Dedicated, Experienced (100%) Ghanaian Team.</li>
+                                <li>Well-equipped Office In Accra & Takoradi.</li>
+                                <li>Well-resourced Storage Facility In Takoradi (Apowa).</li>
+                                <li>Highly Networked Partners And Suppliers Globally.</li>
+                                <li>A Management That Is Committed To Quality & Efficiency.</li>
+                            </ul>
+                        </div>
+                    </div>
                 </div>
                 <div class="story-image animate-on-scroll delay-2">
-                    <img src="../assets/img6.jpeg" alt="Renewable Energy">
+                    <img src="../assets/img6.jpeg" alt="Ensol Energy Operations">
+                </div>
+            </div>
+            
+            <!-- Vision & Mission -->
+             <div class="services-grid" style="margin-top: 40px;">
+                <div class="service-item animate-on-scroll" style="background: var(--light-bg);">
+                   <h3 style="color: var(--vivid-red);">Vision Statement</h3>
+                   <p>To be a global player in the energy and extractive industries with a focus on integrated solutions.</p>
+                </div>
+                <div class="service-item animate-on-scroll delay-1" style="background: var(--light-bg);">
+                    <h3 style="color: var(--vivid-red);">Mission Statement</h3>
+                    <p>To provide world-class engineering and logistics solutions to organizations across the energy and extractive value chain.</p>
+                 </div>
+             </div>
+
+        </div>
+    </section>
+
+    <!-- Core Values Section -->
+    <section class="section-padding bg-light">
+        <div class="container">
+            <h2 class="section-title text-center animate-on-scroll">Our <span class="title-accent">Core Values</span></h2>
+            <p class="text-center" style="max-width: 800px; margin: 0 auto 40px auto;">We hold in high esteem our core values of Commitment to Safety & Quality, Partnership, Integrity, and Trust (CQ PIT).</p>
+            
+            <div class="values-grid">
+                <div class="value-card animate-on-scroll">
+                    <div class="value-icon"><i class="fas fa-shield-alt"></i></div>
+                    <h4>Commitment to Safety & Quality</h4>
+                    <p>We prioritize safety and quality in our operations.</p>
+                </div>
+                <div class="value-card animate-on-scroll delay-1">
+                    <div class="value-icon"><i class="fas fa-handshake"></i></div>
+                    <h4>Partnership</h4>
+                    <p>To effectively consolidate resources via strategic and fair partnerships to deliver world-class service.</p>
+                </div>
+                <div class="value-card animate-on-scroll delay-2">
+                     <div class="value-icon"><i class="fas fa-balance-scale"></i></div>
+                    <h4>Integrity</h4>
+                    <p>We believe in carrying out all our dealings and transactions with utmost transparency.</p>
+                </div>
+                <div class="value-card animate-on-scroll delay-3">
+                     <div class="value-icon"><i class="fas fa-users"></i></div>
+                    <h4>Trust</h4>
+                    <p>To trust in our team because teamwork is essential in the success of every business.</p>
                 </div>
             </div>
         </div>
     </section>
 
     <!-- Services Section -->
-    <section class="services-intro" style="background-color: var(--off-white); padding: var(--spacing-2xl) 0;">
+    <section class="section-padding">
         <div class="container">
-            <h2 class="section-title animate-on-scroll" style="text-align: center;">Our <span class="title-accent">Services</span></h2>
-            <div class="partners-grid" style="grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: var(--spacing-lg); margin-top: var(--spacing-lg); justify-content: center;">
-                
-                <!-- Renewable Energy Solutions -->
-                <div class="service-card animate-on-scroll" style="background: var(--white); padding: var(--spacing-lg); border-radius: var(--radius-lg); box-shadow: var(--shadow-md);">
-                    <div class="service-card-header">
-                        <div class="service-icon">
-                            <i class="fas fa-solar-panel"></i>
-                        </div>
-                    </div>
-                    <h3 class="service-card-title">Renewable Energy Solutions</h3>
-                    <p class="service-card-description">
-                        Our renewable energy services help reduce energy costs and environmental impact by
-                        delivering sustainable solar-powered alternatives.
-                    </p>
+            <h2 class="section-title text-center animate-on-scroll">Our <span class="title-accent">Services</span></h2>
+            
+            <div class="services-grid">
+                <!-- Chemical Management -->
+                <div class="service-item animate-on-scroll">
+                    <div class="service-icon-large"><i class="fas fa-flask"></i></div>
+                    <h3>Chemical Management</h3>
+                    <p>Supply and management of commodity chemicals for offshore production and mining. Includes chemical blending and lubricant services backed by global technical partnerships.</p>
                 </div>
 
-                 <!-- Energy Efficiency (Adding implied service based on description) -->
-                 <div class="service-card animate-on-scroll delay-1" style="background: var(--white); padding: var(--spacing-lg); border-radius: var(--radius-lg); box-shadow: var(--shadow-md);">
-                    <div class="service-card-header">
-                        <div class="service-icon">
-                            <i class="fas fa-leaf"></i>
-                        </div>
-                    </div>
-                    <h3 class="service-card-title">Energy Efficiency Services</h3>
-                    <p class="service-card-description">
-                        We analyze and optimize your energy usage to implement efficiency measures that lower operational costs and improve sustainability.
-                    </p>
+                <!-- Filtration -->
+                <div class="service-item animate-on-scroll delay-1">
+                     <div class="service-icon-large"><i class="fas fa-filter"></i></div>
+                    <h3>Filtration</h3>
+                    <p>Expert fluid filtration (chemicals to lubricants) improving product cleanliness to industry standards (e.g., SAE AS4059) using ultramodern equipment.</p>
                 </div>
 
+                <!-- Blending -->
+                <div class="service-item animate-on-scroll delay-2">
+                     <div class="service-icon-large"><i class="fas fa-blender"></i></div>
+                    <h3>Blending</h3>
+                    <p>State-of-the-art 15-ton plant blending solvent chemicals (Caustic Soda, HCl, Citric Acid, MEG) to precise client concentrations for the West African region.</p>
+                </div>
+
+                <!-- Asset Integrity Services -->
+                <div class="service-item animate-on-scroll">
+                     <div class="service-icon-large"><i class="fas fa-tools"></i></div>
+                    <h3>Asset Integrity Services</h3>
+                    <p>Optimizing asset performance and safety through inspection, topside repairs, pipe repairs, tank repairs, and coating services.</p>
+                </div>
+
+                <!-- Warehousing -->
+                <div class="service-item animate-on-scroll delay-1">
+                     <div class="service-icon-large"><i class="fas fa-warehouse"></i></div>
+                    <h3>Warehousing</h3>
+                    <p>International standard storage including a 6x1086sqm Takoradi facility with 10,000sqm yard, plus committed chemical and lubricant warehouses.</p>
+                </div>
+
+                 <!-- Equipment Rental -->
+                 <div class="service-item animate-on-scroll delay-2">
+                    <div class="service-icon-large"><i class="fas fa-truck-loading"></i></div>
+                   <h3>Equipment Rental</h3>
+                   <p>Rental of specialized equipment including pneumatic pumps, filtration skids, and forklifts (3-ton) to support your operations.</p>
+               </div>
             </div>
         </div>
     </section>
 
-    <!-- Partners/Clients Section -->
-    <section class="partners-logos-section" style="padding: var(--spacing-2xl) 0;">
+    <!-- Interactive Gallery Slider -->
+    <section class="gallery-section">
+        <div class="gallery-container" id="gallery-slider">
+            <div class="gallery-slide active" style="background-image: url('../assets/ensolgallaryimg1.jpg');"></div>
+            <div class="gallery-slide" style="background-image: url('../assets/ensolgallaryimg2.jpg');"></div>
+            <div class="gallery-slide" style="background-image: url('../assets/ensolgallaryimg3.jpg');"></div>
+            <div class="gallery-slide" style="background-image: url('../assets/ensolgallaryimg4.jpg');"></div>
+            <div class="gallery-slide" style="background-image: url('../assets/ensolgallaryimg5.jpg');"></div>
+            <div class="gallery-slide" style="background-image: url('../assets/ensolgallaryimg6.jpg');"></div>
+            <div class="gallery-slide" style="background-image: url('../assets/ensolgallaryimg7.jpg');"></div>
+            
+            <div class="subsidiary-hero-overlay" style="background: linear-gradient(to top, rgba(0,0,0,0.8), transparent 40%); pointer-events: none;"></div>
+
+            <div class="gallery-content">
+                <h3>Our Operations Gallery</h3>
+                <p>A glimpse into our state-of-the-art facilities and operations.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Experience & Projects Section -->
+    <section class="section-padding">
         <div class="container">
-            <h2 class="section-title animate-on-scroll" style="text-align: center; margin-bottom: var(--spacing-lg);">Our <span class="title-accent">Partners & Clients</span></h2>
-            <div class="partners-logos-grid">
-                <div class="partner-logo-card animate-on-scroll">
-                    <img src="../assets/newmount.webp" alt="Newmont" class="partner-logo-img">
+            <h2 class="section-title text-center animate-on-scroll">Proven <span class="title-accent">Experience</span></h2>
+             
+            <div class="content-block animate-on-scroll">
+                <h4>Methanol Decanting (Offshore & Onshore)</h4>
+                <p>Ensol Energy is the first indigenous Ghanaian company to successfully decant Methanol for Tullow Oil Ghana Limited. Our highly skilled team ensures all jobs are carried out without accidents, specializing in transfers from ISO Tanks to supply vessel methanol tanks, ISO Tanks to ISO Tanks, and ISO Tanks to Tote tanks, all under strict industry practice.</p>
+            </div>
+
+            <div class="content-block animate-on-scroll">
+                <h4>Chemical Management</h4>
+                <p>We offer chemical storage and handling for Oil & Gas and Mining industries. We supply chemicals such as Hydrochloric Acid, Sodium Hydroxide, Sodium Hypochlorite, Citric Acid, MEG, and TEG using state-of-the-art technology to meet quality assurance standards.</p>
+            </div>
+
+            <div class="content-block animate-on-scroll">
+                <h4>Lubricants Storage and Handling</h4>
+                <p>Ensol Energy has a 4,000sqm capacity warehouse for the storage of industrial lubricants used by widespread industries.</p>
+            </div>
+            
+            <div class="content-block animate-on-scroll">
+                <h4>Key Clients & Projects</h4>
+                <p>We have provided services for major clients and assets including:</p>
+                <div class="list-check">
+                    <ul>
+                        <li>Tullow Ghana (Chemical and Lubricant supply)</li>
+                        <li>FPSO KNK</li>
+                        <li>FPSO JEAM</li>
+                        <li>FPSO JAK</li>
+                        <li>MAERSK Venturer</li>
+                    </ul>
                 </div>
-                <div class="partner-logo-card animate-on-scroll delay-1">
-                    <img src="../assets/anglogold-ashanti-logo.jpg" alt="AngloGold Ashanti" class="partner-logo-img">
+            </div>
+            
+            <div class="content-block animate-on-scroll" style="margin-top: 30px; background: var(--light-bg); padding: 20px; border-radius: 8px;">
+                <h4 style="color: var(--vivid-red);">Social Investment</h4>
+                <p>Ensol Energy is committed and determined to support STEM Education in its operational areas. In 2023, 100 science Books were donated to St. Mary Boys Senior High School and Ahantaman Girls High School in Sekondi-Takoradi Municipality.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Certifications Section -->
+    <section class="section-padding bg-light">
+        <div class="container text-center">
+            <h2 class="section-title animate-on-scroll">Our <span class="title-accent">Certifications</span></h2>
+            <p class="animate-on-scroll" style="max-width: 800px; margin: 0 auto var(--spacing-lg) auto;">
+                Ensol Energy Ghana Limited is committed to delivering excellent and world-class service while employing the best safety standards, protecting the environment, and meeting customer requirements.
+            </p>
+            <div class="values-grid" style="justify-content: center;">
+                 <div class="value-card animate-on-scroll">
+                    <i class="fas fa-certificate fa-3x" style="color: #4CAF50; margin-bottom: 15px;"></i>
+                    <h4>ISO 45001:2018</h4>
+                    <p>Occupational Health & Safety Management System</p>
                 </div>
-                 <div class="partner-logo-card animate-on-scroll delay-2">
-                    <img src="../assets/ghana mining .png" alt="Ghana Mining" class="partner-logo-img">
+                <div class="value-card animate-on-scroll delay-1">
+                    <i class="fas fa-globe-americas fa-3x" style="color: #2196F3; margin-bottom: 15px;"></i>
+                    <h4>ISO 14001:2015</h4>
+                    <p>Environmental Management System</p>
+                </div>
+                <div class="value-card animate-on-scroll delay-2">
+                    <i class="fas fa-award fa-3x" style="color: #FFC107; margin-bottom: 15px;"></i>
+                    <h4>ISO 9001:2015</h4>
+                    <p>Quality Management System</p>
                 </div>
             </div>
         </div>
@@ -189,7 +476,9 @@
         <div class="container" style="text-align: center;">
             <h2 class="section-title animate-on-scroll" style="color: var(--white);">Get In <span class="title-accent">Touch</span></h2>
             <p class="animate-on-scroll width-100" style="max-width: 600px; margin: 0 auto var(--spacing-lg) auto;">
-                Looking for sustainable energy solutions? Contact Ensol Energy today.
+                <strong>Accra Office:</strong> Hse/No. E3, Nii Osae Ntiful Avenue, East Legon, Accra<br>
+                <strong>Phone:</strong> +233-302 263 119 | +233-242 219 407<br>
+                <strong>Email:</strong> info@ensolenergy.com
             </p>
             <a href="contact.php" class="btn btn-primary animate-on-scroll" style="background: var(--vivid-red); border: none;">Contact Us</a>
         </div>
@@ -212,7 +501,7 @@
                         <h4 style="margin-top: 10px; color: var(--white);">Ensol Energy</h4>
                     </div>
                     <p class="footer-description">
-                        Leading provider of renewable energy and solar solutions.
+                        Leading provider of renewable energy and integrated solutions.
                     </p>
                 </div>
 
@@ -229,14 +518,15 @@
                 <div class="footer-section footer-contact animate-on-scroll delay-2">
                     <h3 class="footer-title">Contact us</h3>
                     <p>Ready to discuss your next project?</p>
-                    <a href="tel:0302290798" class="contact-phone">
+                    <a href="tel:+233302263119" class="contact-phone">
                         <i class="fas fa-phone"></i>
-                        030 229 0798
+                        +233 302 263 119
                     </a>
                 </div>
 
                 <div class="footer-section footer-map animate-on-scroll delay-3">
                     <div class="map-container">
+                        <!-- Default map, user may want specific location if different from group -->
                         <iframe
                             src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3970.4085632013343!2d-0.14812382483792785!3d5.653889832657222!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xfdf83efc1100ccf%3A0x961f56daf43786df!2sEnsol%20Group%20Ltd!5e0!3m2!1sen!2sgh!4v1769617248947!5m2!1sen!2sgh"
                             width="100%" height="150" style="border:0; border-radius: 8px;" allowfullscreen=""
@@ -267,6 +557,25 @@
 
     <!-- Scripts -->
     <script src="../script.js"></script>
+    <script>
+        // Gallery Slider Script
+        document.addEventListener('DOMContentLoaded', function() {
+            const slides = document.querySelectorAll('.gallery-slide');
+            const totalSlides = slides.length;
+            let currentSlide = 0;
+            const slideInterval = 5000; // 5 seconds per slide (user requested 3-5 sec)
+
+            function nextSlide() {
+                slides[currentSlide].classList.remove('active');
+                currentSlide = (currentSlide + 1) % totalSlides;
+                slides[currentSlide].classList.add('active');
+            }
+
+            if (totalSlides > 1) {
+                setInterval(nextSlide, slideInterval);
+            }
+        });
+    </script>
 </body>
 
 </html>
