@@ -272,7 +272,7 @@
 
         <div class="footer-bottom">
             <div class="container">
-                <p>&copy; 2025 Copyright by JosephLartey. All rights reserved.</p>
+                <p>&copy; 2025 Copyright by EnsolGroup. All rights reserved.</p>
             </div>
         </div>
     </footer>

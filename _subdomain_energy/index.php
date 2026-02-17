@@ -243,7 +243,7 @@
             <div class="about-group-content">
                 <div class="about-group-text animate-on-scroll">
                     <h2 class="section-title-left">About <span class="title-accent">Ensol Energy</span></h2>
-                    <p>Ensol Energy is a 100% indigenous Ghanaian company delivering integrated engineering, logistics, and supply chain solutions to the extractive and infrastructure sectors. In partnership with major global OEMs, we provide specialized manpower and tailored distribution services across the Oil & Gas, Energy, and Mining industries. We prioritize precision and reliability, ensuring our clients get exactly what they need, when and where they need it.</p>
+                    <p>Ensol Energy is a subsidiary of <a href="https://ensolgroup.com.gh" target="_blank" style="color: var(--vivid-red); font-weight: bold;">Ensol Group</a> and a 100% indigenous Ghanaian company delivering integrated engineering, logistics, and supply chain solutions to the extractive and infrastructure sectors. In partnership with major global OEMs, we provide specialized manpower and tailored distribution services across the Oil & Gas, Energy, and Mining industries. We prioritize precision and reliability, ensuring our clients get exactly what they need, when and where they need it.</p>
                     
                     <div class="content-block" style="margin-top: 20px;">
                         <h3>Why Choose Us?</h3>
@@ -520,7 +520,7 @@
 
         <div class="footer-bottom">
             <div class="container">
-                <p>&copy; 2025 Copyright by JosephLartey. All rights reserved.</p>
+                <p>&copy; 2025 Copyright by EnsolGroup. All rights reserved.</p>
             </div>
         </div>
     </footer>
