@@ -428,19 +428,19 @@
             <p class="animate-on-scroll" style="max-width: 800px; margin: 0 auto var(--spacing-lg) auto;">
                 Ensol Energy Ghana Limited is committed to delivering excellent and world-class service while employing the best safety standards, protecting the environment, and meeting customer requirements.
             </p>
-            <div class="values-grid" style="justify-content: center;">
-                 <div class="value-card animate-on-scroll">
-                    <i class="fas fa-certificate fa-3x" style="color: #4CAF50; margin-bottom: 15px;"></i>
+            <div class="values-grid" style="display: flex; justify-content: center; gap: 20px; flex-wrap: wrap;">
+                 <div class="value-card animate-on-scroll" style="flex: 1; min-width: 250px; max-width: 300px;">
+                    <img src="assets/iso_45001.jpeg" alt="ISO 45001:2018" style="width: 100%; height: auto; margin-bottom: 15px; border-radius: 8px;">
                     <h4>ISO 45001:2018</h4>
                     <p>Occupational Health & Safety Management System</p>
                 </div>
-                <div class="value-card animate-on-scroll delay-1">
-                    <i class="fas fa-globe-americas fa-3x" style="color: #2196F3; margin-bottom: 15px;"></i>
+                <div class="value-card animate-on-scroll delay-1" style="flex: 1; min-width: 250px; max-width: 300px;">
+                    <img src="assets/iso_14001.jpeg" alt="ISO 14001:2015" style="width: 100%; height: auto; margin-bottom: 15px; border-radius: 8px;">
                     <h4>ISO 14001:2015</h4>
                     <p>Environmental Management System</p>
                 </div>
-                <div class="value-card animate-on-scroll delay-2">
-                    <i class="fas fa-award fa-3x" style="color: #FFC107; margin-bottom: 15px;"></i>
+                <div class="value-card animate-on-scroll delay-2" style="flex: 1; min-width: 250px; max-width: 300px;">
+                    <img src="assets/iso_9001.jpeg" alt="ISO 9001:2015" style="width: 100%; height: auto; margin-bottom: 15px; border-radius: 8px;">
                     <h4>ISO 9001:2015</h4>
                     <p>Quality Management System</p>
                 </div>
