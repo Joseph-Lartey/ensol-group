@@ -278,6 +278,33 @@
         </div>
     </section>
 
+
+    <!-- Operations Management Section -->
+    <section class="section-padding">
+        <div class="container">
+            <h2 class="section-title text-center animate-on-scroll">Operations <span class="title-accent">Management</span></h2>
+            
+            <div class="leadership-card animate-on-scroll delay-1">
+                <div class="leadership-img">
+                    <!-- Padmore Y. Amati Photo -->
+                    <img src="assets/project_manager.jpeg" alt="Padmore Y. Amati - Operations Manager">
+                </div>
+                <div class="leadership-info">
+                    <h3 class="leader-name">Padmore Y. Amati</h3>
+                    <h4 class="leader-role">Operations Manager</h4>
+                    
+                    <div class="leader-bio">
+                        <p>Padmore Y. Amati is a seasoned professional with over a decade of progressive experience in Ghana’s oil and gas services industry. His expertise spans Occupational Safety and Health (OSH), Logistics, and Operations Management, where he has consistently driven performance, compliance, and operational efficiency.</p>
+                        
+                        <p>Throughout his career, Padmore has demonstrated a strong commitment to operational excellence, ensuring that projects are executed to the highest industry standards while exceeding client expectations. His professional philosophy is anchored in delivery results without compromising the health and safety of personnel, environmental stewardship, or business sustainability.</p>
+                        
+                        <p>He is recognized for his disciplined leadership approach, strategic thinking, and unwavering dedication to safe, efficient, and value-driven service delivery.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
     <!-- Core Values Section -->
     <section class="section-padding bg-light">
         <div class="container">

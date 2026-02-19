@@ -2813,3 +2813,83 @@ ul {
 .slider-track:hover {
     animation-play-state: paused;
 }
+
+/* ========================================
+   LEADERSHIP / OPERATIONS PROFILE
+   ======================================== */
+.leadership-card {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-xl);
+    background: var(--white);
+    padding: var(--spacing-xl);
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow-md);
+    max-width: 1000px;
+    margin: var(--spacing-lg) auto 0;
+    border-left: 5px solid var(--vivid-red);
+}
+
+.leadership-img {
+    flex: 0 0 300px;
+    position: relative;
+    border-radius: var(--radius-md);
+    overflow: hidden;
+    box-shadow: var(--shadow-lg);
+}
+
+.leadership-img img {
+    width: 100%;
+    height: auto;
+    display: block;
+    transition: transform 0.3s ease;
+}
+
+.leadership-img:hover img {
+    transform: scale(1.05);
+}
+
+.leadership-info {
+    flex: 1;
+}
+
+.leader-name {
+    color: var(--vivid-red);
+    font-size: 2rem;
+    margin-bottom: var(--spacing-xs);
+    font-weight: 800;
+}
+
+.leader-role {
+    color: var(--text-gray);
+    font-size: 1.2rem;
+    margin-bottom: var(--spacing-md);
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    border-bottom: 2px solid var(--light-gray);
+    padding-bottom: var(--spacing-xs);
+    display: inline-block;
+}
+
+.leader-bio p {
+    margin-bottom: var(--spacing-sm);
+    line-height: 1.8;
+    color: var(--dark-gray);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .leadership-card {
+        flex-direction: column;
+        text-align: center;
+        padding: var(--spacing-lg);
+    }
+
+    .leadership-img {
+        flex: 0 0 auto;
+        width: 100%;
+        max-width: 300px;
+        margin: 0 auto var(--spacing-md);
+    }
+}
