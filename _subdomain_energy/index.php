@@ -43,13 +43,18 @@
             overflow: hidden;
         }
 
-        .subsidiary-hero-img {
+        .hero-slide {
             position: absolute;
             top: 0;
             left: 0;
             width: 100%;
             height: 100%;
             object-fit: cover;
+            opacity: 0;
+            transition: opacity 1.2s ease-in-out;
+        }
+
+        .hero-slide.active {
             opacity: 0.6;
         }
 
@@ -228,13 +233,10 @@
 
 <body>
     <!-- Hero Banner -->
-    <section class="subsidiary-hero">
+    <section class="subsidiary-hero" id="hero-banner">
+        <img src="assets/slider_1.jpg" alt="Ensol Energy" class="hero-slide active">
+        <img src="assets/slider_2.jpg" alt="Ensol Energy Operations" class="hero-slide">
         <div class="subsidiary-hero-overlay"></div>
-        <img src="assets/ensol_energy.jpeg" alt="Ensol Energy" class="subsidiary-hero-img">
-        <div class="subsidiary-hero-content animate-on-scroll">
-            <h1 class="subsidiary-hero-title">Ensol Energy</h1>
-            <p class="hero-description" style="color: var(--white); font-size: 1.2rem;">Integrated Engineering, Logistics & Supply Chain Solutions</p>
-        </div>
     </section>
 
     <!-- About Section -->
@@ -279,10 +281,10 @@
     </section>
 
 
-    <!-- Operations Management Section -->
+    <!-- Team Lead Section -->
     <section class="section-padding">
         <div class="container">
-            <h2 class="section-title text-center animate-on-scroll">Operations <span class="title-accent">Management</span></h2>
+            <h2 class="section-title text-center animate-on-scroll">Our <span class="title-accent">Team Lead</span></h2>
             
             <div class="leadership-card animate-on-scroll delay-1">
                 <div class="leadership-img">
@@ -561,22 +563,26 @@
     <!-- Scripts -->
     <script src="script.js?v=3"></script>
     <script>
-        // Gallery Slider Script
         document.addEventListener('DOMContentLoaded', function() {
-            const slides = document.querySelectorAll('.gallery-slide');
-            const totalSlides = slides.length;
-            let currentSlide = 0;
-            const slideInterval = 5000;
-
-            function nextSlide() {
-                slides[currentSlide].classList.remove('active');
-                currentSlide = (currentSlide + 1) % totalSlides;
-                slides[currentSlide].classList.add('active');
+            // Gallery Slider
+            const gallerySlides = document.querySelectorAll('.gallery-slide');
+            let currentGallery = 0;
+            function nextGallerySlide() {
+                gallerySlides[currentGallery].classList.remove('active');
+                currentGallery = (currentGallery + 1) % gallerySlides.length;
+                gallerySlides[currentGallery].classList.add('active');
             }
+            if (gallerySlides.length > 1) setInterval(nextGallerySlide, 5000);
 
-            if (totalSlides > 1) {
-                setInterval(nextSlide, slideInterval);
+            // Hero Slider
+            const heroSlides = document.querySelectorAll('.hero-slide');
+            let currentHero = 0;
+            function nextHeroSlide() {
+                heroSlides[currentHero].classList.remove('active');
+                currentHero = (currentHero + 1) % heroSlides.length;
+                heroSlides[currentHero].classList.add('active');
             }
+            if (heroSlides.length > 1) setInterval(nextHeroSlide, 5000);
         });
     </script>
 </body>
