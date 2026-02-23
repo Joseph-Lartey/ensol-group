@@ -46,16 +46,22 @@
         .hero-slide {
             position: absolute;
             top: 0;
-            left: 0;
+            left: 100%; /* Start off-screen right */
             width: 100%;
             height: 100%;
             object-fit: cover;
-            opacity: 0;
-            transition: opacity 1.2s ease-in-out;
+            transition: left 1.2s ease-in-out;
+            z-index: 1;
         }
 
         .hero-slide.active {
-            opacity: 0.6;
+            left: 0; /* Move to center */
+            z-index: 2; /* Keep active on top */
+        }
+        
+        .hero-slide.prev {
+             left: -100%; /* Move off-screen left */
+             z-index: 1;
         }
 
         .subsidiary-hero-overlay {
@@ -234,9 +240,8 @@
 <body>
     <!-- Hero Banner -->
     <section class="subsidiary-hero" id="hero-banner">
-        <img src="assets/slider_1.jpg" alt="Ensol Energy" class="hero-slide active">
+        <img src="assets/slider_img.png" alt="Ensol Energy" class="hero-slide active">
         <img src="assets/slider_2.jpg" alt="Ensol Energy Operations" class="hero-slide">
-        <div class="subsidiary-hero-overlay"></div>
     </section>
 
     <!-- About Section -->
@@ -578,11 +583,21 @@
             const heroSlides = document.querySelectorAll('.hero-slide');
             let currentHero = 0;
             function nextHeroSlide() {
-                heroSlides[currentHero].classList.remove('active');
+                // Remove all classes first
+                heroSlides.forEach(slide => {
+                    slide.classList.remove('active', 'prev');
+                });
+                
+                // Set the current slide as prev
+                heroSlides[currentHero].classList.add('prev');
+                
+                // Move to next slide
                 currentHero = (currentHero + 1) % heroSlides.length;
+                
+                // Make the next slide active
                 heroSlides[currentHero].classList.add('active');
             }
-            if (heroSlides.length > 1) setInterval(nextHeroSlide, 5000);
+            if (heroSlides.length > 1) setInterval(nextHeroSlide, 10000);
         });
     </script>
 </body>
