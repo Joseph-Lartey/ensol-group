@@ -390,6 +390,20 @@
                    <h3>Equipment Rental</h3>
                    <p>Rental of specialized equipment including pneumatic pumps, filtration skids, and forklifts (3-ton) to support your operations.</p>
                </div>
+
+                <!-- Decanting & Analysis -->
+                <div class="service-item animate-on-scroll">
+                    <div class="service-icon-large"><i class="fas fa-vial"></i></div>
+                    <h3>Decanting & Analysis</h3>
+                    <p>Expert decanting services and comprehensive chemical analysis ensuring product purity and safe transfer operations in compliance with strict industry standards.</p>
+                </div>
+
+                <!-- Lube Distribution -->
+                <div class="service-item animate-on-scroll delay-1">
+                    <div class="service-icon-large"><i class="fas fa-oil-can"></i></div>
+                    <h3>Lube Distribution</h3>
+                    <p>Reliable distribution of premium industrial lubricants, supported by extensive storage capabilities ensuring timely delivery and operational consistency.</p>
+                </div>
             </div>
         </div>
     </section>
