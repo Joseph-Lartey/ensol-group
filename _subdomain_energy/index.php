@@ -46,7 +46,8 @@
         .hero-slide {
             position: absolute;
             top: 0;
-            left: 100%; /* Start off-screen right */
+            left: 100%;
+            /* Start off-screen right */
             width: 100%;
             height: 100%;
             object-fit: cover;
@@ -55,13 +56,16 @@
         }
 
         .hero-slide.active {
-            left: 0; /* Move to center */
-            z-index: 2; /* Keep active on top */
+            left: 0;
+            /* Move to center */
+            z-index: 2;
+            /* Keep active on top */
         }
-        
+
         .hero-slide.prev {
-             left: -100%; /* Move off-screen left */
-             z-index: 1;
+            left: -100%;
+            /* Move off-screen left */
+            z-index: 1;
         }
 
         .subsidiary-hero-overlay {
@@ -87,7 +91,7 @@
             margin-bottom: var(--spacing-sm);
             text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
         }
-        
+
         /* Section Styling */
         .section-padding {
             padding: var(--spacing-2xl) 0;
@@ -182,7 +186,7 @@
         .gallery-slide.active {
             opacity: 1;
         }
-        
+
         .gallery-content {
             position: absolute;
             bottom: 50px;
@@ -190,7 +194,7 @@
             z-index: 10;
             color: white;
             padding: 20px;
-            background: rgba(0,0,0,0.5);
+            background: rgba(0, 0, 0, 0.5);
             border-left: 5px solid var(--vivid-red);
             max-width: 600px;
         }
@@ -227,9 +231,11 @@
             .gallery-container {
                 height: 400px;
             }
+
             .subsidiary-hero-title {
                 font-size: 2.5rem;
             }
+
             .services-grid {
                 grid-template-columns: 1fr;
             }
@@ -251,7 +257,7 @@
                 <div class="about-group-text animate-on-scroll">
                     <h2 class="section-title-left">About <span class="title-accent">Ensol Energy</span></h2>
                     <p>Ensol Energy is a subsidiary of <a href="https://ensolgroup.com.gh" target="_blank" style="color: var(--vivid-red); font-weight: bold;">Ensol Group</a> and a 100% indigenous Ghanaian company delivering integrated engineering, logistics, and supply chain solutions to the extractive and infrastructure sectors. In partnership with major global OEMs, we provide specialized manpower and tailored distribution services across the Oil & Gas, Energy, and Mining industries. We prioritize precision and reliability, ensuring our clients get exactly what they need, when and where they need it.</p>
-                    
+
                     <div class="content-block" style="margin-top: 20px;">
                         <h3>Why Choose Us?</h3>
                         <div class="list-check">
@@ -266,21 +272,21 @@
                     </div>
                 </div>
                 <div class="story-image animate-on-scroll delay-2">
-                    <img src="assets/img6.jpeg" alt="Ensol Energy Operations">
+                    <img src="assets/about_ensol.jpeg" alt="Ensol Energy Operations">
                 </div>
             </div>
-            
+
             <!-- Vision & Mission -->
-             <div class="services-grid" style="margin-top: 40px;">
+            <div class="services-grid" style="margin-top: 40px;">
                 <div class="service-item animate-on-scroll" style="background: var(--light-bg);">
-                   <h3 style="color: var(--vivid-red);">Vision Statement</h3>
-                   <p>To be a global player in the energy and extractive industries with a focus on integrated solutions.</p>
+                    <h3 style="color: var(--vivid-red);">Vision Statement</h3>
+                    <p>To be a global player in the energy and extractive industries with a focus on integrated solutions.</p>
                 </div>
                 <div class="service-item animate-on-scroll delay-1" style="background: var(--light-bg);">
                     <h3 style="color: var(--vivid-red);">Mission Statement</h3>
                     <p>To provide world-class engineering and logistics solutions to organizations across the energy and extractive value chain.</p>
-                 </div>
-             </div>
+                </div>
+            </div>
 
         </div>
     </section>
@@ -290,7 +296,7 @@
     <section class="section-padding">
         <div class="container">
             <h2 class="section-title text-center animate-on-scroll">Our <span class="title-accent">Team Lead</span></h2>
-            
+
             <div class="leadership-card animate-on-scroll delay-1">
                 <div class="leadership-img">
                     <!-- Padmore Y. Amati Photo -->
@@ -299,12 +305,12 @@
                 <div class="leadership-info">
                     <h3 class="leader-name">Padmore Y. Amati</h3>
                     <h4 class="leader-role">Operations Manager</h4>
-                    
+
                     <div class="leader-bio">
                         <p>Padmore Y. Amati is a seasoned professional with over a decade of progressive experience in Ghana’s oil and gas services industry. His expertise spans Occupational Safety and Health (OSH), Logistics, and Operations Management, where he has consistently driven performance, compliance, and operational efficiency.</p>
-                        
+
                         <p>Throughout his career, Padmore has demonstrated a strong commitment to operational excellence, ensuring that projects are executed to the highest industry standards while exceeding client expectations. His professional philosophy is anchored in delivery results without compromising the health and safety of personnel, environmental stewardship, or business sustainability.</p>
-                        
+
                         <p>He is recognized for his disciplined leadership approach, strategic thinking, and unwavering dedication to safe, efficient, and value-driven service delivery.</p>
                     </div>
                 </div>
@@ -317,7 +323,7 @@
         <div class="container">
             <h2 class="section-title text-center animate-on-scroll">Our <span class="title-accent">Core Values</span></h2>
             <p class="text-center" style="max-width: 800px; margin: 0 auto 40px auto;">We hold in high esteem our core values of Commitment to Safety & Quality, Partnership, Integrity, and Trust (CQ PIT).</p>
-            
+
             <div class="values-grid">
                 <div class="value-card animate-on-scroll">
                     <div class="value-icon"><i class="fas fa-shield-alt"></i></div>
@@ -330,12 +336,12 @@
                     <p>To effectively consolidate resources via strategic and fair partnerships to deliver world-class service.</p>
                 </div>
                 <div class="value-card animate-on-scroll delay-2">
-                     <div class="value-icon"><i class="fas fa-balance-scale"></i></div>
+                    <div class="value-icon"><i class="fas fa-balance-scale"></i></div>
                     <h4>Integrity</h4>
                     <p>We believe in carrying out all our dealings and transactions with utmost transparency.</p>
                 </div>
                 <div class="value-card animate-on-scroll delay-3">
-                     <div class="value-icon"><i class="fas fa-users"></i></div>
+                    <div class="value-icon"><i class="fas fa-users"></i></div>
                     <h4>Trust</h4>
                     <p>To trust in our team because teamwork is essential in the success of every business.</p>
                 </div>
@@ -347,7 +353,7 @@
     <section class="section-padding">
         <div class="container">
             <h2 class="section-title text-center animate-on-scroll">Our <span class="title-accent">Services</span></h2>
-            
+
             <div class="services-grid">
                 <!-- Chemical Management -->
                 <div class="service-item animate-on-scroll">
@@ -358,38 +364,38 @@
 
                 <!-- Filtration -->
                 <div class="service-item animate-on-scroll delay-1">
-                     <div class="service-icon-large"><i class="fas fa-filter"></i></div>
+                    <div class="service-icon-large"><i class="fas fa-filter"></i></div>
                     <h3>Filtration</h3>
                     <p>Expert fluid filtration (chemicals to lubricants) improving product cleanliness to industry standards (e.g., SAE AS4059) using ultramodern equipment.</p>
                 </div>
 
                 <!-- Blending -->
                 <div class="service-item animate-on-scroll delay-2">
-                     <div class="service-icon-large"><i class="fas fa-blender"></i></div>
+                    <div class="service-icon-large"><i class="fas fa-blender"></i></div>
                     <h3>Blending</h3>
                     <p>State-of-the-art 15-ton plant blending solvent chemicals (Caustic Soda, HCl, Citric Acid, MEG) to precise client concentrations for the West African region.</p>
                 </div>
 
                 <!-- Asset Integrity Services -->
                 <div class="service-item animate-on-scroll">
-                     <div class="service-icon-large"><i class="fas fa-tools"></i></div>
+                    <div class="service-icon-large"><i class="fas fa-tools"></i></div>
                     <h3>Asset Integrity Services</h3>
                     <p>Optimizing asset performance and safety through inspection, topside repairs, pipe repairs, tank repairs, and coating services.</p>
                 </div>
 
                 <!-- Warehousing -->
                 <div class="service-item animate-on-scroll delay-1">
-                     <div class="service-icon-large"><i class="fas fa-warehouse"></i></div>
-                    <h3>Warehousing</h3>
+                    <div class="service-icon-large"><i class="fas fa-warehouse"></i></div>
+                    <h3>Warehousing and Supply</h3>
                     <p>International standard storage including a 6x1086sqm Takoradi facility with 10,000sqm yard, plus committed chemical and lubricant warehouses.</p>
                 </div>
 
-                 <!-- Equipment Rental -->
-                 <div class="service-item animate-on-scroll delay-2">
+                <!-- Equipment Rental -->
+                <div class="service-item animate-on-scroll delay-2">
                     <div class="service-icon-large"><i class="fas fa-truck-loading"></i></div>
-                   <h3>Equipment Rental</h3>
-                   <p>Rental of specialized equipment including pneumatic pumps, filtration skids, and forklifts (3-ton) to support your operations.</p>
-               </div>
+                    <h3>Equipment Rental</h3>
+                    <p>Rental of specialized equipment including pneumatic pumps, filtration skids, and forklifts (3-ton) to support your operations.</p>
+                </div>
 
                 <!-- Decanting & Analysis -->
                 <div class="service-item animate-on-scroll">
@@ -409,6 +415,12 @@
     </section>
 
     <!-- Interactive Gallery Slider -->
+    <section class="section-padding" style="padding-bottom: 2rem;">
+        <div class="container">
+            <h2 class="section-title text-center animate-on-scroll">Our <span class="title-accent">Projects</span></h2>
+        </div>
+    </section>
+
     <section class="gallery-section">
         <div class="gallery-container" id="gallery-slider">
             <div class="gallery-slide active" style="background-image: url('assets/ensolgallaryimg1.jpg');"></div>
@@ -418,7 +430,7 @@
             <div class="gallery-slide" style="background-image: url('assets/ensolgallaryimg5.jpg');"></div>
             <div class="gallery-slide" style="background-image: url('assets/ensolgallaryimg6.jpg');"></div>
             <div class="gallery-slide" style="background-image: url('assets/ensolgallaryimg7.jpg');"></div>
-            
+
             <div class="subsidiary-hero-overlay" style="background: linear-gradient(to top, rgba(0,0,0,0.8), transparent 40%); pointer-events: none;"></div>
 
             <div class="gallery-content">
@@ -432,7 +444,7 @@
     <section class="section-padding">
         <div class="container">
             <h2 class="section-title text-center animate-on-scroll">Proven <span class="title-accent">Experience</span></h2>
-             
+
             <div class="content-block animate-on-scroll">
                 <h4>Methanol Decanting (Offshore & Onshore)</h4>
                 <p>Ensol Energy is the first indigenous Ghanaian company to successfully decant Methanol for Tullow Oil Ghana Limited. Our highly skilled team ensures all jobs are carried out without accidents, specializing in transfers from ISO Tanks to supply vessel methanol tanks, ISO Tanks to ISO Tanks, and ISO Tanks to Tote tanks, all under strict industry practice.</p>
@@ -447,7 +459,7 @@
                 <h4>Lubricants Storage and Handling</h4>
                 <p>Ensol Energy has a 4,000sqm capacity warehouse for the storage of industrial lubricants used by widespread industries.</p>
             </div>
-            
+
             <div class="content-block animate-on-scroll">
                 <h4>Key Clients & Projects</h4>
                 <p>We have provided services for major clients and assets including:</p>
@@ -461,7 +473,7 @@
                     </ul>
                 </div>
             </div>
-            
+
             <div class="content-block animate-on-scroll" style="margin-top: 30px; background: var(--light-bg); padding: 20px; border-radius: 8px;">
                 <h4 style="color: var(--vivid-red);">Social Investment</h4>
                 <p>Ensol Energy is committed and determined to support STEM Education in its operational areas. In 2023, 100 science Books were donated to St. Mary Boys Senior High School and Ahantaman Girls High School in Sekondi-Takoradi Municipality.</p>
@@ -477,7 +489,7 @@
                 Ensol Energy Ghana Limited is committed to delivering excellent and world-class service while employing the best safety standards, protecting the environment, and meeting customer requirements.
             </p>
             <div class="values-grid" style="display: flex; justify-content: center; gap: 20px; flex-wrap: wrap;">
-                 <div class="value-card animate-on-scroll" style="flex: 1; min-width: 250px; max-width: 300px;">
+                <div class="value-card animate-on-scroll" style="flex: 1; min-width: 250px; max-width: 300px;">
                     <img src="assets/iso_45001.jpeg" alt="ISO 45001:2018" style="width: 100%; height: auto; margin-bottom: 15px; border-radius: 8px;">
                     <h4>ISO 45001:2018</h4>
                     <p>Occupational Health & Safety Management System</p>
@@ -522,7 +534,7 @@
             <div class="footer-content">
                 <div class="footer-section footer-about animate-on-scroll">
                     <div class="footer-logo">
-                        <img src="assets/ensol_logo.jpg" alt="Ensol Group">
+                        <img src="assets/ensol_energy.jpeg" alt="Ensol Group">
                         <h4 style="margin-top: 10px; color: var(--white);">Ensol Energy</h4>
                     </div>
                     <p class="footer-description">
@@ -557,7 +569,7 @@
                             loading="lazy" referrerpolicy="no-referrer-when-downgrade">
                         </iframe>
                     </div>
-                     <div class="social-links">
+                    <div class="social-links">
                         <a href="https://www.linkedin.com/company/ensolgrouptd/" target="_blank" class="social-icon" aria-label="LinkedIn">
                             <i class="fab fa-linkedin-in"></i>
                         </a>
@@ -586,6 +598,7 @@
             // Gallery Slider
             const gallerySlides = document.querySelectorAll('.gallery-slide');
             let currentGallery = 0;
+
             function nextGallerySlide() {
                 gallerySlides[currentGallery].classList.remove('active');
                 currentGallery = (currentGallery + 1) % gallerySlides.length;
@@ -596,18 +609,19 @@
             // Hero Slider
             const heroSlides = document.querySelectorAll('.hero-slide');
             let currentHero = 0;
+
             function nextHeroSlide() {
                 // Remove all classes first
                 heroSlides.forEach(slide => {
                     slide.classList.remove('active', 'prev');
                 });
-                
+
                 // Set the current slide as prev
                 heroSlides[currentHero].classList.add('prev');
-                
+
                 // Move to next slide
                 currentHero = (currentHero + 1) % heroSlides.length;
-                
+
                 // Make the next slide active
                 heroSlides[currentHero].classList.add('active');
             }

@@ -38,6 +38,7 @@
                     <li><a href="services.php" class="nav-link active">Services</a></li>
                     <li><a href="clients.php" class="nav-link">Clients</a></li>
                     <li><a href="news.php" class="nav-link">News</a></li>
+                    <li><a href="career.php" class="nav-link">Career</a></li>
                     <li><a href="contact.php" class="nav-link btn-contact">Contact Us</a></li>
                 </ul>
 
