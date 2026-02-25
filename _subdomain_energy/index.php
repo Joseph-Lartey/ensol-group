@@ -481,6 +481,36 @@
         </div>
     </section>
 
+    <!-- Partners Logos Section -->
+    <section class="partners-logos-section section-padding" style="background-color: var(--light-bg); padding-top: 2rem;">
+        <div class="container">
+            <h2 class="section-title text-center animate-on-scroll">Our <span class="title-accent">Clients</span></h2>
+            <div class="partners-logos-grid" style="margin-top: 3rem;">
+                <!-- Row 1 -->
+                <div class="partner-logo-card animate-on-scroll">
+                    <img src="../assets/tullow.webp" alt="Tullow Oil" class="partner-logo-img">
+                </div>
+                <div class="partner-logo-card animate-on-scroll delay-1">
+                    <img src="../assets/ghana mining .png" alt="Ghana Mining Competencies" class="partner-logo-img">
+                </div>
+                <div class="partner-logo-card animate-on-scroll delay-2">
+                    <img src="../assets/modec.png" alt="MODEC" class="partner-logo-img">
+                </div>
+
+                <!-- Row 2 -->
+                <div class="partner-logo-card animate-on-scroll delay-1">
+                    <img src="../assets/newmount.webp" alt="Newmont" class="partner-logo-img">
+                </div>
+                <div class="partner-logo-card animate-on-scroll delay-2">
+                    <img src="../assets/anglogold-ashanti-logo.jpg" alt="AngloGold Ashanti" class="partner-logo-img">
+                </div>
+                <div class="partner-logo-card animate-on-scroll delay-3">
+                    <img src="../assets/eni.png" alt="ENI Ghana" class="partner-logo-img">
+                </div>
+            </div>
+        </div>
+    </section>
+
     <!-- Certifications Section -->
     <section class="section-padding bg-light">
         <div class="container text-center">

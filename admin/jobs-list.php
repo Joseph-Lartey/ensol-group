@@ -2,24 +2,24 @@
 require_once __DIR__ . '/../includes/config.php';
 requireLogin();
 
-// Get all articles with pagination
+// Get all jobs with pagination
 $page = isset($_GET['page']) ? (int)$_GET['page'] : 1;
 $perPage = 20;
 $offset = ($page - 1) * $perPage;
 
 // Get total count
-$totalCount = $pdo->query("SELECT COUNT(*) FROM news_articles")->fetchColumn();
+$totalCount = $pdo->query("SELECT COUNT(*) FROM job_postings")->fetchColumn();
 $totalPages = ceil($totalCount / $perPage);
 
-// Get articles
+// Get jobs
 $stmt = $pdo->prepare("
-    SELECT id, title, category, is_published, views, likes, created_at 
-    FROM news_articles 
+    SELECT id, title, subsidiary, category, location, job_type, is_active, created_at 
+    FROM job_postings 
     ORDER BY created_at DESC 
     LIMIT ? OFFSET ?
 ");
 $stmt->execute([$perPage, $offset]);
-$articles = $stmt->fetchAll();
+$jobs = $stmt->fetchAll();
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -27,7 +27,7 @@ $articles = $stmt->fetchAll();
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>All Articles | Ensol News Admin</title>
+    <title>All Jobs | Ensol Careers Admin</title>
     <link rel="icon" type="image/png" href="../assets/favicon.png">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
@@ -40,7 +40,7 @@ $articles = $stmt->fetchAll();
         <aside class="admin-sidebar">
             <div class="admin-sidebar-header">
                 <img src="../assets/ensol_logo.jpg" alt="Ensol" class="admin-logo">
-                <h3>News Admin</h3>
+                <h3>Careers Admin</h3>
             </div>
 
             <nav class="admin-nav">
@@ -48,17 +48,17 @@ $articles = $stmt->fetchAll();
                     <i class="fas fa-tachometer-alt"></i>
                     <span>Dashboard</span>
                 </a>
-                <a href="news-list.php" class="admin-nav-item active">
+                <a href="news-list.php" class="admin-nav-item">
                     <i class="fas fa-newspaper"></i>
                     <span>News Articles</span>
                 </a>
-                <a href="jobs-list.php" class="admin-nav-item">
+                <a href="jobs-list.php" class="admin-nav-item active">
                     <i class="fas fa-briefcase"></i>
                     <span>Job Postings</span>
                 </a>
-                <a href="news-editor.php" class="admin-nav-item">
+                <a href="job-editor.php" class="admin-nav-item">
                     <i class="fas fa-plus-circle"></i>
-                    <span>New Article</span>
+                    <span>New Job</span>
                 </a>
                 <a href="../index.php" class="admin-nav-item" target="_blank">
                     <i class="fas fa-globe"></i>
@@ -69,7 +69,7 @@ $articles = $stmt->fetchAll();
             <div class="admin-sidebar-footer">
                 <div class="admin-user-info">
                     <i class="fas fa-user-circle"></i>
-                    <span><?php echo htmlspecialchars($_SESSION['admin_username']); ?></span>
+                    <span><?php echo htmlspecialchars($_SESSION['admin_username'] ?? 'Admin'); ?></span>
                 </div>
                 <a href="logout.php" class="admin-logout-btn">
                     <i class="fas fa-sign-out-alt"></i>
@@ -81,16 +81,33 @@ $articles = $stmt->fetchAll();
         <!-- Main Content -->
         <main class="admin-main">
             <div class="admin-header">
-                <h1>All Articles</h1>
-                <p>Manage all your news articles</p>
+                <h1>All Job Postings</h1>
+                <p>Manage open positions across the Ensol Group</p>
+
+                <?php if (isset($_SESSION['success_msg'])): ?>
+                    <div class="alert alert-success" style="margin-top: 15px; background: #d4edda; color: #155724; padding: 10px; border-radius: 4px;">
+                        <?php
+                        echo htmlspecialchars($_SESSION['success_msg']);
+                        unset($_SESSION['success_msg']);
+                        ?>
+                    </div>
+                <?php endif; ?>
+                <?php if (isset($_SESSION['error_msg'])): ?>
+                    <div class="alert alert-danger" style="margin-top: 15px; background: #f8d7da; color: #721c24; padding: 10px; border-radius: 4px;">
+                        <?php
+                        echo htmlspecialchars($_SESSION['error_msg']);
+                        unset($_SESSION['error_msg']);
+                        ?>
+                    </div>
+                <?php endif; ?>
             </div>
 
-            <!-- Articles Table -->
+            <!-- Jobs Table -->
             <div class="admin-content-box">
                 <div class="content-box-header">
-                    <h2>Articles (<?php echo $totalCount; ?>)</h2>
-                    <a href="news-editor.php" class="btn btn-primary">
-                        <i class="fas fa-plus"></i> New Article
+                    <h2>Job Postings (<?php echo $totalCount; ?>)</h2>
+                    <a href="job-editor.php" class="btn btn-primary">
+                        <i class="fas fa-plus"></i> New Job
                     </a>
                 </div>
 
@@ -99,53 +116,56 @@ $articles = $stmt->fetchAll();
                         <thead>
                             <tr>
                                 <th>Title</th>
+                                <th>Subsidiary</th>
                                 <th>Category</th>
+                                <th>Location</th>
                                 <th>Status</th>
-                                <th>Views</th>
-                                <th>Likes</th>
-                                <th>Date</th>
+                                <th>Date Posted</th>
                                 <th>Actions</th>
                             </tr>
                         </thead>
                         <tbody>
-                            <?php foreach ($articles as $article): ?>
+                            <?php foreach ($jobs as $job): ?>
                                 <tr>
-                                    <td class="article-title"><?php echo htmlspecialchars($article['title']); ?></td>
-                                    <td><span class="category-badge"><?php echo htmlspecialchars($article['category']); ?></span></td>
+                                    <td class="article-title"><?php echo htmlspecialchars($job['title']); ?></td>
+                                    <td><span class="category-badge" style="background:#f0f0f0; color:#333; border: 1px solid #ddd;"><?php echo htmlspecialchars($job['subsidiary']); ?></span></td>
+                                    <td><?php echo htmlspecialchars($job['category']); ?></td>
+                                    <td><?php echo htmlspecialchars($job['location']); ?></td>
                                     <td>
-                                        <?php if ($article['is_published']): ?>
-                                            <span class="status-badge status-published">Published</span>
+                                        <?php if ($job['is_active']): ?>
+                                            <span class="status-badge status-published">Available</span>
                                         <?php else: ?>
-                                            <span class="status-badge status-draft">Draft</span>
+                                            <span class="status-badge status-draft">Unavailable</span>
                                         <?php endif; ?>
                                     </td>
-                                    <td><?php echo number_format($article['views']); ?></td>
-                                    <td><?php echo number_format($article['likes']); ?></td>
-                                    <td><?php echo date('M d, Y', strtotime($article['created_at'])); ?></td>
+                                    <td><?php echo date('M d, Y', strtotime($job['created_at'])); ?></td>
                                     <td class="table-actions">
-                                        <?php if (!$article['is_published']): ?>
-                                            <button onclick="togglePublish(<?php echo $article['id']; ?>, this)" class="btn-action btn-publish" title="Publish" style="background: #d4edda; color: #28a745;">
-                                                <i class="fas fa-upload"></i>
+                                        <?php if (!$job['is_active']): ?>
+                                            <button onclick="toggleActive(<?php echo $job['id']; ?>, this)" class="btn-action btn-publish" title="Make Available" style="background: #d4edda; color: #28a745;">
+                                                <i class="fas fa-check"></i>
                                             </button>
                                         <?php else: ?>
-                                            <button onclick="togglePublish(<?php echo $article['id']; ?>, this)" class="btn-action btn-unpublish" title="Unpublish" style="background: #fff3cd; color: #856404;">
-                                                <i class="fas fa-eye-slash"></i>
+                                            <button onclick="toggleActive(<?php echo $job['id']; ?>, this)" class="btn-action btn-unpublish" title="Make Unavailable" style="background: #fff3cd; color: #856404;">
+                                                <i class="fas fa-times"></i>
                                             </button>
                                         <?php endif; ?>
-                                        <a href="news-editor.php?id=<?php echo $article['id']; ?>" class="btn-action btn-edit" title="Edit">
+                                        <a href="job-editor.php?id=<?php echo $job['id']; ?>" class="btn-action btn-edit" title="Edit">
                                             <i class="fas fa-edit"></i>
                                         </a>
-                                        <a href="news-delete.php?id=<?php echo $article['id']; ?>" class="btn-action btn-delete" onclick="return confirm('Are you sure you want to delete this article?')" title="Delete">
-                                            <i class="fas fa-trash"></i>
-                                        </a>
+                                        <form action="job-delete.php" method="POST" style="display:inline;" onsubmit="return confirm('Are you sure you want to delete this job posting?');">
+                                            <input type="hidden" name="id" value="<?php echo $job['id']; ?>">
+                                            <button type="submit" class="btn-action btn-delete" title="Delete" style="background: none; border: none; cursor: pointer;">
+                                                <i class="fas fa-trash"></i>
+                                            </button>
+                                        </form>
                                     </td>
                                 </tr>
                             <?php endforeach; ?>
 
-                            <?php if (empty($articles)): ?>
+                            <?php if (empty($jobs)): ?>
                                 <tr>
                                     <td colspan="7" class="text-center" style="padding: 40px;">
-                                        No articles yet. <a href="news-editor.php">Create your first article</a>
+                                        No job postings yet. <a href="job-editor.php">Create your first job posting</a>
                                     </td>
                                 </tr>
                             <?php endif; ?>
@@ -170,41 +190,42 @@ $articles = $stmt->fetchAll();
     </div>
 
     <script>
-        async function togglePublish(articleId, button) {
+        async function toggleActive(jobId, button) {
             const row = button.closest('tr');
             const statusBadge = row.querySelector('.status-badge');
 
             button.disabled = true;
+            const originalHTML = button.innerHTML;
             button.innerHTML = '<i class="fas fa-spinner fa-spin"></i>';
 
             try {
-                const response = await fetch('news-toggle-publish.php?id=' + articleId);
+                const response = await fetch('job-toggle-active.php?id=' + jobId);
                 const data = await response.json();
 
                 if (data.success) {
                     // Update status badge
-                    if (data.is_published) {
+                    if (data.is_active) {
                         statusBadge.className = 'status-badge status-published';
-                        statusBadge.textContent = 'Published';
+                        statusBadge.textContent = 'Available';
                         button.style.background = '#fff3cd';
                         button.style.color = '#856404';
-                        button.title = 'Unpublish';
-                        button.innerHTML = '<i class="fas fa-eye-slash"></i>';
+                        button.title = 'Make Unavailable';
+                        button.innerHTML = '<i class="fas fa-times"></i>';
                     } else {
                         statusBadge.className = 'status-badge status-draft';
-                        statusBadge.textContent = 'Draft';
+                        statusBadge.textContent = 'Unavailable';
                         button.style.background = '#d4edda';
                         button.style.color = '#28a745';
-                        button.title = 'Publish';
-                        button.innerHTML = '<i class="fas fa-upload"></i>';
+                        button.title = 'Make Available';
+                        button.innerHTML = '<i class="fas fa-check"></i>';
                     }
                 } else {
                     alert('Error: ' + data.message);
-                    button.innerHTML = '<i class="fas fa-upload"></i>';
+                    button.innerHTML = originalHTML;
                 }
             } catch (error) {
                 alert('An error occurred. Please try again.');
-                button.innerHTML = '<i class="fas fa-upload"></i>';
+                button.innerHTML = originalHTML;
             }
 
             button.disabled = false;

@@ -15,6 +15,7 @@ if (isset($_GET['id'])) {
 ?>
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -24,6 +25,7 @@ if (isset($_GET['id'])) {
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <link rel="stylesheet" href="styles.css">
 </head>
+
 <body>
     <div class="admin-layout">
         <!-- Sidebar -->
@@ -32,7 +34,7 @@ if (isset($_GET['id'])) {
                 <img src="../assets/ensol_logo.jpg" alt="Ensol" class="admin-logo">
                 <h3>News Admin</h3>
             </div>
-            
+
             <nav class="admin-nav">
                 <a href="dashboard.php" class="admin-nav-item">
                     <i class="fas fa-tachometer-alt"></i>
@@ -40,7 +42,11 @@ if (isset($_GET['id'])) {
                 </a>
                 <a href="news-list.php" class="admin-nav-item">
                     <i class="fas fa-newspaper"></i>
-                    <span>All Articles</span>
+                    <span>News Articles</span>
+                </a>
+                <a href="jobs-list.php" class="admin-nav-item">
+                    <i class="fas fa-briefcase"></i>
+                    <span>Job Postings</span>
                 </a>
                 <a href="news-editor.php" class="admin-nav-item active">
                     <i class="fas fa-plus-circle"></i>
@@ -51,7 +57,7 @@ if (isset($_GET['id'])) {
                     <span>View Website</span>
                 </a>
             </nav>
-            
+
             <div class="admin-sidebar-footer">
                 <div class="admin-user-info">
                     <i class="fas fa-user-circle"></i>
@@ -63,7 +69,7 @@ if (isset($_GET['id'])) {
                 </a>
             </div>
         </aside>
-        
+
         <!-- Main Content -->
         <main class="admin-main">
             <div class="editor-container">
@@ -71,19 +77,19 @@ if (isset($_GET['id'])) {
                     <h1><?php echo $editMode ? 'Edit Article' : 'Create New Article'; ?></h1>
                     <p><?php echo $editMode ? 'Update your article details below' : 'Fill in the details to create a new article'; ?></p>
                 </div>
-                
+
                 <div id="message-box" style="display: none; padding: 16px; border-radius: 8px; margin-bottom: 20px;"></div>
-                
+
                 <form id="article-form" class="editor-form" enctype="multipart/form-data">
                     <input type="hidden" name="article_id" value="<?php echo $article['id'] ?? ''; ?>">
-                    
+
                     <div class="form-group">
                         <label for="title">Article Title *</label>
-                        <input type="text" id="title" name="title" class="form-control" 
-                               placeholder="Enter article title" 
-                               value="<?php echo htmlspecialchars($article['title'] ?? ''); ?>" required>
+                        <input type="text" id="title" name="title" class="form-control"
+                            placeholder="Enter article title"
+                            value="<?php echo htmlspecialchars($article['title'] ?? ''); ?>" required>
                     </div>
-                    
+
                     <div class="form-group">
                         <label for="category">Category *</label>
                         <select id="category" name="category" class="form-control" required>
@@ -95,45 +101,45 @@ if (isset($_GET['id'])) {
                             <option value="Company News" <?php echo ($article['category'] ?? '') === 'Company News' ? 'selected' : ''; ?>>Company News</option>
                         </select>
                     </div>
-                    
+
                     <div class="form-group">
                         <label for="summary">Summary *</label>
-                        <textarea id="summary" name="summary" class="form-control" rows="3" 
-                                  placeholder="Brief summary of the article (2-3 sentences)" 
-                                  required><?php echo htmlspecialchars($article['summary'] ?? ''); ?></textarea>
+                        <textarea id="summary" name="summary" class="form-control" rows="3"
+                            placeholder="Brief summary of the article (2-3 sentences)"
+                            required><?php echo htmlspecialchars($article['summary'] ?? ''); ?></textarea>
                         <small style="color: #666;">This will appear on the news listing page</small>
                     </div>
-                    
+
                     <div class="form-group">
                         <label for="content">Article Content *</label>
-                        <textarea id="content" name="content" class="form-control" rows="15" 
-                                  placeholder="Write your article content here..." 
-                                  required><?php echo htmlspecialchars($article['content'] ?? ''); ?></textarea>
+                        <textarea id="content" name="content" class="form-control" rows="15"
+                            placeholder="Write your article content here..."
+                            required><?php echo htmlspecialchars($article['content'] ?? ''); ?></textarea>
                     </div>
-                    
+
                     <div class="form-group">
                         <label for="featured_image">Featured Image *</label>
                         <?php if ($editMode && $article['featured_image']): ?>
                             <div style="margin-bottom: 12px;">
-                                <img src="<?php echo htmlspecialchars($article['featured_image']); ?>" 
-                                     alt="Current image" style="max-width: 300px; border-radius: 8px;">
+                                <img src="<?php echo htmlspecialchars($article['featured_image']); ?>"
+                                    alt="Current image" style="max-width: 300px; border-radius: 8px;">
                                 <p style="color: #666; font-size: 14px; margin-top: 8px;">Current image. Upload a new one to replace it.</p>
                             </div>
                         <?php endif; ?>
-                        <input type="file" id="featured_image" name="featured_image" class="form-control" 
-                               accept="image/jpeg,image/jpg,image/png,image/webp" 
-                               <?php echo $editMode ? '' : 'required'; ?>>
+                        <input type="file" id="featured_image" name="featured_image" class="form-control"
+                            accept="image/jpeg,image/jpg,image/png,image/webp"
+                            <?php echo $editMode ? '' : 'required'; ?>>
                         <small style="color: #666;">JPG, PNG, or WebP. Max 5MB</small>
                     </div>
-                    
+
                     <div class="form-group">
                         <label>
-                            <input type="checkbox" name="is_published" value="1" 
-                                   <?php echo ($article['is_published'] ?? false) ? 'checked' : ''; ?>>
+                            <input type="checkbox" name="is_published" value="1"
+                                <?php echo ($article['is_published'] ?? false) ? 'checked' : ''; ?>>
                             Publish immediately
                         </label>
                     </div>
-                    
+
                     <div class="form-actions">
                         <a href="dashboard.php" class="btn btn-secondary">
                             <i class="fas fa-times"></i> Cancel
@@ -146,32 +152,32 @@ if (isset($_GET['id'])) {
             </div>
         </main>
     </div>
-    
+
     <script>
         document.getElementById('article-form').addEventListener('submit', async function(e) {
             e.preventDefault();
-            
+
             const submitBtn = document.getElementById('submit-btn');
             const messageBox = document.getElementById('message-box');
             const formData = new FormData(this);
-            
+
             submitBtn.disabled = true;
             submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Saving...';
-            
+
             try {
                 const response = await fetch('news-save.php', {
                     method: 'POST',
                     body: formData
                 });
-                
+
                 const data = await response.json();
-                
+
                 if (data.success) {
                     messageBox.style.display = 'block';
                     messageBox.style.background = '#d4edda';
                     messageBox.style.color = '#155724';
                     messageBox.innerHTML = '<i class="fas fa-check-circle"></i> ' + data.message;
-                    
+
                     setTimeout(() => {
                         window.location.href = 'dashboard.php';
                     }, 1500);
@@ -180,7 +186,7 @@ if (isset($_GET['id'])) {
                     messageBox.style.background = '#f8d7da';
                     messageBox.style.color = '#721c24';
                     messageBox.innerHTML = '<i class="fas fa-exclamation-circle"></i> ' + data.message;
-                    
+
                     submitBtn.disabled = false;
                     submitBtn.innerHTML = '<i class="fas fa-save"></i> <?php echo $editMode ? 'Update' : 'Create'; ?> Article';
                 }
@@ -189,11 +195,12 @@ if (isset($_GET['id'])) {
                 messageBox.style.background = '#f8d7da';
                 messageBox.style.color = '#721c24';
                 messageBox.innerHTML = '<i class="fas fa-exclamation-circle"></i> An error occurred. Please try again.';
-                
+
                 submitBtn.disabled = false;
                 submitBtn.innerHTML = '<i class="fas fa-save"></i> <?php echo $editMode ? 'Update' : 'Create'; ?> Article';
             }
         });
     </script>
 </body>
+
 </html>

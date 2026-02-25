@@ -22,6 +22,7 @@ $recentArticles = $pdo->query("
 ?>
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -31,6 +32,7 @@ $recentArticles = $pdo->query("
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <link rel="stylesheet" href="styles.css">
 </head>
+
 <body>
     <div class="admin-layout">
         <!-- Sidebar -->
@@ -39,7 +41,7 @@ $recentArticles = $pdo->query("
                 <img src="../assets/ensol_logo.jpg" alt="Ensol" class="admin-logo">
                 <h3>News Admin</h3>
             </div>
-            
+
             <nav class="admin-nav">
                 <a href="dashboard.php" class="admin-nav-item active">
                     <i class="fas fa-tachometer-alt"></i>
@@ -47,7 +49,11 @@ $recentArticles = $pdo->query("
                 </a>
                 <a href="news-list.php" class="admin-nav-item">
                     <i class="fas fa-newspaper"></i>
-                    <span>All Articles</span>
+                    <span>News Articles</span>
+                </a>
+                <a href="jobs-list.php" class="admin-nav-item">
+                    <i class="fas fa-briefcase"></i>
+                    <span>Job Postings</span>
                 </a>
                 <a href="news-editor.php" class="admin-nav-item">
                     <i class="fas fa-plus-circle"></i>
@@ -58,7 +64,7 @@ $recentArticles = $pdo->query("
                     <span>View Website</span>
                 </a>
             </nav>
-            
+
             <div class="admin-sidebar-footer">
                 <div class="admin-user-info">
                     <i class="fas fa-user-circle"></i>
@@ -70,14 +76,14 @@ $recentArticles = $pdo->query("
                 </a>
             </div>
         </aside>
-        
+
         <!-- Main Content -->
         <main class="admin-main">
             <div class="admin-header">
                 <h1>Dashboard</h1>
                 <p>Welcome back, <?php echo htmlspecialchars($_SESSION['admin_username']); ?>!</p>
             </div>
-            
+
             <!-- Stats Cards -->
             <div class="stats-grid">
                 <div class="stat-card">
@@ -89,7 +95,7 @@ $recentArticles = $pdo->query("
                         <p>Total Articles</p>
                     </div>
                 </div>
-                
+
                 <div class="stat-card">
                     <div class="stat-icon" style="background: #28a745;">
                         <i class="fas fa-check-circle"></i>
@@ -99,7 +105,7 @@ $recentArticles = $pdo->query("
                         <p>Published</p>
                     </div>
                 </div>
-                
+
                 <div class="stat-card">
                     <div class="stat-icon" style="background: #17a2b8;">
                         <i class="fas fa-eye"></i>
@@ -109,7 +115,7 @@ $recentArticles = $pdo->query("
                         <p>Total Views</p>
                     </div>
                 </div>
-                
+
                 <div class="stat-card">
                     <div class="stat-icon" style="background: #ffc107;">
                         <i class="fas fa-thumbs-up"></i>
@@ -120,7 +126,7 @@ $recentArticles = $pdo->query("
                     </div>
                 </div>
             </div>
-            
+
             <!-- Recent Articles -->
             <div class="admin-content-box">
                 <div class="content-box-header">
@@ -129,7 +135,7 @@ $recentArticles = $pdo->query("
                         <i class="fas fa-plus"></i> New Article
                     </a>
                 </div>
-                
+
                 <div class="articles-table">
                     <table>
                         <thead>
@@ -144,33 +150,33 @@ $recentArticles = $pdo->query("
                         </thead>
                         <tbody>
                             <?php foreach ($recentArticles as $article): ?>
-                            <tr>
-                                <td class="article-title"><?php echo htmlspecialchars($article['title']); ?></td>
-                                <td><span class="category-badge"><?php echo htmlspecialchars($article['category']); ?></span></td>
-                                <td>
-                                    <?php if ($article['is_published']): ?>
-                                        <span class="status-badge status-published">Published</span>
-                                    <?php else: ?>
-                                        <span class="status-badge status-draft">Draft</span>
-                                    <?php endif; ?>
-                                </td>
-                                <td><?php echo number_format($article['views']); ?></td>
-                                <td><?php echo date('M d, Y', strtotime($article['created_at'])); ?></td>
-                                <td class="table-actions">
-                                    <a href="news-editor.php?id=<?php echo $article['id']; ?>" class="btn-action btn-edit">
-                                        <i class="fas fa-edit"></i>
-                                    </a>
-                                    <a href="news-delete.php?id=<?php echo $article['id']; ?>" class="btn-action btn-delete" onclick="return confirm('Are you sure?')">
-                                        <i class="fas fa-trash"></i>
-                                    </a>
-                                </td>
-                            </tr>
+                                <tr>
+                                    <td class="article-title"><?php echo htmlspecialchars($article['title']); ?></td>
+                                    <td><span class="category-badge"><?php echo htmlspecialchars($article['category']); ?></span></td>
+                                    <td>
+                                        <?php if ($article['is_published']): ?>
+                                            <span class="status-badge status-published">Published</span>
+                                        <?php else: ?>
+                                            <span class="status-badge status-draft">Draft</span>
+                                        <?php endif; ?>
+                                    </td>
+                                    <td><?php echo number_format($article['views']); ?></td>
+                                    <td><?php echo date('M d, Y', strtotime($article['created_at'])); ?></td>
+                                    <td class="table-actions">
+                                        <a href="news-editor.php?id=<?php echo $article['id']; ?>" class="btn-action btn-edit">
+                                            <i class="fas fa-edit"></i>
+                                        </a>
+                                        <a href="news-delete.php?id=<?php echo $article['id']; ?>" class="btn-action btn-delete" onclick="return confirm('Are you sure?')">
+                                            <i class="fas fa-trash"></i>
+                                        </a>
+                                    </td>
+                                </tr>
                             <?php endforeach; ?>
-                            
+
                             <?php if (empty($recentArticles)): ?>
-                            <tr>
-                                <td colspan="6" class="text-center">No articles yet. <a href="news-editor.php">Create your first article</a></td>
-                            </tr>
+                                <tr>
+                                    <td colspan="6" class="text-center">No articles yet. <a href="news-editor.php">Create your first article</a></td>
+                                </tr>
                             <?php endif; ?>
                         </tbody>
                     </table>
@@ -179,4 +185,5 @@ $recentArticles = $pdo->query("
         </main>
     </div>
 </body>
+
 </html>
