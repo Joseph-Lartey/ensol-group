@@ -101,13 +101,13 @@
                 <div class="title-underline"></div>
             </div>
             <div class="partners-grid">
-                <a href="https://www.linkedin.com/company/ensolengineeringtechnologyservices/" target="_blank" class="partner-card animate-on-scroll delay-1">
+                <a href="https://engineering.ensolgroup.com.gh" target="_blank" class="partner-card animate-on-scroll delay-1">
                     <div class="partner-logo">
                         <img src="assets/ensol_enginerring.jpeg" alt="Ensol Engineering & Technology">
                     </div>
                     <div class="partner-overlay">
                         <span>Engineering & Technology</span>
-                        <i class="fab fa-linkedin" style="margin-left: 8px;"></i>
+                        <i class="fas fa-external-link-alt" style="margin-left: 8px;"></i>
                     </div>
                 </a>
                 <a href="https://energy.ensolgroup.com.gh" target="_blank" class="partner-card animate-on-scroll delay-2">

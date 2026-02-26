@@ -149,7 +149,7 @@
         <div class="container">
             <h2 class="section-title animate-on-scroll">Subsidiaries</h2>
             <div class="subsidiaries-list">
-                <a href="ensol-engineering.php" class="subsidiary-item animate-on-scroll">
+                <a href="https://engineering.ensolgroup.com.gh" target="_blank" class="subsidiary-item animate-on-scroll">
                     <div class="subsidiary-logo">
                         <img src="../assets/ensol_enginerring.jpeg" alt="Ensol Engineering & Technology">
                     </div>
