@@ -213,6 +213,7 @@
                         <li><a href="pages/services.php"><i class="fas fa-chevron-right"></i> Services</a></li>
                         <li><a href="pages/clients.php"><i class="fas fa-chevron-right"></i> Clients</a></li>
                         <li><a href="pages/news.php"><i class="fas fa-chevron-right"></i> News</a></li>
+                        <li><a href="assets/QHSE_POLICY.pdf" target="_blank"><i class="fas fa-chevron-right"></i> QHSE Policy</a></li>
                     </ul>
                 </div>
 

@@ -186,6 +186,7 @@
                         <li><a href="about.php"><i class="fas fa-chevron-right"></i> About Us</a></li>
                         <li><a href="services.php"><i class="fas fa-chevron-right"></i> Services</a></li>
                         <li><a href="clients.php"><i class="fas fa-chevron-right"></i> Clients</a></li>
+                        <li><a href="../assets/QHSE_POLICY.pdf" target="_blank"><i class="fas fa-chevron-right"></i> QHSE Policy</a></li>
                     </ul>
                 </div>
 
@@ -223,63 +224,63 @@
         </div>
     </footer>
 
-<!-- Back to Top Button -->
-<a href="#" class="back-to-top" id="backToTop" aria-label="Back to top">
-    <i class="fas fa-arrow-up"></i>
-    <span>Top</span>
-</a>
+    <!-- Back to Top Button -->
+    <a href="#" class="back-to-top" id="backToTop" aria-label="Back to top">
+        <i class="fas fa-arrow-up"></i>
+        <span>Top</span>
+    </a>
 
     <!-- Scripts -->
     <script src="../script.js"></script>
     <script>
         // Form submission with PHP email handler
-        document.getElementById('contact-form').addEventListener('submit', function (e) {
+        document.getElementById('contact-form').addEventListener('submit', function(e) {
             e.preventDefault();
             const btn = this.querySelector('.btn-submit');
             const form = this;
             const formData = new FormData(form);
-            
+
             btn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Sending...';
             btn.disabled = true;
 
             fetch('../api/send-email.php', {
-                method: 'POST',
-                body: formData
-            })
-            .then(response => response.json())
-            .then(data => {
-                if (data.success) {
-                    btn.innerHTML = '<i class="fas fa-check"></i> Message Sent!';
-                    btn.style.background = '#28a745';
-                    
-                    setTimeout(() => {
-                        btn.innerHTML = 'Send Your Request';
-                        btn.style.background = '';
-                        btn.disabled = false;
-                        form.reset();
-                    }, 3000);
-                } else {
+                    method: 'POST',
+                    body: formData
+                })
+                .then(response => response.json())
+                .then(data => {
+                    if (data.success) {
+                        btn.innerHTML = '<i class="fas fa-check"></i> Message Sent!';
+                        btn.style.background = '#28a745';
+
+                        setTimeout(() => {
+                            btn.innerHTML = 'Send Your Request';
+                            btn.style.background = '';
+                            btn.disabled = false;
+                            form.reset();
+                        }, 3000);
+                    } else {
+                        btn.innerHTML = '<i class="fas fa-times"></i> Failed. Try Again';
+                        btn.style.background = '#dc3545';
+
+                        setTimeout(() => {
+                            btn.innerHTML = 'Send Your Request';
+                            btn.style.background = '';
+                            btn.disabled = false;
+                        }, 3000);
+                    }
+                })
+                .catch(error => {
+                    console.error('Error:', error);
                     btn.innerHTML = '<i class="fas fa-times"></i> Failed. Try Again';
                     btn.style.background = '#dc3545';
-                    
+
                     setTimeout(() => {
                         btn.innerHTML = 'Send Your Request';
                         btn.style.background = '';
                         btn.disabled = false;
                     }, 3000);
-                }
-            })
-            .catch(error => {
-                console.error('Error:', error);
-                btn.innerHTML = '<i class="fas fa-times"></i> Failed. Try Again';
-                btn.style.background = '#dc3545';
-                
-                setTimeout(() => {
-                    btn.innerHTML = 'Send Your Request';
-                    btn.style.background = '';
-                    btn.disabled = false;
-                }, 3000);
-            });
+                });
         });
     </script>
 </body>

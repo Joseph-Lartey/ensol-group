@@ -249,6 +249,7 @@
                         <li><a href="services.php"><i class="fas fa-chevron-right"></i> Services</a></li>
                         <li><a href="clients.php"><i class="fas fa-chevron-right"></i> Clients</a></li>
                         <li><a href="news.php"><i class="fas fa-chevron-right"></i> News</a></li>
+                        <li><a href="../assets/QHSE_POLICY.pdf" target="_blank"><i class="fas fa-chevron-right"></i> QHSE Policy</a></li>
                     </ul>
                 </div>
 
@@ -286,11 +287,11 @@
         </div>
     </footer>
 
-<!-- Back to Top Button -->
-<a href="#" class="back-to-top" id="backToTop" aria-label="Back to top">
-    <i class="fas fa-arrow-up"></i>
-    <span>Top</span>
-</a>
+    <!-- Back to Top Button -->
+    <a href="#" class="back-to-top" id="backToTop" aria-label="Back to top">
+        <i class="fas fa-arrow-up"></i>
+        <span>Top</span>
+    </a>
 
     <!-- Scripts -->
     <script src="../script.js"></script>

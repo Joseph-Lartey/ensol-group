@@ -32,7 +32,8 @@
             justify-content: center;
             color: var(--white);
             text-align: center;
-            background-color: var(--dark-gray); /* Fallback */
+            background-color: var(--dark-gray);
+            /* Fallback */
             overflow: hidden;
         }
 
@@ -69,9 +70,10 @@
             margin-bottom: var(--spacing-sm);
             text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
         }
-        
+
         .service-card {
-            height: 100%; /* Ensure cards stretch */
+            height: 100%;
+            /* Ensure cards stretch */
         }
     </style>
 </head>
@@ -125,7 +127,7 @@
                     <p>Our team consists of highly skilled engineers and technicians dedicated to delivering excellence in every project. From complex industrial maintenance to precision fabrication, we are committed to meeting the unique needs of our clients with safety and quality at the forefront.</p>
                 </div>
                 <div class="story-image animate-on-scroll delay-2">
-                     <!-- Reusing an image that fits engineering context -->
+                    <!-- Reusing an image that fits engineering context -->
                     <img src="../assets/img2.jpeg" alt="Engineering Team">
                 </div>
             </div>
@@ -137,7 +139,7 @@
         <div class="container">
             <h2 class="section-title animate-on-scroll" style="text-align: center;">Our <span class="title-accent">Services</span></h2>
             <div class="partners-grid" style="grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: var(--spacing-lg); margin-top: var(--spacing-lg);">
-                
+
                 <!-- Industrial Maintenance -->
                 <div class="service-card animate-on-scroll" style="background: var(--white); padding: var(--spacing-lg); border-radius: var(--radius-lg); box-shadow: var(--shadow-md);">
                     <div class="service-card-header">
@@ -242,6 +244,7 @@
                         <li><a href="services.php"><i class="fas fa-chevron-right"></i> Services</a></li>
                         <li><a href="clients.php"><i class="fas fa-chevron-right"></i> Clients</a></li>
                         <li><a href="news.php"><i class="fas fa-chevron-right"></i> News</a></li>
+                        <li><a href="../assets/QHSE_POLICY.pdf" target="_blank"><i class="fas fa-chevron-right"></i> QHSE Policy</a></li>
                     </ul>
                 </div>
 
@@ -262,7 +265,7 @@
                             loading="lazy" referrerpolicy="no-referrer-when-downgrade">
                         </iframe>
                     </div>
-                     <div class="social-links">
+                    <div class="social-links">
                         <a href="https://www.linkedin.com/company/ensolgrouptd/" target="_blank" class="social-icon" aria-label="LinkedIn">
                             <i class="fab fa-linkedin-in"></i>
                         </a>
