@@ -570,6 +570,7 @@
                         <li><a href="https://ensolgroup.com.gh/pages/services.php"><i class="fas fa-chevron-right"></i> Services</a></li>
                         <li><a href="https://ensolgroup.com.gh/pages/clients.php"><i class="fas fa-chevron-right"></i> Clients</a></li>
                         <li><a href="https://ensolgroup.com.gh/pages/news.php"><i class="fas fa-chevron-right"></i> News</a></li>
+                        <li><a href="QHSE_POLICY.pdf" target="_blank"><i class="fas fa-chevron-right"></i> QHSE Policy</a></li>
                     </ul>
                 </div>
 
