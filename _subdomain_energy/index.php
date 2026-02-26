@@ -485,27 +485,18 @@
     <section class="partners-logos-section section-padding" style="background-color: var(--light-bg); padding-top: 2rem;">
         <div class="container">
             <h2 class="section-title text-center animate-on-scroll">Our <span class="title-accent">Clients</span></h2>
-            <div class="partners-logos-grid" style="margin-top: 3rem;">
-                <!-- Row 1 -->
-                <div class="partner-logo-card animate-on-scroll">
+            <div style="margin-top: 3rem; display: flex; flex-wrap: wrap; justify-content: center; gap: var(--spacing-lg);">
+                <div class="partner-logo-card animate-on-scroll" style="flex: 1; min-width: 200px; max-width: 250px;">
                     <img src="../assets/tullow.webp" alt="Tullow Oil" class="partner-logo-img">
                 </div>
-                <div class="partner-logo-card animate-on-scroll delay-1">
-                    <img src="../assets/ghana mining .png" alt="Ghana Mining Competencies" class="partner-logo-img">
+                <div class="partner-logo-card animate-on-scroll delay-1" style="flex: 1; min-width: 200px; max-width: 250px;">
+                    <img src="assets/halli.jpg" alt="Halliburton" class="partner-logo-img">
                 </div>
-                <div class="partner-logo-card animate-on-scroll delay-2">
-                    <img src="../assets/modec.png" alt="MODEC" class="partner-logo-img">
+                <div class="partner-logo-card animate-on-scroll delay-2" style="flex: 1; min-width: 200px; max-width: 250px;">
+                    <img src="assets/yinson.png" alt="Yinson" class="partner-logo-img">
                 </div>
-
-                <!-- Row 2 -->
-                <div class="partner-logo-card animate-on-scroll delay-1">
-                    <img src="../assets/newmount.webp" alt="Newmont" class="partner-logo-img">
-                </div>
-                <div class="partner-logo-card animate-on-scroll delay-2">
-                    <img src="../assets/anglogold-ashanti-logo.jpg" alt="AngloGold Ashanti" class="partner-logo-img">
-                </div>
-                <div class="partner-logo-card animate-on-scroll delay-3">
-                    <img src="../assets/eni.png" alt="ENI Ghana" class="partner-logo-img">
+                <div class="partner-logo-card animate-on-scroll delay-3" style="flex: 1; min-width: 200px; max-width: 250px;">
+                    <img src="assets/osrl.jpeg" alt="OSRL" class="partner-logo-img">
                 </div>
             </div>
         </div>
