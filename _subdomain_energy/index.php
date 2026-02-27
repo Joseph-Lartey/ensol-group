@@ -244,6 +244,33 @@
 </head>
 
 <body>
+    <!-- Header Navigation -->
+    <header class="header" id="header">
+        <div class="container">
+            <nav class="navbar">
+                <a href="#hero-banner" class="logo">
+                    <img src="assets/ensol_energy.jpeg" alt="Ensol Energy Logo">
+                </a>
+
+                <ul class="nav-links" id="nav-links">
+                    <li><a href="#hero-banner" class="nav-link active">Home</a></li>
+                    <li><a href="#about" class="nav-link">About Us</a></li>
+                    <li><a href="#services" class="nav-link">Services</a></li>
+                    <li><a href="#projects" class="nav-link">Projects</a></li>
+                    <li><a href="#clients" class="nav-link">Clients</a></li>
+                    <li><a href="#certifications" class="nav-link">Certifications</a></li>
+                    <li><a href="#contact" class="nav-link btn-contact">Contact Us</a></li>
+                </ul>
+
+                <button class="hamburger" id="hamburger" aria-label="Toggle navigation">
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                </button>
+            </nav>
+        </div>
+    </header>
+
     <!-- Hero Banner -->
     <section class="subsidiary-hero" id="hero-banner">
         <img src="assets/slider_img.png" alt="Ensol Energy" class="hero-slide active">
@@ -251,7 +278,7 @@
     </section>
 
     <!-- About Section -->
-    <section class="section-padding">
+    <section class="section-padding" id="about">
         <div class="container">
             <div class="about-group-content">
                 <div class="about-group-text animate-on-scroll">
@@ -350,7 +377,7 @@
     </section>
 
     <!-- Services Section -->
-    <section class="section-padding">
+    <section class="section-padding" id="services">
         <div class="container">
             <h2 class="section-title text-center animate-on-scroll">Our <span class="title-accent">Services</span></h2>
 
@@ -415,7 +442,7 @@
     </section>
 
     <!-- Interactive Gallery Slider -->
-    <section class="section-padding" style="padding-bottom: 2rem;">
+    <section class="section-padding" id="projects" style="padding-bottom: 2rem;">
         <div class="container">
             <h2 class="section-title text-center animate-on-scroll">Our <span class="title-accent">Projects</span></h2>
         </div>
@@ -482,7 +509,7 @@
     </section>
 
     <!-- Partners Logos Section -->
-    <section class="partners-logos-section section-padding" style="background-color: var(--light-bg); padding-top: 2rem;">
+    <section class="partners-logos-section section-padding" id="clients" style="background-color: var(--light-bg); padding-top: 2rem;">
         <div class="container">
             <h2 class="section-title text-center animate-on-scroll">Our <span class="title-accent">Clients</span></h2>
             <div style="margin-top: 3rem; display: flex; flex-wrap: wrap; justify-content: center; gap: var(--spacing-lg);">
@@ -503,7 +530,7 @@
     </section>
 
     <!-- Certifications Section -->
-    <section class="section-padding bg-light">
+    <section class="section-padding bg-light" id="certifications">
         <div class="container text-center">
             <h2 class="section-title animate-on-scroll">Our <span class="title-accent">Certifications</span></h2>
             <p class="animate-on-scroll" style="max-width: 800px; margin: 0 auto var(--spacing-lg) auto;">
@@ -530,7 +557,7 @@
     </section>
 
     <!-- Contact Section -->
-    <section class="contact-section" style="background-color: var(--jet-black); color: var(--white); padding: var(--spacing-2xl) 0;">
+    <section class="contact-section" id="contact" style="background-color: var(--jet-black); color: var(--white); padding: var(--spacing-2xl) 0;">
         <div class="container" style="text-align: center;">
             <h2 class="section-title animate-on-scroll" style="color: var(--white);">Get In <span class="title-accent">Touch</span></h2>
             <p class="animate-on-scroll width-100" style="max-width: 600px; margin: 0 auto var(--spacing-lg) auto;">
@@ -543,7 +570,7 @@
     </section>
 
     <!-- Footer -->
-    <footer class="footer" id="contact">
+    <footer class="footer" id="footer">
         <div class="footer-wave">
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320" preserveAspectRatio="none">
                 <path fill="#000000" fill-opacity="1"

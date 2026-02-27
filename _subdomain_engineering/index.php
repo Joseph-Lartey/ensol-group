@@ -83,18 +83,16 @@
     <header class="header" id="header">
         <div class="container">
             <nav class="navbar">
-                <a href="https://ensolgroup.com.gh/" class="logo">
-                    <img src="../assets/ensol_logo.jpg" alt="Ensol Group Logo">
+                <a href="#hero-banner" class="logo">
+                    <img src="assets/ensol_enginerring.jpeg" alt="Ensol Engineering Logo">
                 </a>
 
                 <ul class="nav-links" id="nav-links">
-                    <li><a href="https://ensolgroup.com.gh/" class="nav-link">Home</a></li>
-                    <li><a href="https://ensolgroup.com.gh/pages/about.php" class="nav-link">About us</a></li>
-                    <li><a href="https://ensolgroup.com.gh/pages/services.php" class="nav-link">Services</a></li>
-                    <li><a href="https://ensolgroup.com.gh/pages/clients.php" class="nav-link">Clients</a></li>
-                    <li><a href="https://ensolgroup.com.gh/pages/news.php" class="nav-link">News</a></li>
-                    <li><a href="https://ensolgroup.com.gh/pages/career.php" class="nav-link">Career</a></li>
-                    <li><a href="https://ensolgroup.com.gh/pages/contact.php" class="nav-link btn-contact">Contact Us</a></li>
+                    <li><a href="#hero-banner" class="nav-link active">Home</a></li>
+                    <li><a href="#about" class="nav-link">About Us</a></li>
+                    <li><a href="#services" class="nav-link">Services</a></li>
+                    <li><a href="#projects" class="nav-link">Projects</a></li>
+                    <li><a href="#contact" class="nav-link btn-contact">Contact Us</a></li>
                 </ul>
 
                 <button class="hamburger" id="hamburger" aria-label="Toggle navigation">
@@ -107,7 +105,7 @@
     </header>
 
     <!-- Hero Banner -->
-    <section class="subsidiary-hero">
+    <section class="subsidiary-hero" id="hero-banner">
         <div class="subsidiary-hero-overlay"></div>
         <!-- Using a relevant image for Engineering -->
         <img src="assets/ensol_enginerring.jpeg" alt="Ensol Engineering" class="subsidiary-hero-img">
@@ -118,106 +116,204 @@
     </section>
 
     <!-- About Section -->
-    <section class="about-group" style="padding: var(--spacing-2xl) 0;">
+    <section class="about-group" id="about" style="padding: var(--spacing-2xl) 0;">
         <div class="container">
             <div class="about-group-content">
                 <div class="about-group-text animate-on-scroll">
                     <h2 class="section-title-left">About <span class="title-accent">Ensol Engineering</span></h2>
-                    <p>Ensol Engineering & Technology was founded to deliver customized engineering solutions to the oil, gas, and mining sectors. We specialize in providing high-quality technical services that ensure operational efficiency and asset integrity.</p>
-                    <p>Our team consists of highly skilled engineers and technicians dedicated to delivering excellence in every project. From complex industrial maintenance to precision fabrication, we are committed to meeting the unique needs of our clients with safety and quality at the forefront.</p>
+                    <p>Ensol Engineering and Technology Services is a wholly indigenous Ghanaian company that provides high quality and value-driven engineering and support services across multiple industries and the entire value chain. We provide services in Fabric Maintenance, Cold Repair, Non-Destructive Testing, Lifting Equipment Inspection, Engineering Consultancy, Engineering Procurement and Contractor Services.</p>
+                    <p>Headquartered in Accra, with operational site in Takoradi. Ensol Engineering is a leader in Composite Pipe repair Systems with optimized repair of pipes and piping systems with the use of FORTEC system (Composite wrap material) which has already been introduced to MODEC on the FPSO KNK and has been known to provide high-quality performance in pipe repair. The FORTEC has been duly approved by ABS and DNV and used widely by BP, Total etc.</p>
                 </div>
                 <div class="story-image animate-on-scroll delay-2">
-                    <!-- Reusing an image that fits engineering context -->
                     <img src="assets/img2.jpeg" alt="Engineering Team">
+                </div>
+            </div>
+
+            <!-- Vision & Mission -->
+            <div class="services-grid" style="margin-top: 40px; display: grid; grid-template-columns: repeat(auto-fit, minmax(350px, 1fr)); gap: var(--spacing-lg);">
+                <div class="service-item animate-on-scroll" style="background: var(--light-bg); padding: var(--spacing-lg); border-radius: var(--radius-lg); box-shadow: var(--shadow-sm);">
+                    <h3 style="color: var(--vivid-red);">Our Vision</h3>
+                    <p>To become a leading engineering firm in Asset Integrity & Management Services (Pipe Repair, NDT, LEI) and Engineering Consultancy (Engineering Support Services, FEED, Project feasibility) suited as a choice for quality, integrity, responsiveness and excellent work execution.</p>
+                </div>
+                <div class="service-item animate-on-scroll delay-1" style="background: var(--light-bg); padding: var(--spacing-lg); border-radius: var(--radius-lg); box-shadow: var(--shadow-sm);">
+                    <h3 style="color: var(--vivid-red);">Our Mission</h3>
+                    <p>To build a lasting working relationship with clients through delivery of reliable and valuable engineering, training and consultancy services.</p>
                 </div>
             </div>
         </div>
     </section>
 
     <!-- Services Section -->
-    <section class="services-intro" style="background-color: var(--off-white); padding: var(--spacing-2xl) 0;">
+    <section class="services-intro" id="services" style="background-color: var(--off-white); padding: var(--spacing-2xl) 0;">
         <div class="container">
             <h2 class="section-title animate-on-scroll" style="text-align: center;">Our <span class="title-accent">Services</span></h2>
             <div class="partners-grid" style="grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: var(--spacing-lg); margin-top: var(--spacing-lg);">
 
-                <!-- Industrial Maintenance -->
                 <div class="service-card animate-on-scroll" style="background: var(--white); padding: var(--spacing-lg); border-radius: var(--radius-lg); box-shadow: var(--shadow-md);">
                     <div class="service-card-header">
-                        <div class="service-icon">
-                            <i class="fas fa-code"></i>
-                        </div>
+                        <div class="service-icon"><i class="fas fa-tools"></i></div>
                     </div>
-                    <h3 class="service-card-title">Industrial Maintenance</h3>
-                    <p class="service-card-description">
-                        We deliver efficient industrial maintenance solutions that minimize downtime, extend
-                        equipment life, and keep operations running smoothly.
-                    </p>
+                    <h3 class="service-card-title">Fabric Maintenance</h3>
+                    <p class="service-card-description">Comprehensive maintenance solutions to preserve and extend the lifespan of industrial structures and equipment.</p>
                 </div>
 
-                <!-- Fabrication & Welding -->
                 <div class="service-card animate-on-scroll delay-1" style="background: var(--white); padding: var(--spacing-lg); border-radius: var(--radius-lg); box-shadow: var(--shadow-md);">
                     <div class="service-card-header">
-                        <div class="service-icon">
-                            <i class="fas fa-fire"></i>
-                        </div>
+                        <div class="service-icon"><i class="fas fa-snowflake"></i></div>
                     </div>
-                    <h3 class="service-card-title">Fabrication & Welding</h3>
-                    <p class="service-card-description">
-                        Expert metal fabrication and certified welding services for industrial structures,
-                        pipelines, and equipment repairs across all sectors.
-                    </p>
+                    <h3 class="service-card-title">Cold Repair & Fastening</h3>
+                    <p class="service-card-description">Durable composite bonding and fastening solutions using Coldpad technology, facilitating safe maintenance without hot work.</p>
                 </div>
 
-                <!-- Equipment Leasing -->
                 <div class="service-card animate-on-scroll delay-2" style="background: var(--white); padding: var(--spacing-lg); border-radius: var(--radius-lg); box-shadow: var(--shadow-md);">
                     <div class="service-card-header">
-                        <div class="service-icon">
-                            <i class="fas fa-truck"></i>
-                        </div>
+                        <div class="service-icon"><i class="fas fa-search-plus"></i></div>
                     </div>
-                    <h3 class="service-card-title">Equipment Leasing</h3>
-                    <p class="service-card-description">
-                        Flexible equipment rental solutions including cranes, generators, compressors, and
-                        specialized industrial machinery.
-                    </p>
+                    <h3 class="service-card-title">Non-Destructive Testing (NDT)</h3>
+                    <p class="service-card-description">Advanced testing methods to evaluate properties of materials, components, or systems without causing damage.</p>
+                </div>
+
+                <div class="service-card animate-on-scroll" style="background: var(--white); padding: var(--spacing-lg); border-radius: var(--radius-lg); box-shadow: var(--shadow-md);">
+                    <div class="service-card-header">
+                        <div class="service-icon"><i class="fas fa-weight-hanging"></i></div>
+                    </div>
+                    <h3 class="service-card-title">Lifting Equipment Inspection</h3>
+                    <p class="service-card-description">Thorough inspection and certification of all types of lifting equipment to ensure safety and regulatory compliance.</p>
+                </div>
+
+                <div class="service-card animate-on-scroll delay-1" style="background: var(--white); padding: var(--spacing-lg); border-radius: var(--radius-lg); box-shadow: var(--shadow-md);">
+                    <div class="service-card-header">
+                        <div class="service-icon"><i class="fas fa-user-tie"></i></div>
+                    </div>
+                    <h3 class="service-card-title">Engineering Consultancy</h3>
+                    <p class="service-card-description">Expert engineering support services, FEED (Front End Engineering Design), and project feasibility studies.</p>
+                </div>
+
+                <div class="service-card animate-on-scroll delay-2" style="background: var(--white); padding: var(--spacing-lg); border-radius: var(--radius-lg); box-shadow: var(--shadow-md);">
+                    <div class="service-card-header">
+                        <div class="service-icon"><i class="fas fa-hard-hat"></i></div>
+                    </div>
+                    <h3 class="service-card-title">Engineering Procurement & Construction</h3>
+                    <p class="service-card-description">End-to-end EPC services, managing the entire lifecycle of industrial and infrastructure projects.</p>
                 </div>
 
             </div>
         </div>
     </section>
 
+    <!-- Projects / Solutions Section -->
+    <section class="section-padding" id="projects">
+        <div class="container">
+            <h2 class="section-title text-center animate-on-scroll">Our <span class="title-accent">Solutions</span></h2>
+
+            <div class="project-block animate-on-scroll" style="margin-top: 40px;">
+                <h3 style="color: var(--vivid-red); margin-bottom: 20px;">FORTEC Composite Pipe Repair Solution</h3>
+                <div style="display: flex; flex-wrap: wrap; gap: 30px; align-items: flex-start;">
+                    <div style="flex: 1; min-width: 300px;">
+                        <ul style="list-style-type: none; padding: 0;">
+                            <li style="margin-bottom: 10px; padding-left: 20px; position: relative;"><i class="fas fa-check" style="color: var(--vivid-red); position: absolute; left: 0; top: 5px;"></i> The Fortec system is specifically designed to repair defects on pipelines in service onshore or offshore as a provisional or permanent repair.</li>
+                            <li style="margin-bottom: 10px; padding-left: 20px; position: relative;"><i class="fas fa-check" style="color: var(--vivid-red); position: absolute; left: 0; top: 5px;"></i> It provides a long-term solution for non through wall defects and a short-term solution for through wall defects.</li>
+                            <li style="margin-bottom: 10px; padding-left: 20px; position: relative;"><i class="fas fa-check" style="color: var(--vivid-red); position: absolute; left: 0; top: 5px;"></i> The Fortec composite system consist of a glass fibre fabric, designed by PROKEM, impregnated with a high quality, non-toxic, proprietary solvent free epoxy that can cure underwater.</li>
+                            <li style="margin-bottom: 10px; padding-left: 20px; position: relative;"><i class="fas fa-check" style="color: var(--vivid-red); position: absolute; left: 0; top: 5px;"></i> It provides high anticorrosion protection as well as high mechanical reinforcement.</li>
+                            <li style="margin-bottom: 10px; padding-left: 20px; position: relative;"><i class="fas fa-check" style="color: var(--vivid-red); position: absolute; left: 0; top: 5px;"></i> It is particularly suitable for dented or corrode pipelines as well as corroded risers, piping or casing located in the splash zone or top sides of oil rigs/platforms.</li>
+                            <li style="margin-bottom: 10px; padding-left: 20px; position: relative;"><i class="fas fa-check" style="color: var(--vivid-red); position: absolute; left: 0; top: 5px;"></i> The Fortec system eliminates the need to shut down and replace defective steelworks and it is considered the best technical offer, along with the best cost-effective material.</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <div class="project-block animate-on-scroll" style="margin-top: 60px;">
+                <h3 style="color: var(--vivid-red); margin-bottom: 20px;">ColdRepair Solutions (Coldpad S300 & S1000)</h3>
+                <div style="display: flex; flex-wrap: wrap; gap: 30px; align-items: flex-start; flex-direction: row-reverse;">
+                    <div style="flex: 1; min-width: 300px;">
+                        <p style="margin-bottom: 15px;">The need for non-intrusive cold works which offers durable composite bonding and fastening cannot be overlooked in industries such as Oil and Gas, Storage and Process Facilities.</p>
+                        <p style="margin-bottom: 15px;">Ensol Engineering has partnered with Coldpad, a leader in cold repair and fastening solutions, to provides durable composite bonding & fastening solutions to facilitate structural maintenance, retrofit & upgrade operations while reducing OPEX by eradicating associated cost.</p>
+                        <p style="margin-bottom: 15px;">C-Claw™ is specially designed for offshore environments like FPSO. It is truly revolutionary in the marine world and inspired by composite techniques that have been used for decades in aeronautics.</p>
+                        <p>C-Claw™ offers a quick, reliable and durable fastening solution for all your FPSO outfitting, maintenance & modification operations: cable trays, pipe supports, skids, handrails, ladders, and more.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="project-block animate-on-scroll" style="margin-top: 60px;">
+                <h3 style="color: var(--vivid-red); margin-bottom: 20px;">Safety Tools Allmet</h3>
+                <div style="display: flex; flex-wrap: wrap; gap: 30px; align-items: flex-start;">
+                    <div style="flex: 1; min-width: 300px;">
+                        <p style="margin-bottom: 15px;">Safety Tools Allmet specializes in unique cold work surface preparation and cutting tools. Our equipment follows ATEX guidelines and is safe to use in EX Zones 1 and 2 without a Hot Work Permit.</p>
+                        <p style="margin-bottom: 20px;">Safety Tools have been safely used around the world for over a decade and offer substantial Health Safety & Environmental benefits.</p>
+
+                        <h4 style="margin-bottom: 15px;">Benefits of Safety Tools Allmet:</h4>
+                        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 10px;">
+                            <div><i class="fas fa-check-circle" style="color: var(--vivid-red);"></i> No Need For Hot Work Permit</div>
+                            <div><i class="fas fa-check-circle" style="color: var(--vivid-red);"></i> No Need For Job Postponement</div>
+                            <div><i class="fas fa-check-circle" style="color: var(--vivid-red);"></i> Low Noise (80-85dB Average)</div>
+                            <div><i class="fas fa-check-circle" style="color: var(--vivid-red);"></i> No Demanding Risk Evaluation</div>
+                            <div><i class="fas fa-check-circle" style="color: var(--vivid-red);"></i> No Need For Habitats</div>
+                            <div><i class="fas fa-check-circle" style="color: var(--vivid-red);"></i> Low Heat (30C -60C Average)</div>
+                            <div><i class="fas fa-check-circle" style="color: var(--vivid-red);"></i> Low Vibration (2.5m/s Average)</div>
+                            <div><i class="fas fa-check-circle" style="color: var(--vivid-red);"></i> Roughness Profile (40-70 microns)</div>
+                            <div><i class="fas fa-check-circle" style="color: var(--vivid-red);"></i> No Hot Spark</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
     <!-- Partners/Clients Section -->
-    <section class="partners-logos-section" style="padding: var(--spacing-2xl) 0;">
+    <section class="partners-logos-section" id="clients" style="padding: var(--spacing-2xl) 0; background-color: var(--light-bg);">
         <div class="container">
             <h2 class="section-title animate-on-scroll" style="text-align: center; margin-bottom: var(--spacing-lg);">Our <span class="title-accent">Partners & Clients</span></h2>
-            <div class="partners-logos-grid">
-                <!-- Selectively showing logos relevant to engineering/industrial -->
-                <div class="partner-logo-card animate-on-scroll">
+            <div class="partners-logos-grid" style="display: flex; flex-wrap: wrap; justify-content: center; gap: var(--spacing-lg);">
+                <div class="partner-logo-card animate-on-scroll" style="flex: 1; min-width: 200px; max-width: 250px;">
                     <img src="assets/tullow.webp" alt="Tullow Oil" class="partner-logo-img">
                 </div>
-                <div class="partner-logo-card animate-on-scroll delay-1">
+                <div class="partner-logo-card animate-on-scroll delay-1" style="flex: 1; min-width: 200px; max-width: 250px;">
                     <img src="assets/modec.png" alt="MODEC" class="partner-logo-img">
                 </div>
-                <div class="partner-logo-card animate-on-scroll delay-2">
+                <div class="partner-logo-card animate-on-scroll delay-2" style="flex: 1; min-width: 200px; max-width: 250px;">
                     <img src="assets/eni.png" alt="ENI Ghana" class="partner-logo-img">
                 </div>
             </div>
         </div>
     </section>
 
+    <!-- Certifications Section -->
+    <section class="section-padding" id="certifications">
+        <div class="container text-center">
+            <h2 class="section-title animate-on-scroll">Our <span class="title-accent">Certifications</span></h2>
+            <div class="values-grid" style="display: flex; justify-content: center; gap: 20px; flex-wrap: wrap; margin-top: 40px;">
+                <div class="value-card animate-on-scroll" style="flex: 1; min-width: 250px; max-width: 300px; padding: 20px; background: var(--white); border-radius: 8px; box-shadow: var(--shadow-sm);">
+                    <img src="assets/iso_45001.jpeg" alt="ISO 45001:2018" style="width: 100%; height: auto; margin-bottom: 15px; border-radius: 8px;">
+                    <h4>ISO 45001:2018</h4>
+                    <p>Occupational Health & Safety Management System</p>
+                </div>
+                <div class="value-card animate-on-scroll delay-1" style="flex: 1; min-width: 250px; max-width: 300px; padding: 20px; background: var(--white); border-radius: 8px; box-shadow: var(--shadow-sm);">
+                    <img src="assets/iso_14001.jpeg" alt="ISO 14001:2015" style="width: 100%; height: auto; margin-bottom: 15px; border-radius: 8px;">
+                    <h4>ISO 14001:2015</h4>
+                    <p>Environmental Management System</p>
+                </div>
+                <div class="value-card animate-on-scroll delay-2" style="flex: 1; min-width: 250px; max-width: 300px; padding: 20px; background: var(--white); border-radius: 8px; box-shadow: var(--shadow-sm);">
+                    <img src="assets/iso_9001.jpeg" alt="ISO 9001:2015" style="width: 100%; height: auto; margin-bottom: 15px; border-radius: 8px;">
+                    <h4>ISO 9001:2015</h4>
+                    <p>Quality Management System</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
     <!-- Contact Section -->
-    <section class="contact-section" style="background-color: var(--jet-black); color: var(--white); padding: var(--spacing-2xl) 0;">
+    <section class="contact-section" id="contact" style="background-color: var(--jet-black); color: var(--white); padding: var(--spacing-2xl) 0;">
         <div class="container" style="text-align: center;">
             <h2 class="section-title animate-on-scroll" style="color: var(--white);">Get In <span class="title-accent">Touch</span></h2>
             <p class="animate-on-scroll width-100" style="max-width: 600px; margin: 0 auto var(--spacing-lg) auto;">
                 Have a project in mind or need expert engineering advice? Contact Ensol Engineering & Technology today.
             </p>
-            <a href="https://ensolgroup.com.gh/pages/contact.php" class="btn btn-primary animate-on-scroll" style="background: var(--vivid-red); border: none;">Contact Us</a>
         </div>
     </section>
 
     <!-- Footer -->
-    <footer class="footer" id="contact">
+    <footer class="footer" id="footer">
         <div class="footer-wave">
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320" preserveAspectRatio="none">
                 <path fill="#000000" fill-opacity="1"
@@ -229,7 +325,7 @@
             <div class="footer-content">
                 <div class="footer-section footer-about animate-on-scroll">
                     <div class="footer-logo">
-                        <img src="assets/ensol_logo.jpg" alt="Ensol Group">
+                        <img src="assets/ensol_enginerring.jpeg" alt="Ensol Engineering Logo">
                         <h4 style="margin-top: 10px; color: var(--white);">Engineering & Technology</h4>
                     </div>
                     <p class="footer-description">
@@ -238,22 +334,35 @@
                 </div>
 
                 <div class="footer-section footer-links animate-on-scroll delay-1">
-                    <h3 class="footer-title">Links</h3>
+                    <h3 class="footer-title">Locations</h3>
                     <ul>
-                        <li><a href="https://ensolgroup.com.gh/pages/about.php"><i class="fas fa-chevron-right"></i> About Us</a></li>
-                        <li><a href="https://ensolgroup.com.gh/pages/services.php"><i class="fas fa-chevron-right"></i> Services</a></li>
-                        <li><a href="https://ensolgroup.com.gh/pages/clients.php"><i class="fas fa-chevron-right"></i> Clients</a></li>
-                        <li><a href="https://ensolgroup.com.gh/pages/news.php"><i class="fas fa-chevron-right"></i> News</a></li>
-                        <li><a href="../assets/QHSE_POLICY.pdf" target="_blank"><i class="fas fa-chevron-right"></i> QHSE Policy</a></li>
+                        <li style="margin-bottom: 10px;">
+                            <strong>Ghana Office:</strong><br>
+                            East Legon, E3, Nii Osea Ntiful Avenue
+                        </li>
+                        <li>
+                            <strong>Cote D'Ivoire Office:</strong><br>
+                            Abidjan, Cocody, Abidjan Commune De<br>
+                            Cocody 2 Plateaux, Cite Versant 1,<br>
+                            Lot: 59, Ilot: 4
+                        </li>
                     </ul>
                 </div>
 
                 <div class="footer-section footer-contact animate-on-scroll delay-2">
                     <h3 class="footer-title">Contact us</h3>
                     <p>Ready to discuss your next project?</p>
-                    <a href="tel:0302290798" class="contact-phone">
+                    <a href="tel:+233501490149" class="contact-phone" style="display: block; margin-bottom: 5px;">
                         <i class="fas fa-phone"></i>
-                        030 229 0798
+                        +233 50 149 0149 0645
+                    </a>
+                    <a href="tel:+22507022214" class="contact-phone" style="display: block; margin-bottom: 15px;">
+                        <i class="fas fa-phone"></i>
+                        +225 07 02 22 14
+                    </a>
+                    <a href="mailto:info@ensolengineeering.com" class="contact-phone" style="display: block;">
+                        <i class="fas fa-envelope"></i>
+                        info@ensolengineeering.com
                     </a>
                 </div>
 
@@ -264,11 +373,6 @@
                             width="100%" height="150" style="border:0; border-radius: 8px;" allowfullscreen=""
                             loading="lazy" referrerpolicy="no-referrer-when-downgrade">
                         </iframe>
-                    </div>
-                    <div class="social-links">
-                        <a href="https://www.linkedin.com/company/ensolgrouptd/" target="_blank" class="social-icon" aria-label="LinkedIn">
-                            <i class="fab fa-linkedin-in"></i>
-                        </a>
                     </div>
                 </div>
             </div>
