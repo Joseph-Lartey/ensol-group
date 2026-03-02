@@ -119,13 +119,22 @@
                         <i class="fas fa-external-link-alt" style="margin-left: 8px;"></i>
                     </div>
                 </a>
-                <a href="https://www.linkedin.com/company/southdeycontractingltd/" target="_blank" class="partner-card animate-on-scroll delay-3">
+                <a href="https://www.linkedin.com/company/southdeycontractingltd/?viewAsMember=true" target="_blank" class="partner-card animate-on-scroll delay-3">
                     <div class="partner-logo">
                         <img src="assets/Southey_no_background.png" alt="Southey Contracting">
                     </div>
                     <div class="partner-overlay">
                         <span>Southey Contracting</span>
                         <i class="fab fa-linkedin" style="margin-left: 8px;"></i>
+                    </div>
+                </a>
+                <a href="https://2enchemicals.com/" target="_blank" class="partner-card animate-on-scroll delay-4">
+                    <div class="partner-logo">
+                        <img src="assets/2en.jpeg" alt="2en Chemicals Limited">
+                    </div>
+                    <div class="partner-overlay">
+                        <span>2en Chemicals Limited</span>
+                        <i class="fas fa-external-link-alt" style="margin-left: 8px;"></i>
                     </div>
                 </a>
             </div>
@@ -236,7 +245,7 @@
                         </iframe>
                     </div>
                     <div class="social-links">
-                        <a href="https://www.linkedin.com/company/ensolgrouptd/" target="_blank" class="social-icon" aria-label="LinkedIn">
+                        <a href="https://www.linkedin.com/company/ensolgrouptd/?viewAsMember=true" target="_blank" class="social-icon" aria-label="LinkedIn">
                             <i class="fab fa-linkedin-in"></i>
                         </a>
                     </div>

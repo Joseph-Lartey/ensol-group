@@ -374,6 +374,11 @@
                             loading="lazy" referrerpolicy="no-referrer-when-downgrade">
                         </iframe>
                     </div>
+                    <div class="social-links">
+                        <a href="https://www.linkedin.com/company/ensolengineeringtechnologyservices/?viewAsMember=true" target="_blank" class="social-icon" aria-label="LinkedIn">
+                            <i class="fab fa-linkedin-in"></i>
+                        </a>
+                    </div>
                 </div>
             </div>
         </div>

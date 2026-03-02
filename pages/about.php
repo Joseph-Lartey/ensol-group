@@ -90,7 +90,7 @@
                 <div class="about-group-text animate-on-scroll">
                     <h2 class="section-title-left">About The<br><span class="title-accent">Ensol Group</span></h2>
                     <p>Ensol Group Ltd is a wholly Ghanaian-owned holding company providing integrated engineering and
-                        project support services to the extractive and construction industries through three
+                        project support services to the extractive and construction industries through four
                         subsidiaries.</p>
                     <p>The Group delivers end-to-end solutions including fabric maintenance, engineering projects, and
                         specialist services to major clients such as Tullow, MODEC, Newmont, and AngloGold, combining
@@ -177,6 +177,16 @@
                         <li>Mining and industrial contracting</li>
                         <li>Maintenance and shutdown services</li>
                         <li>Skilled manpower supply</li>
+                    </ul>
+                </a>
+                <a href="https://2enchemicals.com/" class="subsidiary-item animate-on-scroll delay-3" target="_blank">
+                    <div class="subsidiary-logo">
+                        <img src="../assets/2en.jpeg" alt="2en Chemicals Limited">
+                    </div>
+                    <ul class="subsidiary-services">
+                        <li>Specialty & Commodity Chemicals</li>
+                        <li>Oilfields & Petroleum Chemicals</li>
+                        <li>Industrial Chemicals</li>
                     </ul>
                 </a>
             </div>
@@ -272,7 +282,7 @@
                         </iframe>
                     </div>
                     <div class="social-links">
-                        <a href="https://www.linkedin.com/company/ensolgrouptd/" target="_blank" class="social-icon" aria-label="LinkedIn">
+                        <a href="https://www.linkedin.com/company/ensolgrouptd/?viewAsMember=true" target="_blank" class="social-icon" aria-label="LinkedIn">
                             <i class="fab fa-linkedin-in"></i>
                         </a>
                     </div>

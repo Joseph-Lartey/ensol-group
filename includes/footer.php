@@ -47,7 +47,7 @@
                     </iframe>
                 </div>
                 <div class="social-links">
-                    <a href="https://www.linkedin.com/company/ensolgrouptd/" target="_blank" class="social-icon" aria-label="LinkedIn">
+                    <a href="https://www.linkedin.com/company/ensolgrouptd/?viewAsMember=true" target="_blank" class="social-icon" aria-label="LinkedIn">
                         <i class="fab fa-linkedin-in"></i>
                     </a>
                 </div>
