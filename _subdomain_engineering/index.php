@@ -47,6 +47,27 @@
             opacity: 0.6;
         }
 
+        .hero-slide {
+            position: absolute;
+            top: 0;
+            left: 100%;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: left 1.2s ease-in-out;
+            z-index: 1;
+        }
+
+        .hero-slide.active {
+            left: 0;
+            z-index: 2;
+        }
+
+        .hero-slide.prev {
+            left: -100%;
+            z-index: 1;
+        }
+
         .subsidiary-hero-overlay {
             position: absolute;
             top: 0;
@@ -54,12 +75,12 @@
             width: 100%;
             height: 100%;
             background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.7));
-            z-index: 1;
+            z-index: 5;
         }
 
         .subsidiary-hero-content {
             position: relative;
-            z-index: 2;
+            z-index: 10;
             max-width: 800px;
             padding: 0 var(--spacing-md);
         }
@@ -74,6 +95,54 @@
         .service-card {
             height: 100%;
             /* Ensure cards stretch */
+        }
+
+        /* Gallery Slider */
+        .gallery-section {
+            position: relative;
+            overflow: hidden;
+            background: var(--dark-gray);
+        }
+
+        .gallery-container {
+            position: relative;
+            width: 100%;
+            height: 800px;
+            overflow: hidden;
+        }
+
+        .gallery-slide {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            opacity: 0;
+            transition: opacity 1s ease-in-out;
+            background-size: cover;
+            background-position: center;
+        }
+
+        .gallery-slide.active {
+            opacity: 1;
+        }
+
+        .gallery-content {
+            position: absolute;
+            bottom: 50px;
+            left: 50px;
+            z-index: 10;
+            color: white;
+            padding: 20px;
+            background: rgba(0, 0, 0, 0.5);
+            border-left: 5px solid var(--vivid-red);
+            max-width: 600px;
+        }
+
+        @media (max-width: 768px) {
+            .gallery-container {
+                height: 400px;
+            }
         }
     </style>
 </head>
@@ -106,13 +175,10 @@
 
     <!-- Hero Banner -->
     <section class="subsidiary-hero" id="hero-banner">
-        <div class="subsidiary-hero-overlay"></div>
-        <!-- Using a relevant image for Engineering -->
-        <img src="assets/ensol_enginerring.jpeg" alt="Ensol Engineering" class="subsidiary-hero-img">
-        <div class="subsidiary-hero-content animate-on-scroll">
-            <h1 class="subsidiary-hero-title">Ensol Engineering & Technology</h1>
-            <p class="hero-description" style="color: var(--white); font-size: 1.2rem;">Detailed engineering, maintenance, and technical solutions.</p>
-        </div>
+        <!-- Slider Images -->
+        <img src="assets/slider1.avif" alt="Ensol Engineering" class="hero-slide active">
+        <img src="assets/slider2.jpg" alt="Ensol Engineering" class="hero-slide">
+        <img src="assets/slider3.jpg" alt="Ensol Engineering" class="hero-slide">
     </section>
 
     <!-- About Section -->
@@ -120,9 +186,10 @@
         <div class="container">
             <div class="about-group-content">
                 <div class="about-group-text animate-on-scroll">
-                    <h2 class="section-title-left">About <span class="title-accent">Ensol Engineering</span></h2>
-                    <p>Ensol Engineering and Technology Services is a wholly indigenous Ghanaian company that provides high quality and value-driven engineering and support services across multiple industries and the entire value chain. We provide services in Fabric Maintenance, Cold Repair, Non-Destructive Testing, Lifting Equipment Inspection, Engineering Consultancy, Engineering Procurement and Contractor Services.</p>
-                    <p>Headquartered in Accra, with operational site in Takoradi. Ensol Engineering is a leader in Composite Pipe repair Systems with optimized repair of pipes and piping systems with the use of FORTEC system (Composite wrap material) which has already been introduced to MODEC on the FPSO KNK and has been known to provide high-quality performance in pipe repair. The FORTEC has been duly approved by ABS and DNV and used widely by BP, Total etc.</p>
+                    <h2 class="section-title-left">About <span class="title-accent">Ensol Engineering and Technology Services</span></h2>
+                    <p style="font-weight: bold; font-style: italic; color: var(--vivid-red); margin-bottom: 15px;">Driving Industrial Excellence through Indigenous Innovation.</p>
+                    <p>Ensol Engineering and Technology Services is a premier, wholly indigenous Ghanaian engineering firm dedicated to delivering high-quality, safe, and value-driven technical solutions. Since our incorporation, we have positioned ourselves as a critical partner in the energy, marine, and industrial value chains, bridging the gap between global technical standards and local expertise.</p>
+                    <p>We don't just provide services; we manage the integrity of your most critical assets. By leveraging cutting-edge technology and a highly competent local workforce, Ensol ensures that your operations remain efficient, compliant, and sustainable.</p>
                 </div>
                 <div class="story-image animate-on-scroll delay-2">
                     <img src="assets/img2.jpeg" alt="Engineering Team">
@@ -130,14 +197,16 @@
             </div>
 
             <!-- Vision & Mission -->
-            <div class="services-grid" style="margin-top: 40px; display: grid; grid-template-columns: repeat(auto-fit, minmax(350px, 1fr)); gap: var(--spacing-lg);">
-                <div class="service-item animate-on-scroll" style="background: var(--light-bg); padding: var(--spacing-lg); border-radius: var(--radius-lg); box-shadow: var(--shadow-sm);">
-                    <h3 style="color: var(--vivid-red);">Our Vision</h3>
-                    <p>To become a leading engineering firm in Asset Integrity & Management Services (Pipe Repair, NDT, LEI) and Engineering Consultancy (Engineering Support Services, FEED, Project feasibility) suited as a choice for quality, integrity, responsiveness and excellent work execution.</p>
+            <div class="services-grid" style="margin-top: 50px; display: grid; grid-template-columns: repeat(auto-fit, minmax(350px, 1fr)); gap: var(--spacing-xl);">
+                <div class="service-item animate-on-scroll" style="background: var(--slate-blue); color: var(--white); padding: var(--spacing-xl); border-radius: var(--radius-lg); box-shadow: var(--shadow-lg); text-align: center; transform: translateY(-10px); transition: transform 0.3s ease, box-shadow 0.3s ease;" onmouseover="this.style.transform='translateY(-15px)'; this.style.boxShadow='var(--shadow-xl)';" onmouseout="this.style.transform='translateY(-10px)'; this.style.boxShadow='var(--shadow-lg)';">
+                    <div style="font-size: 2.5rem; margin-bottom: 15px;"><i class="fas fa-bullseye"></i></div>
+                    <h3 style="color: var(--white); font-size: 1.8rem; margin-bottom: 15px;">Our Mission</h3>
+                    <p style="font-size: 1.1rem; line-height: 1.6;">To provide bespoke, technology-driven engineering solutions that enhance the performance and safety of our clients' assets while creating sustainable value for our stakeholders.</p>
                 </div>
-                <div class="service-item animate-on-scroll delay-1" style="background: var(--light-bg); padding: var(--spacing-lg); border-radius: var(--radius-lg); box-shadow: var(--shadow-sm);">
-                    <h3 style="color: var(--vivid-red);">Our Mission</h3>
-                    <p>To build a lasting working relationship with clients through delivery of reliable and valuable engineering, training and consultancy services.</p>
+                <div class="service-item animate-on-scroll delay-1" style="background: var(--vivid-orange); color: var(--white); padding: var(--spacing-xl); border-radius: var(--radius-lg); box-shadow: var(--shadow-lg); text-align: center; transform: translateY(-10px); transition: transform 0.3s ease, box-shadow 0.3s ease;" onmouseover="this.style.transform='translateY(-15px)'; this.style.boxShadow='var(--shadow-xl)';" onmouseout="this.style.transform='translateY(-10px)'; this.style.boxShadow='var(--shadow-lg)';">
+                    <div style="font-size: 2.5rem; margin-bottom: 15px;"><i class="fas fa-eye"></i></div>
+                    <h3 style="color: var(--white); font-size: 1.8rem; margin-bottom: 15px;">Our Vision</h3>
+                    <p style="font-size: 1.1rem; line-height: 1.6;">To be the preferred indigenous engineering partner in West Africa, recognized for excellence, innovation, and an unwavering commitment to quality.</p>
                 </div>
             </div>
         </div>
@@ -151,50 +220,26 @@
 
                 <div class="service-card animate-on-scroll" style="background: var(--white); padding: var(--spacing-lg); border-radius: var(--radius-lg); box-shadow: var(--shadow-md);">
                     <div class="service-card-header">
-                        <div class="service-icon"><i class="fas fa-tools"></i></div>
+                        <div class="service-icon"><i class="fas fa-shield-alt"></i></div>
                     </div>
-                    <h3 class="service-card-title">Fabric Maintenance</h3>
-                    <p class="service-card-description">Comprehensive maintenance solutions to preserve and extend the lifespan of industrial structures and equipment.</p>
+                    <h3 class="service-card-title">Asset Integrity Management</h3>
+                    <p class="service-card-description">Ensuring the ultimate safety and performance of your critical assets through advanced structural health monitoring, non-intrusive cold repair techniques, and specialized corrosion control services.</p>
                 </div>
 
                 <div class="service-card animate-on-scroll delay-1" style="background: var(--white); padding: var(--spacing-lg); border-radius: var(--radius-lg); box-shadow: var(--shadow-md);">
                     <div class="service-card-header">
-                        <div class="service-icon"><i class="fas fa-snowflake"></i></div>
+                        <div class="service-icon"><i class="fas fa-drafting-compass"></i></div>
                     </div>
-                    <h3 class="service-card-title">Cold Repair & Fastening</h3>
-                    <p class="service-card-description">Durable composite bonding and fastening solutions using Coldpad technology, facilitating safe maintenance without hot work.</p>
-                </div>
-
-                <div class="service-card animate-on-scroll delay-2" style="background: var(--white); padding: var(--spacing-lg); border-radius: var(--radius-lg); box-shadow: var(--shadow-md);">
-                    <div class="service-card-header">
-                        <div class="service-icon"><i class="fas fa-search-plus"></i></div>
-                    </div>
-                    <h3 class="service-card-title">Non-Destructive Testing (NDT)</h3>
-                    <p class="service-card-description">Advanced testing methods to evaluate properties of materials, components, or systems without causing damage.</p>
-                </div>
-
-                <div class="service-card animate-on-scroll" style="background: var(--white); padding: var(--spacing-lg); border-radius: var(--radius-lg); box-shadow: var(--shadow-md);">
-                    <div class="service-card-header">
-                        <div class="service-icon"><i class="fas fa-weight-hanging"></i></div>
-                    </div>
-                    <h3 class="service-card-title">Lifting Equipment Inspection</h3>
-                    <p class="service-card-description">Thorough inspection and certification of all types of lifting equipment to ensure safety and regulatory compliance.</p>
-                </div>
-
-                <div class="service-card animate-on-scroll delay-1" style="background: var(--white); padding: var(--spacing-lg); border-radius: var(--radius-lg); box-shadow: var(--shadow-md);">
-                    <div class="service-card-header">
-                        <div class="service-icon"><i class="fas fa-user-tie"></i></div>
-                    </div>
-                    <h3 class="service-card-title">Engineering Consultancy</h3>
-                    <p class="service-card-description">Expert engineering support services, FEED (Front End Engineering Design), and project feasibility studies.</p>
+                    <h3 class="service-card-title">Engineering Consultancy & Design</h3>
+                    <p class="service-card-description">Supporting full project lifecycles from initial feasibility studies and FEED to providing real-time engineering support and conducting rigorous technical audits.</p>
                 </div>
 
                 <div class="service-card animate-on-scroll delay-2" style="background: var(--white); padding: var(--spacing-lg); border-radius: var(--radius-lg); box-shadow: var(--shadow-md);">
                     <div class="service-card-header">
                         <div class="service-icon"><i class="fas fa-hard-hat"></i></div>
                     </div>
-                    <h3 class="service-card-title">Engineering Procurement & Construction</h3>
-                    <p class="service-card-description">End-to-end EPC services, managing the entire lifecycle of industrial and infrastructure projects.</p>
+                    <h3 class="service-card-title">Contractor & EPC Services</h3>
+                    <p class="service-card-description">Executing multi-disciplined Engineering, Procurement, and Construction (EPC) projects across Ghana, handling plant upgrades, modifications, and engineered pipe repair solutions.</p>
                 </div>
 
             </div>
@@ -202,59 +247,95 @@
     </section>
 
     <!-- Projects / Solutions Section -->
-    <section class="section-padding" id="projects">
+    <section class="services-intro" id="projects" style="padding: var(--spacing-2xl) 0;">
         <div class="container">
             <h2 class="section-title text-center animate-on-scroll">Our <span class="title-accent">Solutions</span></h2>
 
-            <div class="project-block animate-on-scroll" style="margin-top: 40px;">
-                <h3 style="color: var(--vivid-red); margin-bottom: 20px;">FORTEC Composite Pipe Repair Solution</h3>
-                <div style="display: flex; flex-wrap: wrap; gap: 30px; align-items: flex-start;">
-                    <div style="flex: 1; min-width: 300px;">
-                        <ul style="list-style-type: none; padding: 0;">
-                            <li style="margin-bottom: 10px; padding-left: 20px; position: relative;"><i class="fas fa-check" style="color: var(--vivid-red); position: absolute; left: 0; top: 5px;"></i> The Fortec system is specifically designed to repair defects on pipelines in service onshore or offshore as a provisional or permanent repair.</li>
-                            <li style="margin-bottom: 10px; padding-left: 20px; position: relative;"><i class="fas fa-check" style="color: var(--vivid-red); position: absolute; left: 0; top: 5px;"></i> It provides a long-term solution for non through wall defects and a short-term solution for through wall defects.</li>
-                            <li style="margin-bottom: 10px; padding-left: 20px; position: relative;"><i class="fas fa-check" style="color: var(--vivid-red); position: absolute; left: 0; top: 5px;"></i> The Fortec composite system consist of a glass fibre fabric, designed by PROKEM, impregnated with a high quality, non-toxic, proprietary solvent free epoxy that can cure underwater.</li>
-                            <li style="margin-bottom: 10px; padding-left: 20px; position: relative;"><i class="fas fa-check" style="color: var(--vivid-red); position: absolute; left: 0; top: 5px;"></i> It provides high anticorrosion protection as well as high mechanical reinforcement.</li>
-                            <li style="margin-bottom: 10px; padding-left: 20px; position: relative;"><i class="fas fa-check" style="color: var(--vivid-red); position: absolute; left: 0; top: 5px;"></i> It is particularly suitable for dented or corrode pipelines as well as corroded risers, piping or casing located in the splash zone or top sides of oil rigs/platforms.</li>
-                            <li style="margin-bottom: 10px; padding-left: 20px; position: relative;"><i class="fas fa-check" style="color: var(--vivid-red); position: absolute; left: 0; top: 5px;"></i> The Fortec system eliminates the need to shut down and replace defective steelworks and it is considered the best technical offer, along with the best cost-effective material.</li>
-                        </ul>
+            <div class="partners-grid" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: var(--spacing-lg); margin-top: var(--spacing-lg);">
+                <div class="service-card animate-on-scroll" style="background: var(--white); padding: var(--spacing-lg); border-radius: var(--radius-lg); box-shadow: var(--shadow-md); transition: transform 0.3s ease, box-shadow 0.3s ease;" onmouseover="this.style.transform='translateY(-10px)'; this.style.boxShadow='var(--shadow-xl)';" onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='var(--shadow-md)';">
+                    <div class="service-card-header">
+                        <div class="service-icon"><i class="fas fa-tools"></i></div>
                     </div>
+                    <h3 class="service-card-title">FORTEC</h3>
+                    <p class="service-card-description">A specialized fiberglass composite system designed to repair defects on pipelines in service onshore or offshore. It uses non-toxic proprietary epoxy to provide high anticorrosion protection and mechanical reinforcement. Ideal for dented or corroded pipelines, risers, and caissons in splash zones.</p>
+                </div>
+
+                <div class="service-card animate-on-scroll delay-1" style="background: var(--white); padding: var(--spacing-lg); border-radius: var(--radius-lg); box-shadow: var(--shadow-md); transition: transform 0.3s ease, box-shadow 0.3s ease;" onmouseover="this.style.transform='translateY(-10px)'; this.style.boxShadow='var(--shadow-xl)';" onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='var(--shadow-md)';">
+                    <div class="service-card-header">
+                        <div class="service-icon"><i class="fas fa-stopwatch"></i></div>
+                    </div>
+                    <h3 class="service-card-title">STOPTEC (UP & HD)</h3>
+                    <p class="service-card-description">Fast and durable repair of pipe leaks (1” to 36” diameter) in just 20 minutes. Heat resistant to over 200°C and pressure resistant up to 30 Bar. Perfect emergency standby for all pipes, featuring excellent chemical resistance.</p>
+                </div>
+
+                <div class="service-card animate-on-scroll delay-2" style="background: var(--white); padding: var(--spacing-lg); border-radius: var(--radius-lg); box-shadow: var(--shadow-md); transition: transform 0.3s ease, box-shadow 0.3s ease;" onmouseover="this.style.transform='translateY(-10px)'; this.style.boxShadow='var(--shadow-xl)';" onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='var(--shadow-md)';">
+                    <div class="service-card-header">
+                        <div class="service-icon"><i class="fas fa-anchor"></i></div>
+                    </div>
+                    <h3 class="service-card-title">C-CLAW Fastening Solution</h3>
+                    <p class="service-card-description">A quick, reliable, and durable fastening solution for FPSO outfitting, maintenance, and modification operations. It provides a Class Approved, permanent structural repair that is entirely non-intrusive, requiring no hot works to maximize operational uptime.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Interactive Gallery Slider -->
+    <section class="section-padding" id="projects" style="padding-bottom: 2rem;">
+        <div class="container">
+            <h2 class="section-title text-center animate-on-scroll">Our <span class="title-accent">Projects</span></h2>
+        </div>
+    </section>
+
+    <section class="gallery-section">
+        <div class="gallery-container" id="gallery-slider">
+            <div class="gallery-slide active" style="background-image: url('assets/PB 2C1 DEFECT.jpg');">
+                <div class="gallery-content">
+                    <h3>Hatch Cover Restoration</h3>
+                    <p>Repairing severely corroded and leaking hatch covers (PA2C1) on the FPSO KNK.</p>
+                </div>
+            </div>
+            <div class="gallery-slide" style="background-image: url('assets/PB2C2 DEFECT.jpg');">
+                <div class="gallery-content">
+                    <h3>Hatch Cover Restoration</h3>
+                    <p>Securing the integrity of PB2C2 hatch cover with advanced composites.</p>
+                </div>
+            </div>
+            <div class="gallery-slide" style="background-image: url('assets/2CF HATCH REPAIR.jpg');">
+                <div class="gallery-content">
+                    <h3>Class-Approved Repair</h3>
+                    <p>Extending asset service life without the need for operational shutdown.</p>
+                </div>
+            </div>
+            <div class="gallery-slide" style="background-image: url('assets/Riser 9 Defect.png');">
+                <div class="gallery-content">
+                    <h3>Riser Sheath Repair</h3>
+                    <p>Addressing localized dents to prevent progressive deterioration of risers.</p>
+                </div>
+            </div>
+            <div class="gallery-slide" style="background-image: url('assets/Riser 9 fortec repair.png');">
+                <div class="gallery-content">
+                    <h3>Composite Engineering</h3>
+                    <p>Successful engineered restoration of riser outer sheath integrity on time and within budget.</p>
                 </div>
             </div>
 
-            <div class="project-block animate-on-scroll" style="margin-top: 60px;">
-                <h3 style="color: var(--vivid-red); margin-bottom: 20px;">ColdRepair Solutions (Coldpad S300 & S1000)</h3>
-                <div style="display: flex; flex-wrap: wrap; gap: 30px; align-items: flex-start; flex-direction: row-reverse;">
-                    <div style="flex: 1; min-width: 300px;">
-                        <p style="margin-bottom: 15px;">The need for non-intrusive cold works which offers durable composite bonding and fastening cannot be overlooked in industries such as Oil and Gas, Storage and Process Facilities.</p>
-                        <p style="margin-bottom: 15px;">Ensol Engineering has partnered with Coldpad, a leader in cold repair and fastening solutions, to provides durable composite bonding & fastening solutions to facilitate structural maintenance, retrofit & upgrade operations while reducing OPEX by eradicating associated cost.</p>
-                        <p style="margin-bottom: 15px;">C-Claw™ is specially designed for offshore environments like FPSO. It is truly revolutionary in the marine world and inspired by composite techniques that have been used for decades in aeronautics.</p>
-                        <p>C-Claw™ offers a quick, reliable and durable fastening solution for all your FPSO outfitting, maintenance & modification operations: cable trays, pipe supports, skids, handrails, ladders, and more.</p>
-                    </div>
-                </div>
+            <div class="subsidiary-hero-overlay" style="background: linear-gradient(to top, rgba(0,0,0,0.8), transparent 40%); pointer-events: none;"></div>
+        </div>
+    </section>
+
+    <!-- Experience & Projects Section -->
+    <section class="section-padding">
+        <div class="container">
+            <h2 class="section-title text-center animate-on-scroll">Proven <span class="title-accent">Experience</span></h2>
+
+            <div class="content-block animate-on-scroll">
+                <h4>Hatch Cover Integrity Restoration – FPSO KNK (Tullow Ghana)</h4>
+                <p>Ensol Engineering, in collaboration with Cold Pad, successfully executed the permanent repair of two severely corroded and leaking hatch covers on the FPSO KNK. Utilizing advanced composite systems, we achieved a full restoration of the hatch integrity with a permanent, class-approved repair solution. The project was completed with zero safety incidents, successfully extending the asset service life without the need for operational shutdown or hot work.</p>
             </div>
 
-            <div class="project-block animate-on-scroll" style="margin-top: 60px;">
-                <h3 style="color: var(--vivid-red); margin-bottom: 20px;">Safety Tools Allmet</h3>
-                <div style="display: flex; flex-wrap: wrap; gap: 30px; align-items: flex-start;">
-                    <div style="flex: 1; min-width: 300px;">
-                        <p style="margin-bottom: 15px;">Safety Tools Allmet specializes in unique cold work surface preparation and cutting tools. Our equipment follows ATEX guidelines and is safe to use in EX Zones 1 and 2 without a Hot Work Permit.</p>
-                        <p style="margin-bottom: 20px;">Safety Tools have been safely used around the world for over a decade and offer substantial Health Safety & Environmental benefits.</p>
-
-                        <h4 style="margin-bottom: 15px;">Benefits of Safety Tools Allmet:</h4>
-                        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 10px;">
-                            <div><i class="fas fa-check-circle" style="color: var(--vivid-red);"></i> No Need For Hot Work Permit</div>
-                            <div><i class="fas fa-check-circle" style="color: var(--vivid-red);"></i> No Need For Job Postponement</div>
-                            <div><i class="fas fa-check-circle" style="color: var(--vivid-red);"></i> Low Noise (80-85dB Average)</div>
-                            <div><i class="fas fa-check-circle" style="color: var(--vivid-red);"></i> No Demanding Risk Evaluation</div>
-                            <div><i class="fas fa-check-circle" style="color: var(--vivid-red);"></i> No Need For Habitats</div>
-                            <div><i class="fas fa-check-circle" style="color: var(--vivid-red);"></i> Low Heat (30C -60C Average)</div>
-                            <div><i class="fas fa-check-circle" style="color: var(--vivid-red);"></i> Low Vibration (2.5m/s Average)</div>
-                            <div><i class="fas fa-check-circle" style="color: var(--vivid-red);"></i> Roughness Profile (40-70 microns)</div>
-                            <div><i class="fas fa-check-circle" style="color: var(--vivid-red);"></i> No Hot Spark</div>
-                        </div>
-                    </div>
-                </div>
+            <div class="content-block animate-on-scroll" style="margin-top: 40px;">
+                <h4>Riser 3 & Riser 9 Outer Sheath Repair – FPSO Operations</h4>
+                <p>Following damage caused by a vessel collision, Ensol Engineering successfully executed an engineered repair of the outer sheath of Riser 3 and Riser 9 on a Tullow FPSO. We successfully restored the riser outer sheath integrity, fully reinforcing all dents to prevent further growth. The project was delivered safely, on time, and within budget, highlighting our expertise in composite repair technologies, rope-access execution, and rapid response to offshore asset damage.</p>
             </div>
 
         </div>
@@ -272,7 +353,10 @@
                     <img src="assets/modec.png" alt="MODEC" class="partner-logo-img">
                 </div>
                 <div class="partner-logo-card animate-on-scroll delay-2" style="flex: 1; min-width: 200px; max-width: 250px;">
-                    <img src="assets/eni.png" alt="ENI Ghana" class="partner-logo-img">
+                    <img src="assets/Southey_no_background.png" alt="Southey Contracting" class="partner-logo-img">
+                </div>
+                <div class="partner-logo-card animate-on-scroll delay-3" style="flex: 1; min-width: 200px; max-width: 250px;">
+                    <img src="assets/yinson.png" alt="Yinson" class="partner-logo-img">
                 </div>
             </div>
         </div>
@@ -398,6 +482,42 @@
 
     <!-- Scripts -->
     <script src="script.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Gallery Slider
+            const gallerySlides = document.querySelectorAll('.gallery-slide');
+            let currentGallery = 0;
+
+            function nextGallerySlide() {
+                if (gallerySlides.length === 0) return;
+                gallerySlides[currentGallery].classList.remove('active');
+                currentGallery = (currentGallery + 1) % gallerySlides.length;
+                gallerySlides[currentGallery].classList.add('active');
+            }
+            if (gallerySlides.length > 1) setInterval(nextGallerySlide, 5000);
+
+            // Hero Slider
+            const heroSlides = document.querySelectorAll('.hero-slide');
+            let currentHero = 0;
+
+            function nextHeroSlide() {
+                // Remove all classes first
+                heroSlides.forEach(slide => {
+                    slide.classList.remove('active', 'prev');
+                });
+
+                // Set the current slide as prev
+                heroSlides[currentHero].classList.add('prev');
+
+                // Move to next slide
+                currentHero = (currentHero + 1) % heroSlides.length;
+
+                // Make the next slide active
+                heroSlides[currentHero].classList.add('active');
+            }
+            if (heroSlides.length > 1) setInterval(nextHeroSlide, 8000);
+        });
+    </script>
 </body>
 
 </html>

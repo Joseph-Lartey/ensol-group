@@ -114,6 +114,7 @@ document.querySelectorAll('.animate-on-scroll').forEach(el => {
 // FLOATING PARTICLES ANIMATION
 // ========================================
 function createParticle() {
+    if (!particlesContainer) return;
     const particle = document.createElement('div');
     particle.classList.add('particle');
 

@@ -89,8 +89,7 @@
             </div>
         </div>
 
-        <!-- Animated particles -->
-        <div class="particles" id="particles"></div>
+        <!-- Animated particles removed to avoid visual distortion -->
     </section>
 
     <!-- Partners Section -->
