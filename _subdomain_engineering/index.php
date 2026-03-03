@@ -35,6 +35,8 @@
             background-color: var(--dark-gray);
             /* Fallback */
             overflow: hidden;
+            margin-top: 78px;
+            /* Offset for fixed header */
         }
 
         .subsidiary-hero-img {
@@ -144,10 +146,102 @@
                 height: 400px;
             }
         }
+
+        /* Team Section Styles */
+        .team-member {
+            flex: 1;
+            min-width: 250px;
+            max-width: 300px;
+            text-align: center;
+            position: relative;
+        }
+
+        .team-img-wrapper {
+            position: relative;
+            width: 200px;
+            height: 200px;
+            margin: 0 auto 20px auto;
+            border-radius: 50%;
+            overflow: hidden;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        .team-img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.3s ease;
+        }
+
+        .team-member:hover .team-img {
+            transform: scale(1.1);
+        }
+
+        .team-tooltip {
+            position: absolute;
+            top: 20px;
+            left: 50%;
+            transform: translateX(-50%) translateY(15px);
+            width: 320px;
+            max-height: 250px;
+            overflow-y: auto;
+            background-color: var(--white, #ffffff);
+            color: var(--text-gray, #4a4a4a);
+            padding: 20px;
+            border-radius: 12px;
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.15);
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+            z-index: 10;
+            text-align: left;
+            font-size: 0.9rem;
+            line-height: 1.5;
+            border: 1px solid #f0f0f0;
+            border-bottom: 4px solid var(--vivid-red, #e31e24);
+        }
+
+        /* Custom scrollbar for tooltip */
+        .team-tooltip::-webkit-scrollbar {
+            width: 6px;
+        }
+
+        .team-tooltip::-webkit-scrollbar-track {
+            background: #f1f1f1;
+            border-radius: 4px;
+        }
+
+        .team-tooltip::-webkit-scrollbar-thumb {
+            background: #ccc;
+            border-radius: 4px;
+        }
+
+        .team-tooltip::-webkit-scrollbar-thumb:hover {
+            background: var(--vivid-red, #e31e24);
+        }
+
+        .team-member:hover .team-tooltip {
+            opacity: 1;
+            visibility: visible;
+            transform: translateX(-50%) translateY(0);
+        }
+
+        .team-name {
+            margin-bottom: 5px;
+            font-size: 1.2rem;
+            color: var(--jet-black, #1a1a1a);
+        }
+
+        .team-role {
+            color: var(--vivid-red, #e31e24);
+            font-weight: bold;
+            font-size: 0.95rem;
+            margin-top: 0;
+        }
     </style>
 </head>
 
-<body>
+<body style="padding-top: 80px;">
     <!-- Header Navigation -->
     <header class="header" id="header">
         <div class="container">
@@ -381,6 +475,48 @@
                     <img src="assets/iso_9001.jpeg" alt="ISO 9001:2015" style="width: 100%; height: auto; margin-bottom: 15px; border-radius: 8px;">
                     <h4>ISO 9001:2015</h4>
                     <p>Quality Management System</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Our Team Section -->
+    <section class="section-padding bg-light" id="team" style="padding-bottom: var(--spacing-2xl);">
+        <div class="container text-center">
+            <h2 class="section-title animate-on-scroll">Our <span class="title-accent">Team</span></h2>
+            <div class="team-grid" style="display: flex; justify-content: center; gap: 30px; flex-wrap: wrap; margin-top: 40px;">
+                <!-- Team Member 1 -->
+                <div class="team-member animate-on-scroll">
+                    <div class="team-tooltip">
+                        <p style="margin: 0;">Experienced professional with over 10 years in the industry, specializing in operational excellence and strategic leadership.</p>
+                    </div>
+                    <div class="team-img-wrapper">
+                        <img src="https://via.placeholder.com/200" alt="Team Member 1" class="team-img">
+                    </div>
+                    <h4 class="team-name">Member Name</h4>
+                    <p class="team-role">Role Placeholder</p>
+                </div>
+                <!-- Team Member 2 -->
+                <div class="team-member animate-on-scroll delay-1">
+                    <div class="team-tooltip">
+                        <p style="margin: 0;">Dedicated specialist committed to delivering high-quality solutions and driving project success through innovation.</p>
+                    </div>
+                    <div class="team-img-wrapper">
+                        <img src="https://via.placeholder.com/200" alt="Team Member 2" class="team-img">
+                    </div>
+                    <h4 class="team-name">Member Name</h4>
+                    <p class="team-role">Role Placeholder</p>
+                </div>
+                <!-- Team Member 3 -->
+                <div class="team-member animate-on-scroll delay-2">
+                    <div class="team-tooltip">
+                        <p style="margin: 0;">Technical expert focused on engineering solutions, compliance, and maintaining the highest safety standards.</p>
+                    </div>
+                    <div class="team-img-wrapper">
+                        <img src="https://via.placeholder.com/200" alt="Team Member 3" class="team-img">
+                    </div>
+                    <h4 class="team-name">Member Name</h4>
+                    <p class="team-role">Role Placeholder</p>
                 </div>
             </div>
         </div>

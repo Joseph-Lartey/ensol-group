@@ -41,6 +41,7 @@
             text-align: center;
             background-color: var(--dark-gray);
             overflow: hidden;
+            margin-top: 90px;
         }
 
         .hero-slide {
@@ -53,6 +54,7 @@
             object-fit: cover;
             transition: left 1.2s ease-in-out;
             z-index: 1;
+            margin-top: 60px;
         }
 
         .hero-slide.active {
@@ -240,6 +242,98 @@
                 grid-template-columns: 1fr;
             }
         }
+
+        /* Team Section Styles */
+        .team-member {
+            flex: 1;
+            min-width: 250px;
+            max-width: 300px;
+            text-align: center;
+            position: relative;
+        }
+
+        .team-img-wrapper {
+            position: relative;
+            width: 200px;
+            height: 200px;
+            margin: 0 auto 20px auto;
+            border-radius: 50%;
+            overflow: hidden;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        .team-img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.3s ease;
+        }
+
+        .team-member:hover .team-img {
+            transform: scale(1.1);
+        }
+
+        .team-tooltip {
+            position: absolute;
+            top: 20px;
+            left: 50%;
+            transform: translateX(-50%) translateY(15px);
+            width: 320px;
+            max-height: 250px;
+            overflow-y: auto;
+            background-color: var(--white, #ffffff);
+            color: var(--text-gray, #4a4a4a);
+            padding: 20px;
+            border-radius: 12px;
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.15);
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+            z-index: 10;
+            text-align: left;
+            font-size: 0.9rem;
+            line-height: 1.5;
+            border: 1px solid #f0f0f0;
+            border-bottom: 4px solid var(--vivid-red, #e31e24);
+        }
+
+        /* Custom scrollbar for tooltip */
+        .team-tooltip::-webkit-scrollbar {
+            width: 6px;
+        }
+
+        .team-tooltip::-webkit-scrollbar-track {
+            background: #f1f1f1;
+            border-radius: 4px;
+        }
+
+        .team-tooltip::-webkit-scrollbar-thumb {
+            background: #ccc;
+            border-radius: 4px;
+        }
+
+        .team-tooltip::-webkit-scrollbar-thumb:hover {
+            background: var(--vivid-red, #e31e24);
+        }
+
+        .team-member:hover .team-tooltip {
+            opacity: 1;
+            visibility: visible;
+            transform: translateX(-50%) translateY(0);
+        }
+
+        .team-name {
+            margin-bottom: 5px;
+            font-size: 1.2rem;
+            color: var(--jet-black, #1a1a1a);
+        }
+
+        .team-role {
+            color: var(--vivid-red, #e31e24);
+            font-weight: bold;
+            font-size: 0.95rem;
+            margin-top: 0;
+        }
     </style>
 </head>
 
@@ -319,31 +413,6 @@
     </section>
 
 
-    <!-- Team Lead Section -->
-    <section class="section-padding">
-        <div class="container">
-            <h2 class="section-title text-center animate-on-scroll">Our <span class="title-accent">Team Lead</span></h2>
-
-            <div class="leadership-card animate-on-scroll delay-1">
-                <div class="leadership-img">
-                    <!-- Padmore Y. Amati Photo -->
-                    <img src="assets/project_manager.jpeg" alt="Padmore Y. Amati - Operations Manager">
-                </div>
-                <div class="leadership-info">
-                    <h3 class="leader-name">Padmore Y. Amati</h3>
-                    <h4 class="leader-role">Operations Manager</h4>
-
-                    <div class="leader-bio">
-                        <p>Padmore Y. Amati is a seasoned professional with over a decade of progressive experience in Ghana’s oil and gas services industry. His expertise spans Occupational Safety and Health (OSH), Logistics, and Operations Management, where he has consistently driven performance, compliance, and operational efficiency.</p>
-
-                        <p>Throughout his career, Padmore has demonstrated a strong commitment to operational excellence, ensuring that projects are executed to the highest industry standards while exceeding client expectations. His professional philosophy is anchored in delivery results without compromising the health and safety of personnel, environmental stewardship, or business sustainability.</p>
-
-                        <p>He is recognized for his disciplined leadership approach, strategic thinking, and unwavering dedication to safe, efficient, and value-driven service delivery.</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
 
     <!-- Core Values Section -->
     <section class="section-padding bg-light">
@@ -551,6 +620,54 @@
                     <img src="assets/iso_9001.jpeg" alt="ISO 9001:2015" style="width: 100%; height: auto; margin-bottom: 15px; border-radius: 8px;">
                     <h4>ISO 9001:2015</h4>
                     <p>Quality Management System</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Our Team Section -->
+    <section class="section-padding" id="team">
+        <div class="container text-center">
+            <h2 class="section-title animate-on-scroll">Our <span class="title-accent">Team</span></h2>
+            <div class="team-grid" style="display: flex; justify-content: center; gap: 30px; flex-wrap: wrap; margin-top: 40px;">
+                <!-- Team Member 1 -->
+                <div class="team-member animate-on-scroll">
+                    <div class="team-tooltip">
+                        <p style="margin: 0 0 10px 0;">Padmore Y. Amati is a seasoned professional with over a decade of progressive experience in Ghana’s oil and gas services industry. His expertise spans Occupational Safety and Health (OSH), Logistics, and Operations Management, where he has consistently driven performance, compliance, and operational efficiency.</p>
+                        <p style="margin: 0 0 10px 0;">Throughout his career, Padmore has demonstrated a strong commitment to operational excellence, ensuring that projects are executed to the highest industry standards while exceeding client expectations. His professional philosophy is anchored in delivery results without compromising the health and safety of personnel, environmental stewardship, or business sustainability.</p>
+                        <p style="margin: 0;">He is recognized for his disciplined leadership approach, strategic thinking, and unwavering dedication to safe, efficient, and value-driven service delivery.</p>
+                    </div>
+                    <div class="team-img-wrapper">
+                        <img src="assets/project_manager.jpeg" alt="Padmore Y. Amati - Operations Manager" class="team-img" style="object-position: top;">
+                    </div>
+                    <h4 class="team-name">Padmore Y. Amati</h4>
+                    <p class="team-role">Operations Manager</p>
+                </div>
+                <!-- Team Member 2 -->
+                <div class="team-member animate-on-scroll delay-1">
+                    <div class="team-tooltip">
+                        <p style="margin: 0 0 10px 0;">Maxwell Sackitey is a dedicated QHSE and ISO Management Systems Practitioner with over 12 years of progressive experience across the Logistics, Oil & Gas, and Chemical Management industries. His career has been defined by unwavering commitment to workplace health, safety, and environmental excellence, consistently helping organizations achieve compliance, strengthen safety cultures, and obtain international certifications.</p>
+                        <p style="margin: 0 0 10px 0;">Maxwell is a highly credentialed professional, holding Lead Auditor certifications in ISO 45001:2018 and ISO 14001:2015, as well as the NEBOSH International General Certificate (IGC) in Occupational Health and Safety. His qualifications also include: Explosive Handling & Transportation Certificate – Minerals Commission, Radioactive Handling & Transportation Certificate – Nuclear Regulatory Authority(NRA), NEBOSH Incident Investigation Certificate, Basic Offshore Safety Induction & Emergency Training (BOSIET) with CA-EBS, NEBOSH International Diploma in Occupational Health & Safety-Ongoing Bachelor’s Degree in Ports & Shipping Administration – Regional Maritime University (RMU)</p>
+                        <p style="margin: 0 0 10px 0;">He has carried out ISO management system audits of several companies including ORSAM, Power Factor Limited, Cen Power, DAN-IOT Engineering, Apollo Medical Center and Cresta & Sterling International Company Limited. He is an approved NEBOSH IGC Tutor and has tutored over 300 students to achieve the prestigious NEBOSH International General Certification.</p>
+                        <p style="margin: 0;">With a strong passion for safety and an analytical approach to risk management, Maxwell continues to drive operational excellence everywhere he works.</p>
+                    </div>
+                    <div class="team-img-wrapper" style="background-color: var(--white); display: flex; align-items: center; justify-content: center;">
+                        <!-- Update image when available -->
+                        <img src="assets/Maxwell.jpeg" alt="Maxwell Sackitey - QHSE Manager" class="team-img" style="object-position: center top; transform: scale(1.15); width: 100%; height: 100%;">
+                    </div>
+                    <h4 class="team-name">Maxwell Sackitey</h4>
+                    <p class="team-role">QHSE Manager</p>
+                </div>
+                <!-- Team Member 3 -->
+                <div class="team-member animate-on-scroll delay-2">
+                    <div class="team-tooltip">
+                        <p style="margin: 0;">Technical expert focused on engineering solutions, compliance, and maintaining the highest safety standards.</p>
+                    </div>
+                    <div class="team-img-wrapper">
+                        <img src="https://via.placeholder.com/200" alt="Team Member 3" class="team-img">
+                    </div>
+                    <h4 class="team-name">Member Name</h4>
+                    <p class="team-role">Role Placeholder</p>
                 </div>
             </div>
         </div>
