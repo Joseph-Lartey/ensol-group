@@ -661,13 +661,13 @@
                 <!-- Team Member 3 -->
                 <div class="team-member animate-on-scroll delay-2">
                     <div class="team-tooltip">
-                        <p style="margin: 0;">Technical expert focused on engineering solutions, compliance, and maintaining the highest safety standards.</p>
+                        <p style="margin: 0;">Profile description coming soon.</p>
                     </div>
-                    <div class="team-img-wrapper">
-                        <img src="https://via.placeholder.com/200" alt="Team Member 3" class="team-img">
+                    <div class="team-img-wrapper" style="background-color: var(--white); display: flex; align-items: center; justify-content: center;">
+                        <img src="assets/Gloria%20%20Ghartey-Tagoe.jpeg" alt="Gloria Ghartey-Tagoe - Accountant" class="team-img" style="object-position: center top;">
                     </div>
-                    <h4 class="team-name">Member Name</h4>
-                    <p class="team-role">Role Placeholder</p>
+                    <h4 class="team-name">Gloria Ghartey-Tagoe</h4>
+                    <p class="team-role">Accountant</p>
                 </div>
             </div>
         </div>
