@@ -653,7 +653,7 @@
                     </div>
                     <div class="team-img-wrapper" style="background-color: var(--white); display: flex; align-items: center; justify-content: center;">
                         <!-- Update image when available -->
-                        <img src="assets/Maxwell.jpeg" alt="Maxwell Sackitey - QHSE Manager" class="team-img" style="object-position: center top; transform: scale(1.15); width: 100%; height: 100%;">
+                        <img src="assets/maxwell.jpeg" alt="Maxwell Sackitey - QHSE Manager" class="team-img" style="object-position: center top; transform: scale(1.15); width: 100%; height: 100%;">
                     </div>
                     <h4 class="team-name">Maxwell Sackitey</h4>
                     <p class="team-role">QHSE Manager</p>
@@ -664,7 +664,7 @@
                         <p style="margin: 0;">Profile description coming soon.</p>
                     </div>
                     <div class="team-img-wrapper" style="background-color: var(--white); display: flex; align-items: center; justify-content: center;">
-                        <img src="assets/Gloria%20%20Ghartey-Tagoe.jpeg" alt="Gloria Ghartey-Tagoe - Accountant" class="team-img" style="object-position: center top;">
+                        <img src="assets/gloria.jpeg" alt="Gloria Ghartey-Tagoe - Accountant" class="team-img" style="object-position: center 15%;">
                     </div>
                     <h4 class="team-name">Gloria Ghartey-Tagoe</h4>
                     <p class="team-role">Accountant</p>
