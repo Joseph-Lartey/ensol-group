@@ -491,10 +491,10 @@
                         <p style="margin: 0;">Experienced professional with over 10 years in the industry, specializing in operational excellence and strategic leadership.</p>
                     </div>
                     <div class="team-img-wrapper">
-                        <img src="https://via.placeholder.com/200" alt="Team Member 1" class="team-img">
+                        <img src="assets/rafeeq_amadu.jpeg" alt="Rafeeq Amadu" class="team-img">
                     </div>
-                    <h4 class="team-name">Member Name</h4>
-                    <p class="team-role">Role Placeholder</p>
+                    <h4 class="team-name">Rafeeq Amadu</h4>
+                    <p class="team-role">Managing Partner</p>
                 </div>
                 <!-- Team Member 2 -->
                 <div class="team-member animate-on-scroll delay-1">
@@ -502,21 +502,10 @@
                         <p style="margin: 0;">Dedicated specialist committed to delivering high-quality solutions and driving project success through innovation.</p>
                     </div>
                     <div class="team-img-wrapper">
-                        <img src="https://via.placeholder.com/200" alt="Team Member 2" class="team-img">
+                        <img src="assets/Nelly_Korley_Appertey.jpeg" alt="Nelly Korley Appertey" class="team-img">
                     </div>
-                    <h4 class="team-name">Member Name</h4>
-                    <p class="team-role">Role Placeholder</p>
-                </div>
-                <!-- Team Member 3 -->
-                <div class="team-member animate-on-scroll delay-2">
-                    <div class="team-tooltip">
-                        <p style="margin: 0;">Technical expert focused on engineering solutions, compliance, and maintaining the highest safety standards.</p>
-                    </div>
-                    <div class="team-img-wrapper">
-                        <img src="https://via.placeholder.com/200" alt="Team Member 3" class="team-img">
-                    </div>
-                    <h4 class="team-name">Member Name</h4>
-                    <p class="team-role">Role Placeholder</p>
+                    <h4 class="team-name">Nelly Korley Appertey</h4>
+                    <p class="team-role">Technical Project Coordinator</p>
                 </div>
             </div>
         </div>
