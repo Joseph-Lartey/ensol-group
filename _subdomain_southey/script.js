@@ -365,4 +365,80 @@ document.addEventListener('DOMContentLoaded', () => {
             document.body.style.overflow = '';
         });
     }
+
+    // === SCROLL PROGRESS BAR ===
+    const scrollProgressBar = document.createElement('div');
+    scrollProgressBar.classList.add('scroll-progress-bar');
+    document.body.prepend(scrollProgressBar);
+
+    window.addEventListener('scroll', () => {
+        const scrollTop = window.scrollY;
+        const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+        if (docHeight > 0) {
+            scrollProgressBar.style.width = ((scrollTop / docHeight) * 100) + '%';
+        }
+    }, { passive: true });
+
+    // === ANIMATED STAT COUNTERS ===
+    if (typeof gsap !== 'undefined' && typeof ScrollTrigger !== 'undefined') {
+        document.querySelectorAll('.count-up').forEach(el => {
+            const target = parseFloat(el.dataset.target);
+            const suffix = el.dataset.suffix || '';
+            const isFloat = el.dataset.float === 'true';
+            let triggered = false;
+
+            ScrollTrigger.create({
+                trigger: el,
+                start: 'top 80%',
+                onEnter: () => {
+                    if (triggered) return;
+                    triggered = true;
+                    const obj = { val: 0 };
+                    gsap.to(obj, {
+                        val: target,
+                        duration: 2.2,
+                        ease: 'power2.out',
+                        onUpdate: () => {
+                            el.textContent = (isFloat ? obj.val.toFixed(1) : Math.round(obj.val)) + suffix;
+                        }
+                    });
+                }
+            });
+        });
+    }
+
+    // === 3D CARD TILT ===
+    if (typeof gsap !== 'undefined') {
+        document.querySelectorAll('.industry-solution-card').forEach(card => {
+            card.addEventListener('mousemove', (e) => {
+                const rect = card.getBoundingClientRect();
+                const x = (e.clientX - rect.left) / rect.width  - 0.5;
+                const y = (e.clientY - rect.top)  / rect.height - 0.5;
+                gsap.to(card, {
+                    rotateX: -y * 9,
+                    rotateY:  x * 9,
+                    duration: 0.5,
+                    ease: 'power2.out',
+                    transformPerspective: 900
+                });
+            });
+            card.addEventListener('mouseleave', () => {
+                gsap.to(card, {
+                    rotateX: 0,
+                    rotateY: 0,
+                    duration: 0.8,
+                    ease: 'power4.out'
+                });
+            });
+        });
+    }
+
+    // === FLOAT ANIMATION ON ICONS ===
+    // Applied after a short delay so GSAP reveal animations don't conflict
+    setTimeout(() => {
+        document.querySelectorAll('.trust-badge-icon, .service-preview-icon, .vm-icon, .standard-icon, .advantage-icon').forEach((icon, i) => {
+            icon.style.animationDelay = `${(i % 5) * 0.4}s`;
+            icon.classList.add('float-anim');
+        });
+    }, 800);
 });

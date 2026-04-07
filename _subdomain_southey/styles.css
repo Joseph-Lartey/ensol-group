@@ -1559,3 +1559,170 @@ h1, h2, h3, h4, h5 {
 .related-service-link:hover { border-color: var(--brand-black); background: var(--brand-black); color: #fff; }
 .related-service-link:hover i { color: #fff; }
 .related-service-link:hover .rs-arrow { opacity: 1; transform: translateX(0); }
+
+/* ============================================================
+   ENHANCED ANIMATIONS v2
+   ============================================================ */
+
+/* --- Scroll Progress Bar --- */
+.scroll-progress-bar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 0%;
+  height: 3px;
+  background: linear-gradient(90deg, var(--brand-red), #ff7070);
+  z-index: 10000;
+  border-radius: 0 2px 2px 0;
+  transform-origin: left;
+  pointer-events: none;
+}
+
+/* --- Marquee Ticker --- */
+.marquee-section {
+  overflow: hidden;
+  padding: 1.1rem 0;
+  background: var(--brand-black);
+  color: rgba(255, 255, 255, 0.8);
+  border-top: 1px solid rgba(255,255,255,0.05);
+  border-bottom: 1px solid rgba(255,255,255,0.05);
+}
+
+.marquee-track {
+  display: flex;
+  align-items: center;
+  width: max-content;
+  animation: marquee-scroll 36s linear infinite;
+  will-change: transform;
+}
+
+.marquee-track:hover {
+  animation-play-state: paused;
+}
+
+.marquee-item {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+  padding: 0 2.5rem;
+  font-size: 0.82rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+
+.marquee-item i {
+  color: var(--brand-red);
+  font-size: 0.75rem;
+}
+
+.marquee-sep {
+  color: rgba(255, 255, 255, 0.2);
+  font-size: 1rem;
+  flex-shrink: 0;
+  line-height: 1;
+}
+
+@keyframes marquee-scroll {
+  from { transform: translateX(0); }
+  to   { transform: translateX(-50%); }
+}
+
+/* --- Float animation --- */
+@keyframes float-gentle {
+  0%, 100% { transform: translateY(0px); }
+  50%       { transform: translateY(-10px); }
+}
+
+.float-anim {
+  animation: float-gentle 4s ease-in-out infinite;
+}
+
+/* --- Shimmer text --- */
+@keyframes text-shimmer {
+  0%   { background-position: -200% center; }
+  100% { background-position: 200% center; }
+}
+
+.shimmer-text {
+  background: linear-gradient(
+    90deg,
+    var(--brand-red) 0%,
+    var(--brand-red) 35%,
+    #ff9090 50%,
+    var(--brand-red) 65%,
+    var(--brand-red) 100%
+  );
+  background-size: 200% auto;
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: text-shimmer 4s linear infinite;
+}
+
+/* --- Stat counter pulse --- */
+@keyframes stat-glow {
+  0%, 100% { text-shadow: none; }
+  50%       { text-shadow: 0 0 28px rgba(220, 22, 9, 0.45); }
+}
+
+.stat-number {
+  animation: stat-glow 3s ease-in-out infinite;
+}
+
+/* --- Stat item hover underline --- */
+.stat-item {
+  position: relative;
+  padding: 1.5rem 1rem;
+  border-radius: 16px;
+  transition: transform 0.35s ease, background 0.35s ease;
+}
+
+.stat-item:hover {
+  background: rgba(255, 255, 255, 0.05);
+  transform: translateY(-4px);
+}
+
+.stat-item::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 0;
+  height: 2px;
+  background: var(--brand-red);
+  border-radius: 2px;
+  transition: width 0.4s ease;
+}
+
+.stat-item:hover::after {
+  width: 55%;
+}
+
+/* --- 3D tilt card base --- */
+.industry-solution-card {
+  transform-style: preserve-3d;
+  will-change: transform;
+}
+
+/* --- Hero tagline pill --- */
+.hero-tagline {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  background: rgba(220, 22, 9, 0.15);
+  border: 1px solid rgba(220, 22, 9, 0.35);
+  color: #ffaaaa;
+  padding: 0.4rem 1.1rem;
+  border-radius: 50px;
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  margin-bottom: 1.5rem;
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+}

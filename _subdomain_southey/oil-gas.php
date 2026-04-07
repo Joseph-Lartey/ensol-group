@@ -74,11 +74,11 @@ include 'includes/header.php';
             <h2 class="h3 font-medium" style="margin-bottom: 3rem;">Proven Performance</h2>
             <div class="stats-grid">
                 <div class="stat-item">
-                    <div class="stat-number">700+</div>
+                    <div class="stat-number count-up" data-target="700" data-suffix="+">700+</div>
                     <div class="stat-label">Target Flanges<br>Completed</div>
                 </div>
                 <div class="stat-item">
-                    <div class="stat-number">0</div>
+                    <div class="stat-number count-up" data-target="0" data-suffix="">0</div>
                     <div class="stat-label">Downtime<br>Required</div>
                 </div>
                 <div class="stat-item">

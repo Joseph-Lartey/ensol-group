@@ -10,7 +10,7 @@ include 'includes/header.php';
         </div>
         <div class="hero-content reveal-up" style="color: #fff;">
             <p class="hero-tagline reveal-up">SCL GHANA LIMITED</p>
-            <h1 class="h1 font-medium">Innovation Through <br><span class="text-accent">Expertise</span></h1>
+            <h1 class="h1 font-medium">Innovation Through <br><span class="text-accent shimmer-text">Expertise</span></h1>
             <p class="reveal-up delay-100" style="color: rgba(255,255,255,0.8);">Specialized industrial solutions designed to improve, maintain, and protect critical plant assets. We deliver mobile, reliable services that enhance operational efficiency, safety, and asset integrity.</p>
             <div class="hero-cta reveal-up delay-200">
                 <a href="services.php" class="btn btn-primary" style="background: var(--brand-red);">Our Services</a>
@@ -21,7 +21,7 @@ include 'includes/header.php';
 
     <!-- Trust Badges -->
     <section class="section trust-badges-section">
-        <div class="trust-badges stagger-group">
+        <div class="trust-badges stagger-group" style="margin-bottom: 0;">
             <div class="trust-badge">
                 <div class="trust-badge-icon"><i class="fas fa-certificate"></i></div>
                 <div>
@@ -45,6 +45,49 @@ include 'includes/header.php';
             </div>
         </div>
     </section>
+
+    <!-- Marquee Ticker -->
+    <div class="marquee-section" aria-hidden="true">
+        <div class="marquee-track">
+            <span class="marquee-item"><i class="fas fa-certificate"></i>ISO 9001:2015 Certified</span>
+            <span class="marquee-sep">·</span>
+            <span class="marquee-item"><i class="fas fa-leaf"></i>ISO 14001:2015 Certified</span>
+            <span class="marquee-sep">·</span>
+            <span class="marquee-item"><i class="fas fa-shield-halved"></i>ISO 45001:2018 Certified</span>
+            <span class="marquee-sep">·</span>
+            <span class="marquee-item"><i class="fas fa-person-falling"></i>IRATA Rope Access</span>
+            <span class="marquee-sep">·</span>
+            <span class="marquee-item"><i class="fas fa-flask"></i>PCN / ASNT Inspectors</span>
+            <span class="marquee-sep">·</span>
+            <span class="marquee-item"><i class="fas fa-robot"></i>MAGTRACK Robotic Systems</span>
+            <span class="marquee-sep">·</span>
+            <span class="marquee-item"><i class="fas fa-paint-roller"></i>HUMIDUR — Sole Distributor in Ghana</span>
+            <span class="marquee-sep">·</span>
+            <span class="marquee-item"><i class="fas fa-hard-hat"></i>CISRS OSTS Scaffolding</span>
+            <span class="marquee-sep">·</span>
+            <span class="marquee-item"><i class="fas fa-star"></i>15+ Years Industry Experience</span>
+            <span class="marquee-sep">·</span>
+            <!-- Duplicate set for seamless loop -->
+            <span class="marquee-item"><i class="fas fa-certificate"></i>ISO 9001:2015 Certified</span>
+            <span class="marquee-sep">·</span>
+            <span class="marquee-item"><i class="fas fa-leaf"></i>ISO 14001:2015 Certified</span>
+            <span class="marquee-sep">·</span>
+            <span class="marquee-item"><i class="fas fa-shield-halved"></i>ISO 45001:2018 Certified</span>
+            <span class="marquee-sep">·</span>
+            <span class="marquee-item"><i class="fas fa-person-falling"></i>IRATA Rope Access</span>
+            <span class="marquee-sep">·</span>
+            <span class="marquee-item"><i class="fas fa-flask"></i>PCN / ASNT Inspectors</span>
+            <span class="marquee-sep">·</span>
+            <span class="marquee-item"><i class="fas fa-robot"></i>MAGTRACK Robotic Systems</span>
+            <span class="marquee-sep">·</span>
+            <span class="marquee-item"><i class="fas fa-paint-roller"></i>HUMIDUR — Sole Distributor in Ghana</span>
+            <span class="marquee-sep">·</span>
+            <span class="marquee-item"><i class="fas fa-hard-hat"></i>CISRS OSTS Scaffolding</span>
+            <span class="marquee-sep">·</span>
+            <span class="marquee-item"><i class="fas fa-star"></i>15+ Years Industry Experience</span>
+            <span class="marquee-sep">·</span>
+        </div>
+    </div>
 
     <!-- Who We Are -->
     <section class="section" style="background-color: #fff;">
